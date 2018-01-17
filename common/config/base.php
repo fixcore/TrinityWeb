@@ -18,14 +18,12 @@ $config = [
             'assignmentTable' => '{{%rbac_auth_assignment}}',
             'ruleTable' => '{{%rbac_auth_rule}}'
         ],
-        
         'CharactersDbHelper' => 'common\components\helpers\CharactersDbHelper',
-        
+        'AppHelper' => 'common\components\helpers\AppHelper',
         'cache' => [
             'class' => 'yii\caching\FileCache',
             'cachePath' => '@common/runtime/cache'
         ],
-
         'commandBus' => [
             'class' => 'trntv\bus\CommandBus',
             'middlewares' => [
@@ -36,11 +34,9 @@ $config = [
                 ]
             ]
         ],
-
         'formatter' => [
             'class' => 'yii\i18n\Formatter'
         ],
-
         'glide' => [
             'class' => 'trntv\glide\components\Glide',
             'sourcePath' => '@storage/web/source',
@@ -49,7 +45,6 @@ $config = [
             'maxImageSize' => env('GLIDE_MAX_IMAGE_SIZE'),
             'signKey' => env('GLIDE_SIGN_KEY')
         ],
-
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,
@@ -62,7 +57,6 @@ $config = [
                 'encryption' => 'ssl',
             ],
         ],
-
         'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => env('DB_DSN'),
@@ -72,7 +66,6 @@ $config = [
             'charset' => 'utf8',
             'enableSchemaCache' => YII_ENV_PROD,
         ],
-
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -89,7 +82,6 @@ $config = [
                 ]
             ],
         ],
-
         'i18n' => [
             'translations' => [
                 'app' => [
@@ -118,7 +110,6 @@ $config = [
                 */
             ],
         ],
-
         'fileStorage' => [
             'class' => '\trntv\filekit\Storage',
             'baseUrl' => '@storageUrl/source',
@@ -131,11 +122,9 @@ $config = [
                 'component' => 'fileStorage'
             ]
         ],
-
         'keyStorage' => [
             'class' => 'common\components\keyStorage\KeyStorage'
         ],
-
         'urlManagerBackend' => \yii\helpers\ArrayHelper::merge(
             [
                 'hostInfo' => env('BACKEND_HOST_INFO'),
