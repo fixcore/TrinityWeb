@@ -6,6 +6,8 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
 
+use common\models\auth\Realmlist;
+
 class CharactersDbHelper extends \yii\base\Component
 {
     /**
@@ -68,7 +70,7 @@ class CharactersDbHelper extends \yii\base\Component
             }
         } else {
             if(!Yii::$app->user->identity->realm_id) {
-                //$model = Realmlist::find()->orderBy(['id' => SORT_ASC])->one();
+                $model = Realmlist::find()->orderBy(['id' => SORT_ASC])->one();
                 if($model) {
                     if($_id = $this::setServerValue($model->id)) return $_id;
                 } else {
@@ -85,7 +87,7 @@ class CharactersDbHelper extends \yii\base\Component
     * @return integer | null
     */
     public function getServerIdByName($name) {
-        //$model = Realmlist::find()->where(['name' => $name])->one();
+        $model = Realmlist::find()->where(['name' => $name])->one();
         if($model) {
             return $model->id;
         }
@@ -111,7 +113,7 @@ class CharactersDbHelper extends \yii\base\Component
             $cache_key = 'associated-servers';
             $data = Yii::$app->cache->get($cache_key);
             if($data) {
-                //$data = ArrayHelper::map(Realmlist::find()->asArray()->all(),'id', 'name');
+                $data = ArrayHelper::map(Realmlist::find()->asArray()->all(),'id', 'name');
                 Yii::$app->cache->set($cache_key,$data);
             }
         } else {

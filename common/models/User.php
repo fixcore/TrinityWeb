@@ -229,7 +229,12 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function validatePassword($password)
     {
-        return Yii::$app->getSecurity()->validatePassword($password, $this->password_hash);
+        $hash_password = self::generatePassword($this->username,$password);
+        return $this->password_hash == $hash_password ? true : false;
+    }
+    
+    public function generatePassword($username, $password) {
+        return strtoupper(sha1(strtoupper($username).strtoupper(':'.$password.'')));
     }
 
     /**
@@ -239,7 +244,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function setPassword($password)
     {
-        $this->password_hash = Yii::$app->getSecurity()->generatePasswordHash($password);
+        $this->password_hash = self::generatePassword($this->username, $password);
     }
 
     /**
