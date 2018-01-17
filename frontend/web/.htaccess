@@ -1,0 +1,23 @@
+<IfModule mod_autoindex.c>
+    Options +Indexes
+</IfModule>
+
+# Mod_Rewrite
+<IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+    RewriteEngine On
+
+    RewriteBase /
+    RewriteCond %{HTTP_HOST} ^(www\.)?admin\.domain\.ru$ [NC]
+    RewriteCond %{REQUEST_URI} !^/admin
+    RewriteRule ^(.*)$ admin/$1 [L]
+	
+	RewriteBase /
+    RewriteCond %{HTTP_HOST} ^(www\.)?storage\.domain\.ru$ [NC]
+    RewriteCond %{REQUEST_URI} !^/storage
+    RewriteRule ^(.*)$ storage/$1 [L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . index.php
+</IfModule>
