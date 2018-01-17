@@ -195,18 +195,25 @@ nav#general-menu #menu-items > li:hover > a:not(.dropdown-toggle) {
     -webkit-transform: rotateX(90deg) translateY(-22px);
     transform: rotateX(90deg) translateY(-22px);
 }
-nav#general-menu #menu-items > li.active > div,
-nav#general-menu #menu-items > li:hover > div {
-    position: relative;
-    bottom: -3px;
-    border-bottom: 3px solid rgb(20,254,0);
-}
 nav#general-menu #menu-items > li.active > a {
     background-color: inherit;
     background-image: none;
     border: 0px;
     box-shadow: none;
 }
+nav#general-menu .dropdown-menu > li > a {
+    color: #9d9d9d;
+}
+nav#general-menu .dropdown-menu > li.active > a,
+nav#general-menu .dropdown-menu > li.active > a:hover,
+nav#general-menu .dropdown-menu > li.active > a:focus,
+nav#general-menu .dropdown-menu > li > a:hover,
+nav#general-menu .dropdown-menu > li > a:focus {
+    background-color: #34373cc7;
+}
+nav#general-menu .dropdown-menu > li > a {}
+nav#general-menu .dropdown-menu > li > a {}
+nav#general-menu .dropdown-menu > li > a {}
 /*# menu end */
 /*# breadcrumb */
 .breadcrumb {
