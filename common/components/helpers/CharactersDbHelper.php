@@ -11,7 +11,7 @@ class CharactersDbHelper extends \yii\base\Component
     /**
     * Получение правильно БД исходя из запроса
     * @param integer $server_id индекс сервера
-    * @return yii\db\Connection
+    * @return \yii\db\Connection
     */
     public function getConnection($server_id = null) {
         if($server_id) {
@@ -29,7 +29,7 @@ class CharactersDbHelper extends \yii\base\Component
     /**
     * Получение БД исходя из индекса сервера
     * @param integer $server_id индекс сервера
-    * @return yii\db\Connection
+    * @return \yii\db\Connection
     */
     public function getDb($server_id) {return Yii::$app->get('char_' . $server_id);}
     /**

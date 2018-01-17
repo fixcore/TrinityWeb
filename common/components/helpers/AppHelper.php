@@ -351,7 +351,7 @@ class AppHelper extends \yii\base\Component
     }
     /**
     * Получить максиимальный ранг заклинания
-    * @param array $spell_data Экземпляр common\models\armory\ArmoryTalents
+    * @param array $spell_data Экземпляр \common\models\armory\ArmoryTalents
     * @return integer
     */
     public static function getMaxRankSpell($spell_data) {
@@ -425,7 +425,7 @@ class AppHelper extends \yii\base\Component
     /**
     * Сформировать значение для rel аттрибута - для отображения доп. эффектов
     * @param integer $itemId ID вещи
-    * @param array $data данные о доп. свойствах - common\models\chars\ItemInstance, поле enchantments пропущеное через explode(' ',field)
+    * @param array $data данные о доп. свойствах - \common\models\chars\ItemInstance, поле enchantments пропущеное через explode(' ',field)
     * @return string
     */
     public static function buildItemRel($itemId, $data) {
