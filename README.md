@@ -1,4 +1,4 @@
-# Edited for of "Yii 2 Starter Kit"
+# Edited version of "Yii 2 Starter Kit"
 
 <!-- BADGES/ -->
 
