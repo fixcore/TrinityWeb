@@ -11,7 +11,7 @@ class m150725_192740_seed_data extends Migration
             'id' => 1,
             'username' => 'admin',
             'email' => 'webmaster@example.com',
-            'password_hash' => User::generatePassword('webmaster','webmaster'),
+            'password_hash' => User::generatePassword('admin','admin'),
             'auth_key' => Yii::$app->getSecurity()->generateRandomString(),
             'access_token' => Yii::$app->getSecurity()->generateRandomString(40),
             'status' => User::STATUS_ACTIVE,
