@@ -62,11 +62,27 @@ function env($key, $default = null)
 
     return $value;
 }
-
-function pre($m) {
-    echo "<pre>";print_r($m);echo"</pre>";die();
+/**
+ * <pre>Content</pre>
+ * @param mixed $m arrray or object to debug
+ * @return mixed pre_dumper
+ */
+function pre(...$m) {
+    $_data = [];
+    foreach($m as $t) {
+        $_data[] = $t;
+    }
+    echo "<pre>";print_r($_data);echo"</pre>";die();
 }
-
-function vd($m) {
-    echo "<pre>";var_dump($m);echo"</pre>";die();
+/**
+ * <pre>Content</pre>
+ * @param mixed $m arrray or object to debug
+ * @return mixed var_dumper
+ */
+function vd(...$m) {
+    $_data = [];
+    foreach($m as $t) {
+        $_data[] = $t;
+    }
+    echo "<pre>";var_dump($_data);echo"</pre>";die();
 }
