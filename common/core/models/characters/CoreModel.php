@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\core\models\characters;
+namespace common\core\models\characters;
 
 use Yii;
 use yii\db\ActiveRecord;

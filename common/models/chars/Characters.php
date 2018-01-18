@@ -5,6 +5,8 @@ namespace common\models\chars;
 use Yii;
 use yii\helpers\ArrayHelper;
 
+use common\core\models\characters\CoreModel;
+
 /*
 use common\models\armory\ArmoryTitles;
 use common\models\armory\ArmoryTalentTab;
@@ -91,7 +93,7 @@ use common\models\armory\ArmoryRating;
  * @property string $deleteInfos_Name
  * @property integer $deleteDate
  */
-class Characters extends \common\base\record\SwitcherActiveRecord
+class Characters extends CoreModel
 {
 
     const UPDATE_TIME = 120;
@@ -383,8 +385,8 @@ class Characters extends \common\base\record\SwitcherActiveRecord
         $cache_key = 'armory_character-guild_' . $this->guid . '_' . $server_id;
         $output = Yii::$app->cache->get($cache_key);
         if($output === false) {
-            if($this->guildRelation) {
-                $output = $this->guildRelation->guildRelation->name;
+            if($this->relationGuild) {
+                $output = $this->relationGuild->relationGuild->name;
             } else {
                 $output = '- - - -';
             }
