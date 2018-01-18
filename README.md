@@ -10,9 +10,6 @@
 
 <!-- /BADGES -->
 
-## Before you start
-Please, consider helping project via [contributions](https://github.com/trntv/yii2-starter-kit/issues) or [donations](#donations). 
-
 ## TABLE OF CONTENTS
 - [Features](#features)
 - [Installation](docs/installation.md)
@@ -303,7 +300,7 @@ public function behaviors()
 You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)
 
 ## Have any questions?
-mail to [eugene@terentev.net](mailto:eugene@terentev.net)
+mail to [Qblolz](mailto:frostQB@mail.ru)
 
 ## READ MORE
 https://github.com/yiisoft/yii2/blob/master/apps/advanced/README.md
