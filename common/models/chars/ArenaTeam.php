@@ -77,7 +77,7 @@ class ArenaTeam extends CoreModel
         return Url::to(['/ladder/team', 'id' => $this->arenaTeamId, 'server' => Yii::$app->CharactersDbHelper->getServerNameById($server_id)]);
     }
     /**
-    * Связь для получения объекта содержащего данные о участниках команды
+    * Связь для получения объектов содержащих данные о участниках команды
     * @return \yii\db\ActiveQuery
     */
     public function getRelationMembers() {
