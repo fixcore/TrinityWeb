@@ -8,10 +8,11 @@
 
 namespace frontend\controllers;
 
-use common\models\Page;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+
+use common\models\Page;
 
 class PageController extends Controller
 {

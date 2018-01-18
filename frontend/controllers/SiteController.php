@@ -2,9 +2,10 @@
 
 namespace frontend\controllers;
 
-use frontend\models\ContactForm;
 use Yii;
 use yii\web\Controller;
+
+use frontend\models\ContactForm;
 
 /**
  * Site controller

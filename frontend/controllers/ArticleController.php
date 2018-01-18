@@ -2,12 +2,14 @@
 
 namespace frontend\controllers;
 
-use common\models\Article;
-use common\models\ArticleAttachment;
-use frontend\models\search\ArticleSearch;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+
+use common\models\Article;
+use common\models\ArticleAttachment;
+
+use frontend\models\search\ArticleSearch;
 
 /**
  * @author Eugene Terentev <eugene@terentev.net>

@@ -112,7 +112,7 @@ class CharactersDbHelper extends \yii\base\Component
         if($as_associated == true) {
             $cache_key = 'associated-servers';
             $data = Yii::$app->cache->get($cache_key);
-            if($data) {
+            if($data === false) {
                 $data = ArrayHelper::map(Realmlist::find()->asArray()->all(),'id', 'name');
                 Yii::$app->cache->set($cache_key,$data);
             }
@@ -120,7 +120,7 @@ class CharactersDbHelper extends \yii\base\Component
             $cache_key = 'array_servers';
             $data = Yii::$app->cache->get($cache_key);
             if($data === false) {
-                //$data = Realmlist::find()->asArray()->all();
+                $data = Realmlist::find()->asArray()->all();
                 Yii::$app->cache->set($cache_key,$data);
             }
         }

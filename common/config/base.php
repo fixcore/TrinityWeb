@@ -66,6 +66,15 @@ $config = [
             'charset' => 'utf8',
             'enableSchemaCache' => YII_ENV_PROD,
         ],
+        'auth' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => env('AUTH_DB_DSN'),
+            'username' => env('AUTH_DB_USERNAME'),
+            'password' => env('AUTH_DB_PASSWORD'),
+            'tablePrefix' => env('AUTH_DB_TABLE_PREFIX'),
+            'charset' => 'utf8',
+            'enableSchemaCache' => YII_ENV_PROD,
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
