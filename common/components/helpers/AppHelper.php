@@ -458,4 +458,29 @@ class AppHelper extends \yii\base\Component
                 return Yii::t('app','Мана:');
         }
     }
+    /**
+    * Получить текстовое наименование силы класса персонажа
+    * @param mixed $var параметр для перевода
+    * @param string $attribute Default - null | Значение для объекта или массива с чего брать строковое значение
+    * @return i18n string
+    */
+    public function i18nAttribute($var, $attribute = null) {
+        if(is_array($var)) {
+            if($var[$attribute]) {
+                return Yii::t('app',$var[$attribute]);
+            } else {
+                throw new BadRequestHttpException(Yii::t('app','Строка для перевода пуста'));
+            }
+        } elseif(is_object($var)) {
+            if($attribute) {
+                return Yii::t('app',$var->{$attribute});
+            } else {
+                throw new BadRequestHttpException(Yii::t('app','Отсутствует аттрибут у объекта для перевода'));
+            }
+        } elseif(is_string($var)) {
+            return Yii::t('app',$var);
+        } else {
+            return $var;
+        }
+    }
 }
