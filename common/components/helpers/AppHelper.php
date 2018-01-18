@@ -469,13 +469,13 @@ class AppHelper extends \yii\base\Component
             if($var[$attribute]) {
                 return Yii::t('app',$var[$attribute]);
             } else {
-                throw new BadRequestHttpException(Yii::t('app','Строка для перевода пуста'));
+                throw new \Exception(Yii::t('app','Строка для перевода пуста'));
             }
         } elseif(is_object($var)) {
             if($attribute) {
                 return Yii::t('app',$var->{$attribute});
             } else {
-                throw new BadRequestHttpException(Yii::t('app','Отсутствует аттрибут у объекта для перевода'));
+                throw new \Exception(Yii::t('app','Отсутствует аттрибут у объекта для перевода'));
             }
         } elseif(is_string($var)) {
             return Yii::t('app',$var);
