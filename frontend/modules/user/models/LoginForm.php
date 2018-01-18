@@ -2,10 +2,12 @@
 
 namespace frontend\modules\user\models;
 
-use cheatsheet\Time;
-use common\models\User;
 use Yii;
 use yii\base\Model;
+
+use cheatsheet\Time;
+
+use common\models\User;
 
 /**
  * Login form

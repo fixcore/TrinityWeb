@@ -2,15 +2,19 @@
 
 namespace frontend\modules\user\models;
 
-use cheatsheet\Time;
-use common\commands\SendEmailCommand;
-use common\models\User;
-use common\models\UserToken;
-use frontend\modules\user\Module;
 use Yii;
 use yii\base\Exception;
 use yii\base\Model;
 use yii\helpers\Url;
+
+use cheatsheet\Time;
+
+use common\commands\SendEmailCommand;
+
+use common\models\User;
+use common\models\UserToken;
+
+use frontend\modules\user\Module;
 
 /**
  * Signup form

@@ -2,12 +2,15 @@
 
 namespace frontend\modules\user\models;
 
-use cheatsheet\Time;
-use common\commands\SendEmailCommand;
-use common\models\User;
-use common\models\UserToken;
 use Yii;
 use yii\base\Model;
+
+use cheatsheet\Time;
+
+use common\commands\SendEmailCommand;
+
+use common\models\User;
+use common\models\UserToken;
 
 /**
  * Password reset request form

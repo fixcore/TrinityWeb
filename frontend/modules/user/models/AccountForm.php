@@ -2,10 +2,11 @@
 
 namespace frontend\modules\user\models;
 
-use common\models\User;
 use Yii;
 use yii\base\Model;
 use yii\web\JsExpression;
+
+use common\models\User;
 
 /**
  * Account form

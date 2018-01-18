@@ -2,14 +2,18 @@
 
 namespace frontend\modules\user\controllers;
 
-use common\base\MultiModel;
-use frontend\modules\user\models\AccountForm;
-use Intervention\Image\ImageManagerStatic;
-use trntv\filekit\actions\DeleteAction;
-use trntv\filekit\actions\UploadAction;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+
+use trntv\filekit\actions\DeleteAction;
+use trntv\filekit\actions\UploadAction;
+
+use Intervention\Image\ImageManagerStatic;
+
+use common\base\MultiModel;
+
+use frontend\modules\user\models\AccountForm;
 
 class DefaultController extends Controller
 {
