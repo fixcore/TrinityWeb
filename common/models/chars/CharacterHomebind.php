@@ -15,7 +15,6 @@ class CharacterHomebind extends CoreModel
     {
         return 'character_homebind';
     }
-
     /**
      * @inheritdoc
      */
@@ -27,7 +26,6 @@ class CharacterHomebind extends CoreModel
             [['posX', 'posY', 'posZ'], 'number'],
         ];
     }
-
     /**
      * @inheritdoc
      */

@@ -252,14 +252,14 @@ class Characters extends CoreModel
     * @return \yii\db\ActiveQuery
     */
     public function getRelationSocialFriendsChars() {
-        return $this->hasMany(CharacterSocial::className(),['guid' => 'guid'])->andWhere(['flags' => CharacterSocial::FRIENDS])->with('friendCharacter');
+        return $this->hasMany(CharacterSocial::className(),['guid' => 'guid'])->andWhere(['flags' => CharacterSocial::FRIENDS])->with('relationFriendCharacter');
     }
     /**
     * Связь для получения объектов содержащих данные о игнорируемых персонажах и данные самих персонажей
     * @return \yii\db\ActiveQuery
     */
     public function getRelationSocialBlockedChars() {
-        return $this->hasMany(CharacterSocial::className(),['guid' => 'guid'])->andWhere(['flags' => CharacterSocial::BLOCKED])->with('friendCharacter');
+        return $this->hasMany(CharacterSocial::className(),['guid' => 'guid'])->andWhere(['flags' => CharacterSocial::BLOCKED])->with('relationFriendCharacter');
     }
     /**
     * Связь для получения объектов содержащих данные о статистике в команде и данные самой команды

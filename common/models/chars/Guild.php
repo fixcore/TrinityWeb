@@ -31,7 +31,6 @@ class Guild extends CoreModel
     {
         return 'guild';
     }
-
     /**
      * @inheritdoc
      */
@@ -45,7 +44,6 @@ class Guild extends CoreModel
             [['motd'], 'string', 'max' => 128],
         ];
     }
-
     /**
      * @inheritdoc
      */

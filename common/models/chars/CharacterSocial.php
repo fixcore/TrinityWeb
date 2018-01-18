@@ -27,7 +27,6 @@ class CharacterSocial extends CoreModel
     {
         return 'character_social';
     }
-
     /**
      * @inheritdoc
      */
@@ -39,7 +38,6 @@ class CharacterSocial extends CoreModel
             [['note'], 'string', 'max' => 48],
         ];
     }
-
     /**
      * @inheritdoc
      */
@@ -52,12 +50,18 @@ class CharacterSocial extends CoreModel
             'note' => Yii::t('app', 'Note'),
         ];
     }
-    
-    public function getOwnerCharacter() {
+    /**
+    * Связь для получения объекта содержащего данные о основном персонаже
+    * @return \yii\db\ActiveQuery
+    */
+    public function getRelationOwnerCharacter() {
         return $this->hasOne(Characters::className(),['guid' => 'guid']);
     }
-    
-    public function getFriendCharacter() {
+    /**
+    * Связь для получения объекта содержащего данные о *друге*
+    * @return \yii\db\ActiveQuery
+    */
+    public function getRelationFriendCharacter() {
         return $this->hasOne(Characters::className(),['guid' => 'friend']);
     }
     

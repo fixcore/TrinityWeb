@@ -51,7 +51,10 @@ class GuildMember extends CoreModel
             'offnote' => Yii::t('app', 'Offnote'),
         ];
     }
-
+    /**
+    * Связь для получения объекта содержащего данные о гильдии для участника
+    * @return \yii\db\ActiveQuery
+    */
     public function getRelationGuild() {
         return $this->hasOne(Guild::className(),['guildid' => 'guildid']);
     }
