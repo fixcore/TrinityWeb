@@ -288,12 +288,12 @@ class Characters extends \common\base\record\SwitcherActiveRecord
     * @return bool
     */
     public function goHome() {
-        if($this->home) {
-            $this->position_x = $this->home->posX;
-            $this->position_y = $this->home->posY;
-            $this->position_z = $this->home->posZ;
-            $this->map = $this->home->mapId;
-            $this->zone = $this->home->zoneId;
+        if($this->relationHome) {
+            $this->position_x = $this->relationHome->posX;
+            $this->position_y = $this->relationHome->posY;
+            $this->position_z = $this->relationHome->posZ;
+            $this->map = $this->relationHome->mapId;
+            $this->zone = $this->relationHome->zoneId;
             $this->save();
             return true;
         }
