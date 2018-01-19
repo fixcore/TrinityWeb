@@ -2,14 +2,19 @@
 
 namespace common\models;
 
-use common\commands\AddToTimelineCommand;
-use common\models\query\UserQuery;
 use Yii;
+use yii\base\Exception;
 use yii\behaviors\AttributeBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
+
+use common\commands\AddToTimelineCommand;
+
+use common\models\auth\Accounts;
+
+use common\models\query\UserQuery;
 
 /**
  * User model
@@ -46,6 +51,8 @@ class User extends ActiveRecord implements IdentityInterface
 
     const EVENT_AFTER_SIGNUP = 'afterSignup';
     const EVENT_AFTER_LOGIN = 'afterLogin';
+    
+    const DEFAULT_EXPANSION = 2;
     
     /**
      * @inheritdoc
@@ -246,7 +253,26 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_hash = self::generatePassword($this->username, $password);
     }
-
+    
+    /**
+     * Create Game Account
+     *
+     * @param true
+     */
+    public function createAccount() {
+        $account = new Accounts();
+        $account->username = $this->username;
+        $account->email = $this->email;
+        $account->expansion = self::DEFAULT_EXPANSION;
+        $account->sha_pass_hash = $this->password_hash;
+        if($account->save()) {
+            $this->external_id = $account->id;
+        } else {
+            throw new Exception("Game account couldn't be created");
+        }
+        return true;
+    }
+    
     /**
      * Creates user profile and application event
      * @param array $profileData

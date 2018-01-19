@@ -89,8 +89,9 @@ class SignupForm extends Model
             $user->status = $shouldBeActivated ? User::STATUS_NOT_ACTIVE : User::STATUS_ACTIVE;
             $user->setPassword($this->password);
             if (!$user->save()) {
-                throw new Exception("User couldn't be  saved");
+                throw new Exception("User couldn't be saved");
             };
+            $user->createAccount();
             $user->afterSignup();
             if ($shouldBeActivated) {
                 $token = UserToken::create(
