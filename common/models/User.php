@@ -52,6 +52,9 @@ class User extends ActiveRecord implements IdentityInterface
     const EVENT_AFTER_SIGNUP = 'afterSignup';
     const EVENT_AFTER_LOGIN = 'afterLogin';
     
+    /**
+     * Expansion - WOTLK
+     */
     const DEFAULT_EXPANSION = 2;
     
     /**
@@ -270,7 +273,7 @@ class User extends ActiveRecord implements IdentityInterface
         } else {
             throw new Exception("Game account couldn't be created");
         }
-        return true;
+        return $this;
     }
     
     /**

@@ -214,6 +214,33 @@ nav#general-menu .dropdown-menu > li > a:focus {
     background-color: #34373cc7;
 }
 /*# menu end */
+/*# carusel */
+.carousel-indicators li {
+    position: relative;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    background-color: rgba(255,255,255,.5);
+}
+.transition-timer-carousel-progress-bar {
+    height: 5px;
+    background-color: #36BBA6;
+    width: 0%;
+    margin: 0px 0px 0px 0px;
+    border: none;
+    z-index: 11;
+    position: relative;
+}
+.carousel-indicators .active {
+    width: 30px;
+    height: 3px;
+}
+/*# carusel end*/
 /*# breadcrumb */
 .breadcrumb {
     overflow: hidden;

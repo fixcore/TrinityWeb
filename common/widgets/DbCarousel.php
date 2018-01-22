@@ -74,6 +74,10 @@ class DbCarousel extends Carousel
         parent::init();
     }
 
+    public function renderProcessBar() {
+        return '<hr class="transition-timer-carousel-progress-bar" />';
+    }
+    
     /**
      * Renders the widget.
      */
@@ -85,7 +89,8 @@ class DbCarousel extends Carousel
             $content = implode("\n", [
                 $this->renderIndicators(),
                 $this->renderItems(),
-                $this->renderControls()
+                $this->renderControls(),
+                $this->renderProcessBar(),
             ]);
         }
         return Html::tag('div', $content, $this->options);

@@ -5,6 +5,6 @@ $this->title = Yii::$app->name;
 <?php echo \common\widgets\DbCarousel::widget([
     'key'=>'index',
     'options' => [
-        'class' => 'slide',
+        'class' => 'slide carousel-with-indicator',
     ],
 ]) ?>
