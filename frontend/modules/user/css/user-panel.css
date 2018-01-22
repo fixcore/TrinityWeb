@@ -1,6 +1,11 @@
 #user-panel-header ul.nav li a {
     color: #9d9d9d;
 }
+
+#user-panel-left-side {}
+
+#user-panel-right-side {}
+
 @media (min-width: 1200px) {
     #game-logs-table .table thead tr th:first-child {
         width: 33%;

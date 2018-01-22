@@ -1,27 +1,30 @@
 {
-  "name": "trntv/yii2-starter-kit",
-  "description": "Yii2 Starter Kit Application Template",
+  "name": "Qblolz/TrinityWeb",
+  "description": "Yii2 Starter Kit Application Template for TrinityCore -> web app",
   "keywords": [
     "yii2",
     "framework",
     "start",
     "cms",
     "application template",
-    "yii2 advanced"
+    "yii2 advanced",
+    "trinitycore",
+    "trinitycore web",
+    "trinitycore web app",
+    "trinity web",
+    "trinity web app",
   ],
   "authors": [
     {
-      "name": "Eugene Terentev",
-      "email": "eugene@terentev.net",
-      "homepage": "http://terentev.net",
+      "name": "Eugene",
+      "email": "frostQb@mail.ru",
       "role": "Developer"
     }
   ],
   "type": "project",
   "license": "BSD-3-Clause",
   "support": {
-    "issues": "https://github.com/trntv/yii2-starter-kit/issues?state=open",
-    "source": "https://github.com/trntv/yii2-starter-kit"
+    "source": "https://github.com/Qblolz/TrinityWeb"
   },
   "require": {
     "php": ">=7.1.0",

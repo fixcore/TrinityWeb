@@ -6,8 +6,6 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 
-use common\models\auth\search\LogsIpActionsSearch;
-
 class MainController extends Controller
 {
 
