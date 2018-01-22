@@ -30,6 +30,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
     public function init()
     {
         parent::init();
+        $this->setAliases(['@userPanel' => __DIR__]);
     }
     
     public function bootstrap($app)
