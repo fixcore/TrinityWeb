@@ -132,9 +132,7 @@ nav#general-menu,
 .dropdown-menu {
     background-color: #202328;
 }
-nav#general-menu a.navbar-brand {
-    font-size: 32px;
-}
+nav#general-menu a.navbar-brand {font-size: 32px;}
 ul.nav > li {
     z-index: 2;
     -moz-perspective: 1000px;
@@ -204,9 +202,8 @@ ul.nav > .open > a:focus {
     border: 0px;
     box-shadow: none;
 }
-ul.nav > li a, .dropdown-menu > li > a:hover {
-    color: #9d9d9d;
-}
+ul.nav > li a, .dropdown-menu > li > a:hover {color: #9d9d9d;}
+ul.nav > li a:hover {background-color: inherit;}
 .dropdown-menu > li.active > a,
 .dropdown-menu > li.active > a:hover,
 .dropdown-menu > li.active > a:focus,
