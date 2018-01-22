@@ -37,16 +37,20 @@ $this->beginContent('@frontend/views/layouts/base.php')
                     ],
                     [
                         'label' => Yii::t('cp', 'История уч. записи'),
-                        'url' => ['/panel/main/logs'],
+                        'url' => ['/panel/logs/index'],
                         'linkOptions' => [
                             'data-hover' => Yii::t('cp', 'История уч. записи'),
                         ],
                     ],
                 ]
             ]); ?>
+            <div class="clearfix"></div>
         </div>
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-4">
+                &nbsp;
+            </div>
+            <div class="col-xs-8">
                 <?php
                 Pjax::begin();
                 

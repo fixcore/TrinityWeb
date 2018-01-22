@@ -22,7 +22,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
     /**
      * @var string layout that be use
      */
-    public $layout = 'main_full';
+    public $layout = 'main';
     
     /**
      * @inheritdoc

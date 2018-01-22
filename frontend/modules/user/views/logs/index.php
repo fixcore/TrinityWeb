@@ -18,6 +18,9 @@ use yii\grid\GridView;
         'options' => [
             'class' => 'grid-view table-responsive'
         ],
+        'pager' => [
+            'maxButtonCount' => 5,
+        ],
         'columns' => [
             [
                 'label' => $game_logs_model->getAttributeLabel('ip'),
