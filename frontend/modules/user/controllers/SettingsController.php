@@ -15,7 +15,7 @@ use common\base\MultiModel;
 
 use frontend\modules\user\models\AccountForm;
 
-class DefaultController extends Controller
+class SettingsController extends Controller
 {
     /**
      * @return array

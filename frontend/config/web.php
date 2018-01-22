@@ -3,9 +3,9 @@ $config = [
     'homeUrl' => Yii::getAlias('@frontendUrl'),
     'controllerNamespace' => 'frontend\controllers',
     'defaultRoute' => 'site/index',
-    'bootstrap' => ['maintenance'],
+    'bootstrap' => ['maintenance', 'panel'],
     'modules' => [
-        'user' => [
+        'panel' => [
             'class' => 'frontend\modules\user\Module',
             'shouldBeActivated' => false
         ],

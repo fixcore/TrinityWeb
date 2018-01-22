@@ -87,7 +87,7 @@ textarea {
 .form-control {
     display: block;
     width: 100%;
-    height: 30px;
+    height: 35px;
     padding: 8px 10px;
     color: #d8d4d4;
     background-color: #262a30;
@@ -213,6 +213,7 @@ nav#general-menu .dropdown-menu > li > a:hover,
 nav#general-menu .dropdown-menu > li > a:focus {
     background-color: #34373cc7;
 }
+.dropdown-menu .divider {background-color: #9d9d9d;}
 /*# menu end */
 /*# carusel */
 .carousel-indicators li {
@@ -287,7 +288,6 @@ nav#general-menu .dropdown-menu > li > a:focus {
 }
 .article-item .article-text {margin-top: 7px;}
 /*# articles end */
-
 /*# footer */
 .footer {
     height: 60px;

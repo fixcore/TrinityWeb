@@ -93,17 +93,22 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                 ],
                 'items'=>[
                     [
+                        'label' => Yii::t('frontend', 'Личный кабинет'),
+                        'url' => ['/panel/main']
+                    ],
+                    '<li class="divider"></li>',
+                    [
                         'label' => Yii::t('frontend', 'Settings'),
-                        'url' => ['/user/default/index']
+                        'url' => ['/panel/settings']
                     ],
                     [
                         'label' => Yii::t('frontend', 'Backend'),
                         'url' => Yii::getAlias('@backendUrl'),
-                        'visible'=>Yii::$app->user->can('manager')
+                        'visible'=> Yii::$app->user->can('moderator')
                     ],
                     [
                         'label' => Yii::t('frontend', 'Logout'),
-                        'url' => ['/user/sign-in/logout'],
+                        'url' => ['/panel/sign-in/logout'],
                         'linkOptions' => ['data-method' => 'post']
                     ]
                 ]

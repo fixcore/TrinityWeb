@@ -72,4 +72,5 @@ return [
     'Your account has been successfully saved' => 'Ваш аккаунт был успешно сохранён',
     'Your activation link: {url}' => 'Ссылка активации: {url}',
     '{app-name} | Your login information' => '{app-name} | Информация о пользователе',
+    'Personal Area' => 'Личный кабинет',
 ];
