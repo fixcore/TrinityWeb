@@ -34,6 +34,12 @@ class Module extends \yii\base\Module implements BootstrapInterface
         $this->registerTranslations();
     }
     
+    public function beforeAction($action) {
+        parent::beforeAction($action);
+        Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('frontend','Личный кабинет'),'url' => ['/panel/main/index']];
+        return $this;
+    }
+    
     public function bootstrap($app)
     {
         if ($app instanceof \yii\web\Application) {

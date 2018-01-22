@@ -42,6 +42,10 @@ class MainController extends Controller
     public function actionLogs()
     {
         
+        Yii::$app->params['breadcrumbs'][] = [
+            'label' => Yii::t('cp','История учётной записи')
+        ];
+        
         $account_logs_provider = [];
         
         $game_logs_model = new LogsIpActionsSearch();
