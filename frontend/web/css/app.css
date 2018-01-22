@@ -135,17 +135,18 @@ nav#general-menu,
 nav#general-menu a.navbar-brand {
     font-size: 32px;
 }
-nav#general-menu #menu-items > li {
+ul.nav > li {
     z-index: 2;
     -moz-perspective: 1000px;
     -webkit-perspective: 1000px;
     perspective: 1000px;
     vertical-align: baseline;
 }
-nav#general-menu #menu-items > li.active > a.dropdown-toggle {
+ul.nav > li.active > a.dropdown-toggle {
     color: #36BBA6;
+    background-color: inherit;
 }
-nav#general-menu #menu-items > li > a:not(.dropdown-toggle):before {
+ul.nav > li > a:not(.dropdown-toggle):before {
     display: block;
     position: absolute;
     top: 100%;
@@ -169,7 +170,7 @@ nav#general-menu #menu-items > li > a:not(.dropdown-toggle):before {
     -webkit-transform-origin: 50% 0;
     transform-origin: 50% 0;
 }
-nav#general-menu #menu-items > li > a {
+ul.nav > li > a {
     position: relative;    
     -moz-transition: background 0.3s;
     -o-transition: background 0.3s;
@@ -187,30 +188,30 @@ nav#general-menu #menu-items > li > a {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
-nav#general-menu #menu-items > li.active > a:not(.dropdown-toggle),
-nav#general-menu #menu-items > li:hover > a:not(.dropdown-toggle) {
+ul.nav > li.active > a:not(.dropdown-toggle),
+ul.nav > li:hover > a:not(.dropdown-toggle) {
     -moz-transform: rotateX(90deg) translateY(-22px);
     -ms-transform: rotateX(90deg) translateY(-22px);
     -webkit-transform: rotateX(90deg) translateY(-22px);
     transform: rotateX(90deg) translateY(-22px);
 }
-nav#general-menu #menu-items > li.active > a,
-nav#general-menu .open > a,
-nav#general-menu > .open > a:hover,
-nav#general-menu > .open > a:focus {
+ul.nav > li.active > a,
+ul.nav .open > a,
+ul.nav > .open > a:hover,
+ul.nav > .open > a:focus {
     background-color: inherit;
     background-image: none;
     border: 0px;
     box-shadow: none;
 }
-nav#general-menu .dropdown-menu > li > a {
+ul.nav > li a, .dropdown-menu > li > a:hover {
     color: #9d9d9d;
 }
-nav#general-menu .dropdown-menu > li.active > a,
-nav#general-menu .dropdown-menu > li.active > a:hover,
-nav#general-menu .dropdown-menu > li.active > a:focus,
-nav#general-menu .dropdown-menu > li > a:hover,
-nav#general-menu .dropdown-menu > li > a:focus {
+.dropdown-menu > li.active > a,
+.dropdown-menu > li.active > a:hover,
+.dropdown-menu > li.active > a:focus,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
     background-color: #34373cc7;
 }
 .dropdown-menu .divider {background-color: #9d9d9d;}

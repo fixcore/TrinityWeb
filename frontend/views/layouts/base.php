@@ -94,12 +94,12 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                 'items'=>[
                     [
                         'label' => Yii::t('frontend', 'Личный кабинет'),
-                        'url' => ['/panel/main']
+                        'url' => ['/panel/main/index']
                     ],
                     '<li class="divider"></li>',
                     [
                         'label' => Yii::t('frontend', 'Settings'),
-                        'url' => ['/panel/settings']
+                        'url' => ['/panel/settings/index']
                     ],
                     [
                         'label' => Yii::t('frontend', 'Backend'),
