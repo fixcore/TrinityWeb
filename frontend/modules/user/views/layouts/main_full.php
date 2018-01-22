@@ -3,6 +3,7 @@
 use yii\helpers\ArrayHelper;
 use yii\widgets\Breadcrumbs;
 use yii\bootstrap\Nav;
+use yii\widgets\Pjax;
 
 use common\widgets\Alert;
 
@@ -23,24 +24,36 @@ $this->beginContent('@frontend/views/layouts/base.php')
         <?= Alert::widget() ?>
         
         <div id="user-panel-header">
-            <ul class="navbar-nav nav">
-                <li>
-                    <a href="/site/index" data-hover="Home">Home</a>
-                </li>
-                <li>
-                    <a href="/page/about" data-hover="About">About</a>
-                </li>
-                <li>
-                    <a href="/article/index" data-hover="Articles">Articles</a>
-                </li>
-                <li>
-                    <a href="/site/contact" data-hover="Contact">Contact</a>
-                </li>
-            </ul>
+            <?php echo Nav::widget([
+                'options' => ['class' => 'navbar-nav', 'id' => 'menu-items'],
+                'activateParents' => true,
+                'items' => [
+                    [
+                        'label' => Yii::t('cp', 'Общая информация'),
+                        'url' => ['/panel/main/index'],
+                        'linkOptions' => [
+                            'data-hover' => Yii::t('cp', 'Общая информация'),
+                        ],
+                    ],
+                    [
+                        'label' => Yii::t('cp', 'История уч. записи'),
+                        'url' => ['/panel/main/logs'],
+                        'linkOptions' => [
+                            'data-hover' => Yii::t('cp', 'История уч. записи'),
+                        ],
+                    ],
+                ]
+            ]); ?>
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <?php echo $content ?>
+                <?php
+                Pjax::begin();
+                
+                    echo $content;
+                    
+                Pjax::end();
+                ?>
             </div>
         </div>
     </div>

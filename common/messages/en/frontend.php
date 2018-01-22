@@ -18,4 +18,10 @@
  */
 return [
     'Личный кабинет' => 'Personal Area',
+    'ID Уч. записи' => 'Id Account',
+    'ID Персонажа' => 'Id Character',
+    'Тип' => 'Type',
+    'Системное сообщение' => 'System message',
+    'Комментарий' => 'Comment',
+    'Время' => 'Date',
 ];

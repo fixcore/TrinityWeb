@@ -75,4 +75,10 @@ return [
     'User ID' => 'ID пользователя',
     'Username' => 'Имя пользователя',
     'Value' => 'Значение',
+    'Account Login' => 'Авторизация на аккаунт',
+    'Character Create' => 'Создан персонаж',
+    'Character Login' => 'Вход в игровой мир',
+    'Character Logout' => 'Выход из игрового мира',
+    'Character Delete' => 'Удалён персонаж',
+    'Failed Character Delete' => 'Ошибка удаления',
 ];

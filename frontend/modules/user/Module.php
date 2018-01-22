@@ -31,6 +31,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
     {
         parent::init();
         $this->setAliases(['@userPanel' => __DIR__]);
+        $this->registerTranslations();
     }
     
     public function bootstrap($app)
@@ -38,6 +39,16 @@ class Module extends \yii\base\Module implements BootstrapInterface
         if ($app instanceof \yii\web\Application) {
             $this->addUrlManagerRules($app);
         }
+    }
+    
+    public function registerTranslations()
+    {
+        Yii::$app->i18n->translations['cp'] = [
+            'class' => 'yii\i18n\PhpMessageSource',
+            'sourceLanguage' => 'ru',
+            'basePath' => '@userPanel/messages',
+            'on missingTranslation' => ['\backend\modules\i18n\Module', 'missingTranslation']
+        ];
     }
     
     protected function addUrlManagerRules($app)

@@ -38,6 +38,7 @@ use common\models\query\UserQuery;
  * @property string $password write-only password
  *
  * @property \common\models\UserProfile $userProfile
+ * @property \common\models\auth\Accounts $relationGameAccount
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -323,4 +324,9 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->getPrimaryKey();
     }
+    
+    public function getRelationGameAccount() {
+        return $this->hasOne(Accounts::className(),['id' => 'external_id']);
+    }
+    
 }

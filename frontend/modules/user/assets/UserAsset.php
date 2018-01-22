@@ -43,9 +43,9 @@ class UserAsset extends AssetBundle
      * @var array
      */
     public $depends = [
-        YiiAsset::class,
-        BootstrapAsset::class,
-        Html5shiv::class,
+        //YiiAsset::class,
+        //BootstrapAsset::class,
         FrontendAsset::class,
+        //Html5shiv::class,        
     ];
 }
