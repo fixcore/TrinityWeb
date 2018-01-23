@@ -19,12 +19,16 @@ use yii\grid\GridView;
             'class' => 'grid-view table-responsive'
         ],
         'pager' => [
-            'maxButtonCount' => 5,
+            'maxButtonCount' => 4,
         ],
         'columns' => [
             [
                 'label' => $game_logs_model->getAttributeLabel('ip'),
                 'filter' => $game_logs_model->_types(),
+                'filterInputOptions' => [
+                    'class' => 'form-control',
+                    'placeholder' => Yii::t('cp','Выберите тип'),
+                ],
                 'attribute' => 'type',
                 'value' => function($model) {
                     return $model->ip;
