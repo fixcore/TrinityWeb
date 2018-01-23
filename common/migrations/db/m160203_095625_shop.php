@@ -77,5 +77,8 @@ class m160203_095625_shop extends Migration
         $this->dropForeignKey('fk_shop_basked', '{{%shop_basket}}');
         
         $this->dropTable('{{%shop_basket}}');
+        $this->dropTable('{{%shop_category}}');
+        $this->dropTable('{{%shop_items}}');
+        $this->dropTable('{{%shop_package_items}}');
     }
 }
