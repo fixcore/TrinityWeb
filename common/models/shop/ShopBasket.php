@@ -71,7 +71,7 @@ class ShopBasket extends \yii\db\ActiveRecord
         return $dataProvider;
     }
     
-    public function push() {
+    public function push($user_id, $element_id, $count = 1) {
         //todo
     }
     
