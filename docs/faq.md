@@ -1,8 +1,8 @@
 #FAQ
 ## 1. Where is Gii?
 Gii is available on:
-- http://yii2-starter-kit.dev/gii
-- http://backend.yii2-starter-kit.dev/gii
+- http://localhost.dev/gii
+- http://backend.localhost.dev/gii
 
 ## 2. How do i enable email activation?
 Edit ``frontend/config/web.php`` and set [[frontend\modules\user\Module::shouldBeActivated]] property to ``true``

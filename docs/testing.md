@@ -7,7 +7,7 @@ docker-compose up -d
 ```
 2. Create `tests` database:
 ```
-docker-compose exec db mysql -uroot -proot -e "CREATE DATABASE \`yii2-starter-kit-test\`" 
+docker-compose exec db mysql -uroot -proot -e "CREATE DATABASE \`db-test\`" 
 ```
 
 3. Adjust `.env` file to set `TEST_DB_DSN`, `TEST_DB_USER` and `TEST_DB_PASSWORD` params
