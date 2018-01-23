@@ -70,7 +70,7 @@ a.desc:after {content: "\e152";}
     background-color: #30353B;
 }
 
-.btn.btn-primary {color:#337ab7;}
+.btn.btn-primary {color:#36BBA6;}
 .btn.btn-success {color:#5cb85c;}
 .btn.btn-danger {color:#d9534f;}
 .btn.btn-warning {color:#f0ad4e;}
@@ -141,6 +141,7 @@ textarea {
 }
 
 /*# menu */
+ul.nav {width: 100%;}
 nav#general-menu,
 .dropdown-menu {
     background-color: #202328;

@@ -14,6 +14,8 @@ use common\commands\AddToTimelineCommand;
 
 use common\models\auth\Accounts;
 
+use common\models\chars\Characters;
+
 use common\models\query\UserQuery;
 
 /**
@@ -327,6 +329,16 @@ class User extends ActiveRecord implements IdentityInterface
     
     public function getRelationGameAccount() {
         return $this->hasOne(Accounts::className(),['id' => 'external_id']);
+    }
+    
+    public function HasCharacter($guid) {
+        $data = Characters::getList();
+        foreach($data as $character) {
+            if($character->guid == $guid) {
+                return true;
+            }
+        }
+        return false;
     }
     
 }

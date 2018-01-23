@@ -301,7 +301,13 @@ class Characters extends CoreModel
         }
         return false;
     }
-    
+    /**
+    * Получает список персонажей для текущего пользователя
+    * @return self | empty array
+    */
+    public function getList() {
+        return self::find()->where(['account' => Yii::$app->user->identity->external_id])->all();
+    }
     
     
     

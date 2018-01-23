@@ -106,4 +106,5 @@ class Accounts extends \yii\db\ActiveRecord
             'recruiter' => Yii::t('app', 'От кого пришёл'),
         ];
     }
+    
 }

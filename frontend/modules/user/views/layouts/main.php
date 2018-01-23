@@ -4,10 +4,15 @@ use yii\helpers\ArrayHelper;
 use yii\widgets\Breadcrumbs;
 use yii\bootstrap\Nav;
 use yii\widgets\Pjax;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 use common\widgets\Alert;
 
 use frontend\modules\user\assets\UserAsset;
+
+use frontend\modules\user\models\SelectCharacterForm;
+use frontend\modules\user\models\SelectServerForm;
 
 /* @var $content string */
 
@@ -48,7 +53,30 @@ $this->beginContent('@frontend/views/layouts/base.php')
         </div>
         <div class="row">
             <div class="col-xs-4" id="user-panel-left-side">
-                &nbsp;
+                <?php $form = ActiveForm::begin([
+                    'id' => 'server_select_form',
+                    'action' => ['server/change']
+                ]); ?>
+                    <?php
+                    $character_form = new SelectServerForm();
+                    ?>
+                    <?php echo $form->field($character_form, 'realm_id')->dropDownList(Yii::$app->CharactersDbHelper->getServers(true)) ?>
+                    <div class="form-group">
+                        <?php echo Html::submitButton(Yii::t('cp', 'Сменить игровой мир'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    </div>
+                <?php ActiveForm::end(); ?>
+                <?php $form = ActiveForm::begin([
+                    'id' => 'character_select_form',
+                    'action' => ['character/change']
+                ]); ?>
+                    <?php
+                    $character_form = new SelectCharacterForm();
+                    ?>
+                    <?php echo $form->field($character_form, 'character_id')->dropDownList($character_form->characters()) ?>
+                    <div class="form-group">
+                        <?php echo Html::submitButton(Yii::t('cp', 'Выбрать персонажа'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    </div>
+                <?php ActiveForm::end(); ?>
             </div>
             <div class="col-xs-8" id="user-panel-right-side">
                 <?php
