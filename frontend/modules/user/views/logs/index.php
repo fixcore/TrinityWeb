@@ -27,7 +27,7 @@ use yii\grid\GridView;
                 'filter' => $game_logs_model->_types(),
                 'filterInputOptions' => [
                     'class' => 'form-control',
-                    'placeholder' => Yii::t('cp','Выберите тип'),
+                    'prompt' => Yii::t('cp','Выберите тип'),
                 ],
                 'attribute' => 'type',
                 'value' => function($model) {

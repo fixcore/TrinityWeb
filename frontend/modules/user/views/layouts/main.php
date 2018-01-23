@@ -52,7 +52,7 @@ $this->beginContent('@frontend/views/layouts/base.php')
             <div class="clearfix"></div>
         </div>
         <div class="row">
-            <div class="col-xs-4" id="user-panel-left-side">
+            <div class="col-xs-12 col-sm-5" id="user-panel-left-side">
                 <?php $form = ActiveForm::begin([
                     'id' => 'server_select_form',
                     'action' => ['server/change']
@@ -78,7 +78,7 @@ $this->beginContent('@frontend/views/layouts/base.php')
                     </div>
                 <?php ActiveForm::end(); ?>
             </div>
-            <div class="col-xs-8" id="user-panel-right-side">
+            <div class="col-xs-12 col-sm-7" id="user-panel-right-side">
                 <?php
                 Pjax::begin();
                 

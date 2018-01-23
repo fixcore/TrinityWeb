@@ -97,6 +97,13 @@ textarea {
 	background-color: #36BBA6;
 }
 
+/*
+::-webkit-input-placeholder {color:#36BBA6;}
+::-moz-placeholder          {color:#36BBA6;}
+:-moz-placeholder           {color:#36BBA6;}
+:-ms-input-placeholder      {color:#36BBA6;}
+*/
+
 .form-control {
     display: block;
     width: 100%;
