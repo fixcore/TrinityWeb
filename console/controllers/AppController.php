@@ -47,6 +47,7 @@ class AppController extends Controller
         $this->runAction('set-writable', ['interactive' => $this->interactive]);
         $this->runAction('set-executable', ['interactive' => $this->interactive]);
         $this->runAction('set-keys', ['interactive' => $this->interactive]);
+        $this->setGenerateCharactersConfig(Yii::getAlias('@common') . '/config/');
         \Yii::$app->runAction('migrate/up', ['interactive' => $this->interactive]);
         \Yii::$app->runAction('rbac-migrate/up', ['interactive' => $this->interactive]);
     }
@@ -70,7 +71,7 @@ class AppController extends Controller
             Yii::$app->db->createCommand('SET FOREIGN_KEY_CHECKS=1')->execute();
         }
     }
-
+    
     /**
      * Drops all tables in the database.
      * @throws \yii\db\Exception
@@ -147,4 +148,19 @@ class AppController extends Controller
             file_put_contents($file, $content);
         }
     }
+    
+    public function setGenerateCharactersConfig($path) {
+        
+        $data = "<?php
+                    return [
+                        'components' => [
+                            'char_{realm_id from table realmlist DB -> auth}' => [
+                                //config yii/db/Connection
+                            ],
+                        ],
+                    ];";
+        
+        file_put_contents($path . 'base_characters', $data);
+    }
+    
 }

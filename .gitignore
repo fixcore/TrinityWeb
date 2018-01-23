@@ -17,6 +17,9 @@ nbproject
 .project
 .settings
 
+# characters db config
+common/config/base_characters.php
+
 # web platform source
 frontend/web/admin
 frontend/web/storage
