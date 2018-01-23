@@ -20,16 +20,16 @@ class Module extends \yii\base\Module implements BootstrapInterface
     public $shouldBeActivated = false;
     
     /**
-     * @var string layout that be use
-     */
-    public $layout = 'main';
-    
-    /**
      * @inheritdoc
      */
     public function init()
     {
         parent::init();
+        if(!Yii::$app->user->isGuest) {
+            $this->layout = 'main';
+        } else {
+            $this->layout = '@frontend/views/layouts/main_full';
+        }
         $this->setAliases(['@userPanel' => __DIR__]);
         $this->registerTranslations();
     }

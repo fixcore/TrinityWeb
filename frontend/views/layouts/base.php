@@ -70,7 +70,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
             ],
             [
                 'label' => Yii::t('frontend', 'Signup'),
-                'url' => ['/user/sign-in/signup'],
+                'url' => ['/panel/sign-in/signup'],
                 'visible' => Yii::$app->user->isGuest,
                 'linkOptions' => [
                     'data-hover' => Yii::t('frontend', 'Signup'),
@@ -78,7 +78,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
             ],
             [
                 'label' => Yii::t('frontend', 'Login'),
-                'url' => ['/user/sign-in/login'],
+                'url' => ['/panel/sign-in/login'],
                 'visible' => Yii::$app->user->isGuest,
                 'linkOptions' => [
                     'data-hover' => Yii::t('frontend', 'Login'),
