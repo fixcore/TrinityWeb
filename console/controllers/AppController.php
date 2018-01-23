@@ -160,7 +160,7 @@ class AppController extends Controller
                         ],
                     ];";
         
-        file_put_contents($path . 'base_characters', $data);
+        file_put_contents($path . 'base_characters.php', $data);
     }
     
 }
