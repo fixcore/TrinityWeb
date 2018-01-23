@@ -14,8 +14,6 @@
 - [Features](#features)
 - [Installation](docs/installation.md)
     - [Manual installation](docs/installation.md#manual-installation)
-    - [Docker installation](docs/installation.md#docker-installation)
-    - [Vagrant installation](docs/installation.md#vagrant-installation)
 - [Application components](#application-components)
 - [Console commands](docs/console.md)
 - [Testing](docs/testing.md)

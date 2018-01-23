@@ -6,9 +6,6 @@
     - [Requirements](#requirements)
     - [Setup application](#setup-application)
     - [Configure your web server](#configure-your-web-server)
-
-- [Docker installation](#docker-installation)
-- [Vagrant installation](#vagrant-installation)
 - [Single domain installtion](#single-domain-installation)
 - [Demo users](#demo-users)
 - [Important-notes](#important-notes)
@@ -27,7 +24,7 @@ https://github.com/trntv/yii2-starter-kit/archive/master.zip
 
 #### Or clone repository manually
 ```
-git clone https://github.com/trntv/yii2-starter-kit.git
+git clone https://github.com/Qblolz/TrinityWeb.git
 ```
 #### Install composer dependencies
 ```
@@ -38,7 +35,7 @@ composer install
 You can install this application template with `composer` using the following command:
 
 ```
-composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
+composer create-project --prefer-dist --stability=dev Qblolz/TrinityWeb
 ```
 
 ## Manual installation
@@ -61,16 +58,16 @@ Required PHP extensions:
 	```
 	- Set DB configuration
 	```
-	DB_DSN           = mysql:host=127.0.0.1;port=3306;dbname=yii2-starter-kit
+	DB_DSN           = mysql:host=127.0.0.1;port=3306;dbname=db
 	DB_USERNAME      = user
 	DB_PASSWORD      = password
 	```
 
 	- Set application canonical urls
 	```
-	FRONTEND_HOST_INFO    = http://yii2-starter-kit.dev
-	BACKEND_HOST_INFO     = http://backend.yii2-starter-kit.dev
-	STORAGE_HOST_INFP     = http://storage.yii2-starter-kit.dev
+	FRONTEND_HOST_INFO    = http://localhost.dev
+	BACKEND_HOST_INFO     = http://backend.localhost.dev
+	STORAGE_HOST_INFP     = http://storage.localhost.dev
 	```
 
 3. Run in command line
@@ -79,59 +76,20 @@ php console/yii app/setup
 npm install
 npm run build
 ```
+- Adjust settings in `common/config/base_characters.php` file
 
 ### Configure your web server
 - Copy `docker/vhost.conf` to your nginx config directory
 - Change it to fit your environment
 
-## Docker installation
-1. Install [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/) to your system
-2. Add ``127.0.0.1 yii2-starter-kit.dev backend.yii2-starter-kit.dev storage.yii2-starter-kit.dev``* to your `/etc/hosts` file
-3. Copy `.env.dist` to `.env` in the project root
-4. Run `docker-compose up -d`
-5. Install composer dependencies `docker-compose exec app composer install`
-6. Setup application with `docker-compose exec app php console/yii app/setup --interactive=0`
-7. That's all - your application is accessible on http://yii2-starter-kit.dev
-
- * - docker host IP address may vary on Windows and MacOS systems
- 
-*PS* Also you can use bash inside application container. To do so run `docker-compose exec app bash`
-
-### Docker FAQ
-1. How do i run yii console commands from outside a container?
-
-`docker-compose exec app console/yii help`
-
-`docker-compose exec app console/yii migrate`
-
-`docker-compose exec app console/yii rbac-migrate`
-
-2. How to connect to the application database with my workbench, navicat etc?
-MySQL is available on `yii2-starter-kit.dev`, port `3306`. User - `root`, password - `root`
-
-## Vagrant installation
-If you want, you can use bundled Vagrant instead of installing app to your local machine.
-
-1. Install [Vagrant](https://www.vagrantup.com/)
-2. Copy files from `docs/vagrant-files` to application root
-3. Copy `./vagrant/vagrant.yml.dist` to `./vagrant/vagrant.yml`
-4. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens)
-5. Edit values as desired including adding the GitHub personal API token to `./vagrant/vagrant.yml`
-6. Run:
-```
-vagrant plugin install vagrant-hostmanager
-vagrant up
-```
-That`s all. After provision application will be accessible on http://yii2-starter-kit.dev
-
 ## Demo data
 ### Demo Users
 ```
 Login: webmaster
-Password: webmaster
+Password: -----
 
-Login: manager
-Password: manager
+Login: moderator
+Password: ----
 
 Login: user
 Password: user
@@ -165,9 +123,6 @@ STORAGE_BASE_URL    = /storage/web
             'baseUrl' => '',
         ...
 ```
-
-4. Configure your web server
-Example of single domain config for nginx can be found [here](https://github.com/trntv/yii2-starter-kit/blob/master/docker/nginx/vhost_single_domain.conf)
 
 ## Important notes
 - There is a VirtualBox bug related to sendfile that can lead to corrupted files, if not turned-off
