@@ -170,7 +170,7 @@ $config = [
         ],
     ],
 ];
-
+                    
 if (YII_ENV_PROD) {
     $config['components']['log']['targets']['email'] = [
         'class' => 'yii\log\EmailTarget',
