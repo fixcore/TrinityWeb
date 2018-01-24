@@ -148,7 +148,6 @@ textarea {
 }
 
 /*# menu */
-ul.nav {width: 100%;}
 nav#general-menu,
 .dropdown-menu {
     background-color: #202328;
@@ -220,6 +219,7 @@ ul.nav > li:hover > a:not(.dropdown-toggle) {
     -ms-transform: rotateX(90deg) translateY(-22px);
     -webkit-transform: rotateX(90deg) translateY(-22px);
     transform: rotateX(90deg) translateY(-22px);
+    background-color: inherit;
 }
 ul.nav > li.active > a,
 ul.nav .open > a,
@@ -395,3 +395,7 @@ ul.nav > li > a:hover {background-color: inherit;}
     border-top: 1px solid rgba(0,0,0,0.45);
 }
 /*# footer end */
+
+@media (max-width: 768px) {
+    ul.nav {width: 100%;}
+}

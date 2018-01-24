@@ -33,8 +33,8 @@ class SelectCharacterForm extends Model
     public function rules()
     {
         return [
-            [['character_id'],'required'],
-            [['character_id'],'integer']
+            ['character_id','required'],
+            ['character_id','integer']
         ];
     }
 

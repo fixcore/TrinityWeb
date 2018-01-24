@@ -72,7 +72,9 @@ $this->beginContent('@frontend/views/layouts/base.php')
                     <?php
                     $character_form = new SelectCharacterForm();
                     ?>
-                    <?php echo $form->field($character_form, 'character_id')->dropDownList($character_form->characters()) ?>
+                    <?php echo $form->field($character_form, 'character_id')->dropDownList($character_form->characters(),[
+                        'prompt' => Yii::t('cp','Персонаж не выбран'),
+                    ]) ?>
                     <div class="form-group">
                         <?php echo Html::submitButton(Yii::t('cp', 'Выбрать персонажа'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                     </div>
