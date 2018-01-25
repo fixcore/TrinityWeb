@@ -354,15 +354,6 @@ ul.nav > li > a:hover {background-color: inherit;}
 .table > tbody > tr:not(:last-child) {
     border-bottom: 1px solid #34373cc7;
 }
-
-/*
-    .application .theme--dark.table tbody tr:not(:last-child), .theme--dark .table tbody tr:not(:last-child) {
-        border-bottom: 1px solid hsla(0,0%,100%,.12);
-    }
-
-    background-color: #424242;
-
-*/
 /*# tables end */
 /*# content */
 .wrap > .container {padding: 70px 15px 20px;}
