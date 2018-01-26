@@ -3,8 +3,14 @@ $config = [
     'homeUrl' => Yii::getAlias('@frontendUrl'),
     'controllerNamespace' => 'frontend\controllers',
     'defaultRoute' => 'site/index',
-    'bootstrap' => ['maintenance', 'panel'],
+    'bootstrap' => ['maintenance', 'panel', 'armory', 'ladder'],
     'modules' => [
+        'armory' => [
+            'class' => 'frontend\modules\armory\Module',
+        ],
+        'ladder' => [
+            'class' => 'frontend\modules\ladder\Module',
+        ],
         'panel' => [
             'class' => 'frontend\modules\user\Module',
             'shouldBeActivated' => false
