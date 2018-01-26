@@ -33,10 +33,10 @@ class CharacterData extends Model
     public function generateGeneral() {
         $data = $data['stats'] = Yii::$app->cache->get(Yii::$app->request->url);
         if($data === false) {
-            $character = Characters::find()->where(['name' => $this->name])->with(['relationStats', 'relationGuild'])->one();
+            $character = Characters::find()->where(['name' => $this->name])->with(['relationStats', 'relationGuild.relationGuild'])->one();
             $data['name'] = $this->name;
             $data['title'] = CharacterData::EMPTY_DATA;
-            $data['guild'] = $character->relationGuild ? $character->relationGuild->name : CharacterData::EMPTY_DATA;
+            $data['guild'] = $character->relationGuild ? $character->relationGuild->relationGuild->name : CharacterData::EMPTY_DATA;
             $data['stats']['maxhealth'] = $character->relationStats->maxhealth;
             $data['stats']['maxpower'] = Yii::$app->AppHelper->getCharacterPowerByClass($character->class);
             $data['stats']['strength'] = $character->relationStats->strength;
