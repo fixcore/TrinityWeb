@@ -59,7 +59,7 @@ class SearchForm extends Model
         $dataProvider = new ActiveDataProvider([
 			'query' => Characters::find()->where([
                     'like',
-                    'name',
+                    'LOWER(name)',
                     mb_strtolower($this->query)
                 ])->orderBy(['guid' => SORT_DESC])->asArray(),
 			'pagination' => [

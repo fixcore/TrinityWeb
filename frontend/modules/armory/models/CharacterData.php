@@ -17,8 +17,6 @@ class CharacterData extends Model
     public $talents = [];
     
     public function __construct($character) {
-        //pre($this);
-        
         $this->data = [
             'name' => $character,
         ];
