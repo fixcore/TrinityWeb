@@ -331,7 +331,17 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->hasOne(Accounts::className(),['id' => 'external_id']);
     }
     
-    public function HasCharacter($guid) {
+    public function HasCharacterByName($name) {
+        $data = Characters::getList();
+        foreach($data as $character) {
+            if($character->name == $name) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public function HasCharacterByGuid($guid) {
         $data = Characters::getList();
         foreach($data as $character) {
             if($character->guid == $guid) {
