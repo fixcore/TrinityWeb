@@ -14,7 +14,8 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public $controllerNamespace = 'frontend\modules\armory\controllers';
     
-    public $defaultRoute = 'main';
+    
+    public $defaultRouge = 'main';
     
     /**
      * @inheritdoc
@@ -28,9 +29,9 @@ class Module extends \yii\base\Module implements BootstrapInterface
     }
     
     public function beforeAction($action) {
-        parent::beforeAction($action);
-        Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('armory','Армори'),'url' => ['/armory/index']];
-        return $this;
+        $parent = parent::beforeAction($action);
+        Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('armory','Армори'),'url' => ['/armory']];
+        return $parent;
     }
     
     public function bootstrap($app)
@@ -55,7 +56,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
         $app->urlManager->addRules([new GroupUrlRule([
             'prefix' => $this->id,
             'rules' => require __DIR__ . '/url-rules.php',
-        ])], true);
+        ])]);   
     }
     
 }

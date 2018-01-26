@@ -3,8 +3,9 @@
 namespace frontend\modules\armory\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
 use yii\web\Controller;
+
+use frontend\modules\armory\models\SearchForm;
 
 class MainController extends Controller
 {
@@ -13,6 +14,13 @@ class MainController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $searchModel = new SearchForm();
+        
+        $searchResult = $searchModel->findCharacters(Yii::$app->request->queryParams);
+        
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'searchResult' => $searchResult,
+        ]);
     }
 }

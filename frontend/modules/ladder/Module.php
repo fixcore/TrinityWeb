@@ -29,7 +29,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
     
     public function beforeAction($action) {
         parent::beforeAction($action);
-        Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('ladder','Ладдер'),'url' => ['/ladder/index']];
+        Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('ladder','Ладдер'),'url' => ['/ladder']];
         return $this;
     }
     

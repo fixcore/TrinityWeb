@@ -55,6 +55,23 @@ class CharactersDbHelper extends \yii\base\Component
         }
         return false;
     }
+    
+    /**
+    * Вернуть сервер пользователя
+    * @return integer | null
+    */
+    public function getServerId() {
+        return self::setDefault();
+    }
+    
+    /**
+    * Вернуть сервер пользователя
+    * @return string | null
+    */
+    public function getServerName($to_lower = false) {
+        return $to_lower ? mb_strtolower($this->getServerNameById(self::setDefault())) : $this->getServerNameById(self::setDefault());
+    }
+    
     /**
     * Установить индекс сервера для текущего пользователя поумолчанию либо возвращает текущий сервер у пользователя
     * @return bool = false | integer
