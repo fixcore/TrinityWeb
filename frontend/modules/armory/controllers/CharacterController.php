@@ -14,13 +14,11 @@ class CharacterController extends Controller
 {   
     
     public function beforeAction($action) {
-        $parent = parent::beforeAction($action);
         if(!Characters::find()->where(['name' => Yii::$app->request->get('character')])->exists()) {
             Yii::$app->session->setFlash('error',Yii::t('armory','Персонаж не найден!'));
             $this->redirect(Yii::$app->request->referrer ? Yii::$app->request->referrer : Url::to(['/armory']));
             return false;
         }
-        
         switch($action->id) {
             case 'index':
                 Yii::$app->params['breadcrumbs'][] = ['label' => Yii::$app->request->get('server')];
@@ -32,8 +30,7 @@ class CharacterController extends Controller
                 Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('armory','Таланты')];
                 break;
         }
-        
-        return $parent;
+        return parent::beforeAction($action);
     }
     
     /**
