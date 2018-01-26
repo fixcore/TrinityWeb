@@ -62,6 +62,20 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                 ],
             ],
             [
+                'label' => Yii::t('armory', 'Армори'),
+                'url' => ['/armory'],
+                'linkOptions' => [
+                    'data-hover' => Yii::t('armory', 'Армори'),
+                ],
+            ],
+            [
+                'label' => Yii::t('ladder', 'Ладдер'),
+                'url' => ['/ladder'],
+                'linkOptions' => [
+                    'data-hover' => Yii::t('ladder', 'Ладдер'),
+                ],
+            ],
+            [
                 'label' => Yii::t('frontend', 'Contact'),
                 'url' => ['/site/contact'],
                 'linkOptions' => [
