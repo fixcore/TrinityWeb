@@ -34,7 +34,6 @@ class CharacterData extends Model
         $data = $data['stats'] = Yii::$app->cache->get(Yii::$app->request->url);
         if($data === false) {
             $character = Characters::find()->where(['name' => $this->name])->with(['relationStats', 'relationGuild'])->one();
-            
             $data['name'] = $this->name;
             $data['title'] = CharacterData::EMPTY_DATA;
             $data['guild'] = $character->relationGuild ? $character->relationGuild->name : CharacterData::EMPTY_DATA;
@@ -72,6 +71,30 @@ class CharacterData extends Model
             $data['stats']['spellHealing'] = -1;
             $data['stats']['mp5'] = -1;
             $data['stats']['defence'] = -1;
+            
+            
+            $data['items'] = [];
+            $_items = $character->relationEquipment;
+            foreach(Yii::$app->AppHelper::$ARRAY_SLOTS as $slot) {
+                $item = current($_items);
+                if(isset($item)) {
+                    if(is_object($item) && $slot == $item->slot) {
+                        $data['items'][$slot] = [
+                            'item_url' => Yii::$app->AppHelper->buildDBUrl($item->relationItemInstance->itemEntry, Yii::$app->AppHelper::$TYPE_ITEM),
+                            //'icon_url' => Yii::$app->AppHelper->buildItemIconUrl($slot, $item->itemInstanceRelation->armoryItem->iconRelation->icon),
+                            //'rel_item' => Yii::$app->CoreHelper->buildItemRel($item->itemInstanceRelation->itemEntry,explode(' ',$item->itemInstanceRelation->enchantments)),
+                        ];
+                    } else {
+                        $data['items'][$slot] = [
+                            'item_url' => '#self',
+                            //'icon_url' => Yii::$app->CoreHelper->buildItemIconUrl($slot),
+                            //'rel_item' => '',
+                        ];
+                    }
+                }
+                next($_items);
+            }
+            
             Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->params['cache_armory_character']);
         }
         return $data;

@@ -158,6 +158,8 @@ $config = [
     ],
     'params' => [
         
+        'database_url' => 'http://wotlk.cavernoftime.com',
+        
         'cache_armory_search' => 120,
         'cache_armory_character' => 60,
         'cache_armory_character_talents' => 60,

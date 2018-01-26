@@ -70,7 +70,7 @@ class ItemInstance extends CoreModel
     * Связь для получения объекта содержащего данные о вещи из БД Armory
     * @return \yii\db\ActiveQuery
     */
-    public function getArmoryItem() {
+    public function getRelationArmoryItem() {
         return $this->hasOne(ArmoryItemTemplate::className(),['entry' => 'itemEntry'])->select(['displayid','entry']);
     }
     

@@ -47,7 +47,7 @@ class CharacterInventory extends CoreModel
     * Связь для получения объекта содержащего данные о вещи из инвенторя персонажа. Поля выдачи {guid | itemEntry | enchantments}
     * @return \yii\db\ActiveQuery
     */
-    public function getItemInstanceRelation() {
+    public function getRelationItemInstance() {
         return $this->hasOne(ItemInstance::className(),['guid' => 'item'])->select(['guid','itemEntry','enchantments']);
     }
     

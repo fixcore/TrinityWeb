@@ -282,6 +282,13 @@ class Characters extends CoreModel
     * @param integer $spell_id ID Заклинания
     * @return bool
     */
+    public function getRelationEquipment() {
+        return $this->hasMany(CharacterInventory::className(),['guid' => 'guid'])
+            ->andWhere(['slot' => Yii::$app->AppHelper::$ARRAY_SLOTS, 'bag' => 0])
+            ->orderBy(['slot' => SORT_ASC])
+            ->with('relationItemInstance');
+            //->with('relationItemInstance.relationArmoryItem.iconRelation');
+    }
     public function HasSpell($spell_id) {
         return CharacterSpell::find()->where(['guid' => $this->guid, 'spell' => $spell_id])->exists();
     }
@@ -370,13 +377,6 @@ class Characters extends CoreModel
             Yii::$app->cache->set($cache_key, $output, self::UPDATE_TIME);
         }
         return $output;
-    }
-    public function getEquipmentRelation() {
-        return $this->hasMany(CharacterInventory::className(),['guid' => 'guid'])
-            //condition -> for only equiped items [0 ... 18]
-            ->andWhere(['slot' => Yii::$app->CoreHelper->avalible_slots, 'bag' => 0])
-            ->orderBy(['slot' => SORT_ASC])
-            ->with('itemInstanceRelation.armoryItem.iconRelation');
     }
     public function getLastAchievements($limit = 20, $server_id) {
         $cache_key = 'armory_character-achievements_' . $this->guid . '_' . $server_id;
