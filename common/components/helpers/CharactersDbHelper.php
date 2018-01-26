@@ -20,12 +20,12 @@ class CharactersDbHelper extends \yii\base\Component
             try {
                 return Yii::$app->get('char_' . $server_id);
             } catch (\Exception $exc) {
-                throw new BadRequestHttpException(Yii::t('app','Ошибка подключения к {server_id}', [
+                throw new BadRequestHttpException(Yii::t('common','Ошибка подключения к {server_id}', [
                     'server_id' => $server_id
                 ]));
             }
         } else {
-            throw new BadRequestHttpException(Yii::t('app','Ошибка - сервера не существует'));
+            throw new BadRequestHttpException(Yii::t('common','Ошибка - сервера не существует'));
         }
     }
     /**

@@ -19,7 +19,7 @@ class CoreModel extends ActiveRecord
             if($server_name = Yii::$app->request->get('server')) {
                 $server_id = Yii::$app->CharactersDbHelper->getServerIdByName($server_name);
                 if($server_id === null) {
-                    throw new BadRequestHttpException(Yii::t('app','Запрашиваемый сервер не существует'));
+                    throw new BadRequestHttpException(Yii::t('common','Запрашиваемый сервер не существует'));
                 }
             } else {
                 if(Yii::$app->user->isGuest) {
@@ -30,7 +30,7 @@ class CoreModel extends ActiveRecord
                         if($id = Yii::$app->CharactersDbHelper->setDefault()) {
                             $server_id = $id;
                         } else {
-                            throw new BadRequestHttpException(Yii::t('app','Возникли ошибки с выбором сервера'));
+                            throw new BadRequestHttpException(Yii::t('common','Возникли ошибки с выбором сервера'));
                         }
                     }
                 }

@@ -160,9 +160,7 @@ $config = [
         
         'cache_armory_search' => 120,
         'cache_armory_character' => 60,
-        'cache_armory_character_items' => 60,
         'cache_armory_character_talents' => 60,
-        'cache_armory_character_achievement' => 90,
         
         'adminEmail' => env('ADMIN_EMAIL'),
         'robotEmail' => env('ROBOT_EMAIL'),

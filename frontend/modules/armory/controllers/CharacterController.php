@@ -38,9 +38,9 @@ class CharacterController extends Controller
      */
     public function actionIndex($server,$character)
     {
-        $character = (new CharacterData($character))->data;
+        $data = (new CharacterData($character))->generateGeneral();
         return $this->render('index', [
-            'character' => $character,
+            'data' => $data,
             'view' => 'character'
         ]);
     }
@@ -50,9 +50,9 @@ class CharacterController extends Controller
      */
     public function actionTalents($server,$character)
     {
-        $character = (new CharacterData($character))->talents;
+        $data = (new CharacterData($character))->talents;
         return $this->render('index', [
-            'character' => $character,
+            'data' => $data,
             'view' => 'talents'
         ]);
     }

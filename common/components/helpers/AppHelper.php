@@ -287,13 +287,13 @@ class AppHelper extends \yii\base\Component
     * @param integer $race_index Индекс рассы
     * @return i18n string
     */
-    public static function getRaces($race_index) {return Yii::t('app',Yii::$app->AppHelper::$races[$race_index]);}
+    public static function getRaces($race_index) {return Yii::t('common',Yii::$app->AppHelper::$races[$race_index]);}
     /**
     * Получить название класса по индексу
     * @param integer $class_index Индекс класса
     * @return i18n string
     */
-    public static function getClasses($class_index) {return Yii::t('app',Yii::$app->AppHelper::$classes[$class_index]);}
+    public static function getClasses($class_index) {return Yii::t('common',Yii::$app->AppHelper::$classes[$class_index]);}
     /**
     * Проверка является ли расска рассой принадлежащей орде
     * @param integer $race_index Индекс рассы
@@ -459,11 +459,11 @@ class AppHelper extends \yii\base\Component
     public static function getCharacterPowerByClass($class_index) {
         switch($class_index) {
             case Yii::$app->AppHelper::$WARRIOR:
-                return Yii::t('app','Ярость:');
+                return Yii::t('common','Ярость');
             case Yii::$app->AppHelper::$ROGUE:
-                return Yii::t('app','Энергия:');
+                return Yii::t('common','Энергия');
             case Yii::$app->AppHelper::$DEATHKNIGHT:
-                return Yii::t('app','Сила рун:');
+                return Yii::t('common','Сила рун');
             case Yii::$app->AppHelper::$MAGE:
             case Yii::$app->AppHelper::$PRIEST:
             case Yii::$app->AppHelper::$PALADIN:
@@ -471,7 +471,7 @@ class AppHelper extends \yii\base\Component
             case Yii::$app->AppHelper::$WARLOCK:
             case Yii::$app->AppHelper::$HUNTER:
             case Yii::$app->AppHelper::$SHAMAN:
-                return Yii::t('app','Мана:');
+                return Yii::t('common','Мана');
         }
     }
     /**
@@ -483,18 +483,18 @@ class AppHelper extends \yii\base\Component
     public function i18nAttribute($var, $attribute = null) {
         if(is_array($var)) {
             if($var[$attribute]) {
-                return Yii::t('app',$var[$attribute]);
+                return Yii::t('common',$var[$attribute]);
             } else {
-                throw new \Exception(Yii::t('app','Строка для перевода пуста'));
+                throw new \Exception(Yii::t('common','Строка для перевода пуста'));
             }
         } elseif(is_object($var)) {
             if($attribute) {
-                return Yii::t('app',$var->{$attribute});
+                return Yii::t('common',$var->{$attribute});
             } else {
-                throw new \Exception(Yii::t('app','Отсутствует аттрибут у объекта для перевода'));
+                throw new \Exception(Yii::t('common','Отсутствует аттрибут у объекта для перевода'));
             }
         } elseif(is_string($var)) {
-            return Yii::t('app',$var);
+            return Yii::t('common',$var);
         } else {
             return $var;
         }
