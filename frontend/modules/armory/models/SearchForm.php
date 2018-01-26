@@ -13,6 +13,9 @@ use common\models\chars\Characters;
  */
 class SearchForm extends Model
 {
+    
+    const PAGE_SIZE = 10;
+    
     public $server;
     public $query = '';
     
@@ -29,6 +32,7 @@ class SearchForm extends Model
         return [
             [['server', 'query'], 'required'],
             ['server', 'string'],
+            ['query', 'trim'],
             ['query', 'string', 'min' => 2],
         ];
     }
@@ -53,17 +57,26 @@ class SearchForm extends Model
     public function findCharacters($params) {
         $this->load($params);
         $dataProvider = new ActiveDataProvider([
-			'query' => Characters::find()->where(['like','name',$this->query])->orderBy(['guid' => SORT_DESC])->asArray(),
+			'query' => Characters::find()->where([
+                    'like',
+                    'name',
+                    mb_strtolower($this->query)
+                ])->orderBy(['guid' => SORT_DESC])->asArray(),
 			'pagination' => [
-				'pageSize' => 10,
+				'pageSize' => SearchForm::PAGE_SIZE,
 			],
 		]);
         $data = Yii::$app->cache->get(Yii::$app->request->url);
-        if($data === false) {
-            $data = $dataProvider->getModels();
-            Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->params['cache_armory_search']);
+        $counter = Yii::$app->cache->get(Yii::$app->request->url . '_counter');
+        if($this->query) {    
+            if($data === false || $counter === false) {
+                $data = $dataProvider->getModels();
+                $counter = $dataProvider->getTotalCount();
+                Yii::$app->cache->set(Yii::$app->request->url . '_counter',$counter,Yii::$app->params['cache_armory_search']);
+                Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->params['cache_armory_search']);
+            }
         }
-        return $data;
+        return ['result' => $data, 'counter' => $counter];
     }
     
     public function formName() {return '';}

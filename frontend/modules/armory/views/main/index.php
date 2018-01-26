@@ -2,7 +2,15 @@
 
 use yii\helpers\Url;
 use yii\helpers\Html;
+use yii\data\Pagination;
+use yii\widgets\LinkPager;
 use yii\bootstrap\ActiveForm;
+
+use frontend\modules\armory\models\SearchForm;
+
+if($counter) {
+    $pages = new Pagination(['totalCount' => $counter, 'defaultPageSize' => SearchForm::PAGE_SIZE]);
+}
 
 ?>
 <?php $form = ActiveForm::begin([
@@ -30,4 +38,31 @@ use yii\bootstrap\ActiveForm;
             </div>
         </div>
     </div>
+    <?php
+    if($searchResult) {
+        foreach($searchResult as $character) {
+    ?>
+        <div class="row">
+            <div class="col-xs-1">&nbsp;</div>
+            <div class="col-xs-2 col-sm-1">
+                <?=Yii::$app->AppHelper->buildTagRaceImage($character['race'],$character['gender'])?>
+            </div>
+            <div class="col-xs-2 col-sm-1">
+                <?=Yii::$app->AppHelper->buildTagClassImage($character['class'])?>
+            </div>
+            <div class="col-xs-6 col-sm-8">
+                <?php
+                echo Html::a($character['name'], '/armory/character/' . Yii::$app->CharactersDbHelper->getServerName() . '/' . $character['name'], [
+                    'target' => '_blank'
+                ]);
+                ?>
+            </div>
+        </div>
+    <?php
+        }
+        echo LinkPager::widget([
+            'pagination' => $pages,
+        ]);
+    }
+    ?>
 <?php ActiveForm::end(); ?>

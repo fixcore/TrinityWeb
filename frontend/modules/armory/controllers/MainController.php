@@ -16,11 +16,12 @@ class MainController extends Controller
     {
         $searchModel = new SearchForm();
         
-        $searchResult = $searchModel->findCharacters(Yii::$app->request->queryParams);
+        $data = $searchModel->findCharacters(Yii::$app->request->queryParams);
         
         return $this->render('index', [
             'searchModel' => $searchModel,
-            'searchResult' => $searchResult,
+            'searchResult' => $data['result'],
+            'counter' => $data['counter']
         ]);
     }
 }

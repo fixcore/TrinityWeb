@@ -287,25 +287,25 @@ class AppHelper extends \yii\base\Component
     * @param integer $race_index Индекс рассы
     * @return i18n string
     */
-    public static function getRaces($race_index) {return Yii::t('app',$this::$races[$race_index]);}
+    public static function getRaces($race_index) {return Yii::t('app',Yii::$app->AppHelper::$races[$race_index]);}
     /**
     * Получить название класса по индексу
     * @param integer $class_index Индекс класса
     * @return i18n string
     */
-    public static function getClasses($class_index) {return Yii::t('app',$this::$classes[$class_index]);}
+    public static function getClasses($class_index) {return Yii::t('app',Yii::$app->AppHelper::$classes[$class_index]);}
     /**
     * Проверка является ли расска рассой принадлежащей орде
     * @param integer $race_index Индекс рассы
     * @return bool
     */
-    public static function isHordeRace($race_index) {return in_array($race_index,$this::$horde_races) ? true : false;}
+    public static function isHordeRace($race_index) {return in_array($race_index,Yii::$app->AppHelper::$horde_races) ? true : false;}
     /**
     * Проверка является ли расска рассой принадлежащей альянсу
     * @param integer $race_index Индекс рассы
     * @return bool
     */
-    public static function isAllianceRace($race_index) {return in_array($race_index,$this::$alliance_races) ? true : false;}
+    public static function isAllianceRace($race_index) {return in_array($race_index,Yii::$app->AppHelper::$alliance_races) ? true : false;}
     /**
     * Правильный порядок символов (глифов) для отображения
     * @return array
@@ -327,25 +327,25 @@ class AppHelper extends \yii\base\Component
     */
     public static function getArmoryClassMask($class_index) {
         switch($class_index) {
-            case $this::$WARRIOR:
+            case Yii::$app->AppHelper::$WARRIOR:
                 return 1;
-            case $this::$PALADIN:
+            case Yii::$app->AppHelper::$PALADIN:
                 return 2;
-            case $this::$HUNTER:
+            case Yii::$app->AppHelper::$HUNTER:
                 return 4;
-            case $this::$ROGUE:
+            case Yii::$app->AppHelper::$ROGUE:
                 return 8;
-            case $this::$PRIEST:
+            case Yii::$app->AppHelper::$PRIEST:
                 return 16;
-            case $this::$DEATHKNIGHT:
+            case Yii::$app->AppHelper::$DEATHKNIGHT:
                 return 32;
-            case $this::$SHAMAN:
+            case Yii::$app->AppHelper::$SHAMAN:
                 return 64;
-            case $this::$MAGE:
+            case Yii::$app->AppHelper::$MAGE:
                 return 128;
-            case $this::$WARLOCK:
+            case Yii::$app->AppHelper::$WARLOCK:
                 return 256;
-            case $this::$DRUID:
+            case Yii::$app->AppHelper::$DRUID:
                 return 1024;
         }
     }
@@ -405,11 +405,27 @@ class AppHelper extends \yii\base\Component
     */
     public static function buildRaceImageUrl($race, $gender) {return "/img/race/$race-$gender.png";}
     /**
+    * Сформировать тег картинки из рассы и пола.
+    * @param integer $class индекс класса
+    * @return html tag -> img
+    */
+    public static function buildTagRaceImage($race, $gender) {
+        return '<img src="' . Yii::$app->AppHelper->buildRaceImageUrl($race,$gender) . '" alt="' . Yii::$app->AppHelper->getRaces($race) . '"/>';
+    }
+    /**
     * Сформировать ссылку на картинку класса (локально).
     * @param integer $class индекс класса
     * @return string
     */
     public static function buildClassImageUrl($class) {return "/img/class/$class.png";}
+    /**
+    * Сформировать тег картинки из класса.
+    * @param integer $class индекс класса
+    * @return html tag -> img
+    */
+    public static function buildTagClassImage($class) {
+        return '<img src="' . Yii::$app->AppHelper::buildClassImageUrl($class) . '" alt="' . Yii::$app->AppHelper::getClasses($class) . '"/>';
+    }
     /**
     * Сформировать ссылку на иконку в базу данных.
     * @param integer $slot индекс слота
@@ -429,10 +445,10 @@ class AppHelper extends \yii\base\Component
     * @return string
     */
     public static function buildItemRel($itemId, $data) {
-        $enchat = $data[$this::$ENCHAT_FIELD];
-        $socket_1 = $data[$this::$SOCKET_FIELD_1];
-        $socket_2 = $data[$this::$SOCKET_FIELD_2];
-        $socket_3 = $data[$this::$SOCKET_FIELD_3];
+        $enchat = $data[Yii::$app->AppHelper::$ENCHAT_FIELD];
+        $socket_1 = $data[Yii::$app->AppHelper::$SOCKET_FIELD_1];
+        $socket_2 = $data[Yii::$app->AppHelper::$SOCKET_FIELD_2];
+        $socket_3 = $data[Yii::$app->AppHelper::$SOCKET_FIELD_3];
         return "item=$itemId&amp;ench=$enchat&amp;gems=$socket_1:$socket_2:$socket_3";;
     }
     /**
@@ -442,19 +458,19 @@ class AppHelper extends \yii\base\Component
     */
     public static function getCharacterPowerByClass($class_index) {
         switch($class_index) {
-            case $this::$WARRIOR:
+            case Yii::$app->AppHelper::$WARRIOR:
                 return Yii::t('app','Ярость:');
-            case $this::$ROGUE:
+            case Yii::$app->AppHelper::$ROGUE:
                 return Yii::t('app','Энергия:');
-            case $this::$DEATHKNIGHT:
+            case Yii::$app->AppHelper::$DEATHKNIGHT:
                 return Yii::t('app','Сила рун:');
-            case $this::$MAGE:
-            case $this::$PRIEST:
-            case $this::$PALADIN:
-            case $this::$DRUID:
-            case $this::$WARLOCK:
-            case $this::$HUNTER:
-            case $this::$SHAMAN:
+            case Yii::$app->AppHelper::$MAGE:
+            case Yii::$app->AppHelper::$PRIEST:
+            case Yii::$app->AppHelper::$PALADIN:
+            case Yii::$app->AppHelper::$DRUID:
+            case Yii::$app->AppHelper::$WARLOCK:
+            case Yii::$app->AppHelper::$HUNTER:
+            case Yii::$app->AppHelper::$SHAMAN:
                 return Yii::t('app','Мана:');
         }
     }
