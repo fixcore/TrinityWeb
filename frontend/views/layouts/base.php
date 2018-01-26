@@ -64,14 +64,14 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
             ],
             [
                 'label' => Yii::t('armory', 'Армори'),
-                'url' => ['/armory'],
+                'url' => ['/armory/main/index'],
                 'linkOptions' => [
                     'data-hover' => Yii::t('armory', 'Армори'),
                 ],
             ],
             [
                 'label' => Yii::t('ladder', 'Ладдер'),
-                'url' => ['/ladder'],
+                'url' => ['/ladder/main/index'],
                 'linkOptions' => [
                     'data-hover' => Yii::t('ladder', 'Ладдер'),
                 ],
