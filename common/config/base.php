@@ -75,7 +75,7 @@ $config = [
             'charset' => 'utf8',
             'enableSchemaCache' => YII_ENV_PROD,
         ],
-        'armory' => [
+        'armory_db' => [
             'class' => 'yii\db\Connection',
             'dsn' => env('ARMORY_DB_DSN'),
             'username' => env('ARMORY_DB_USERNAME'),
