@@ -81,14 +81,14 @@ class CharacterData extends Model
                     if(is_object($item) && $slot == $item->slot) {
                         $data['items'][$slot] = [
                             'item_url' => Yii::$app->AppHelper->buildDBUrl($item->relationItemInstance->itemEntry, Yii::$app->AppHelper::$TYPE_ITEM),
-                            //'icon_url' => Yii::$app->AppHelper->buildItemIconUrl($slot, $item->itemInstanceRelation->armoryItem->iconRelation->icon),
-                            //'rel_item' => Yii::$app->CoreHelper->buildItemRel($item->itemInstanceRelation->itemEntry,explode(' ',$item->itemInstanceRelation->enchantments)),
+                            //'icon_url' => Yii::$app->AppHelper->buildItemIconUrl($slot, $item->relationItemInstance->armoryItem->iconRelation->icon),
+                            'rel_item' => Yii::$app->AppHelper->buildItemRel($item->relationItemInstance->itemEntry,explode(' ',$item->relationItemInstance->enchantments)),
                         ];
                     } else {
                         $data['items'][$slot] = [
                             'item_url' => '#self',
-                            //'icon_url' => Yii::$app->CoreHelper->buildItemIconUrl($slot),
-                            //'rel_item' => '',
+                            'icon_url' => Yii::$app->AppHelper->buildItemIconUrl($slot),
+                            'rel_item' => '',
                         ];
                     }
                 }

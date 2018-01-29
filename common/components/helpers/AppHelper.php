@@ -445,10 +445,10 @@ class AppHelper extends \yii\base\Component
     * @return string
     */
     public static function buildItemRel($itemId, $data) {
-        $enchat = $data[Yii::$app->AppHelper::$ENCHAT_FIELD];
-        $socket_1 = $data[Yii::$app->AppHelper::$SOCKET_FIELD_1];
-        $socket_2 = $data[Yii::$app->AppHelper::$SOCKET_FIELD_2];
-        $socket_3 = $data[Yii::$app->AppHelper::$SOCKET_FIELD_3];
+        $enchat = $data[Yii::$app->AppHelper::$ENCHAT_FIELD] ? $data[Yii::$app->AppHelper::$ENCHAT_FIELD] : '';
+        $socket_1 = $data[Yii::$app->AppHelper::$SOCKET_FIELD_1] ? $data[Yii::$app->AppHelper::$SOCKET_FIELD_1] : '';
+        $socket_2 = $data[Yii::$app->AppHelper::$SOCKET_FIELD_2] ? $data[Yii::$app->AppHelper::$SOCKET_FIELD_2] : '';
+        $socket_3 = $data[Yii::$app->AppHelper::$SOCKET_FIELD_3] ? $data[Yii::$app->AppHelper::$SOCKET_FIELD_3] : '';
         return "item=$itemId&amp;ench=$enchat&amp;gems=$socket_1:$socket_2:$socket_3";;
     }
     /**
@@ -488,7 +488,7 @@ class AppHelper extends \yii\base\Component
                 throw new \Exception(Yii::t('common','Строка для перевода пуста'));
             }
         } elseif(is_object($var)) {
-            if($attribute) {
+            if(isset($var->{$attribute}) && $var->{$attribute}) {
                 return Yii::t('common',$var->{$attribute});
             } else {
                 throw new \Exception(Yii::t('common','Отсутствует аттрибут у объекта для перевода'));

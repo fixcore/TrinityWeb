@@ -292,7 +292,7 @@ class Characters extends CoreModel
             ->andWhere(['slot' => Yii::$app->AppHelper::$ARRAY_SLOTS, 'bag' => 0])
             ->orderBy(['slot' => SORT_ASC])
             ->with('relationItemInstance');
-            //->with('relationItemInstance.relationArmoryItem.iconRelation');
+            //->with('relationItemInstance.relationArmoryItem.relationIcon');
     }
     public function HasSpell($spell_id) {
         return CharacterSpell::find()->where(['guid' => $this->guid, 'spell' => $spell_id])->exists();
