@@ -75,6 +75,15 @@ $config = [
             'charset' => 'utf8',
             'enableSchemaCache' => YII_ENV_PROD,
         ],
+        'armory' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => env('ARMORY_DB_DSN'),
+            'username' => env('ARMORY_DB_USERNAME'),
+            'password' => env('ARMORY_DB_PASSWORD'),
+            'tablePrefix' => env('ARMORY_DB_TABLE_PREFIX'),
+            'charset' => 'utf8',
+            'enableSchemaCache' => YII_ENV_PROD,
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

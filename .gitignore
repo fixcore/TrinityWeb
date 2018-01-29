@@ -20,6 +20,10 @@ nbproject
 # characters db config
 common/config/base_characters.php
 
+# dumps
+console/dumps
+console/dumps/*
+
 # web platform source
 frontend/web/admin
 frontend/web/storage
