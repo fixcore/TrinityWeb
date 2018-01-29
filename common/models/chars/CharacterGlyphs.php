@@ -6,6 +6,8 @@ use Yii;
 
 use common\core\models\characters\CoreModel;
 
+use common\models\armory\ArmoryGlyphproperties;
+
 /**
  * This is the model class for table "character_glyphs".
  *

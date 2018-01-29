@@ -6,6 +6,8 @@ use Yii;
 
 use common\core\models\characters\CoreModel;
 
+use common\models\armory\ArmoryItemTemplate;
+
 /**
  * This is the model class for table "item_instance".
  *

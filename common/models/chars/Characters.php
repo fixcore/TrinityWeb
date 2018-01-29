@@ -7,11 +7,9 @@ use yii\helpers\ArrayHelper;
 
 use common\core\models\characters\CoreModel;
 
-/*
 use common\models\armory\ArmoryTitles;
 use common\models\armory\ArmoryTalentTab;
 use common\models\armory\ArmoryRating;
-*/
 
 /**
  * This is the model class for table "characters".
@@ -269,6 +267,13 @@ class Characters extends CoreModel
         return $this->hasMany(ArenaTeamMember::className(),['guid' => 'guid'])->with(['teamRelation']);
     }
     /**
+    * Связь для получения объектов содержащих данные о рейтингах для текущего уровня для персонажа
+    * @return \yii\db\ActiveQuery
+    */
+    public function getRelationArmoryRating() {
+        return $this->hasOne(ArmoryRating::className(),['level' => 'level']);
+    }
+    /**
     * Связь для получения объектов содержащих данные о первичных проффесиях у персонажа
     * @return \yii\db\ActiveQuery
     */
@@ -338,9 +343,6 @@ class Characters extends CoreModel
     
     
     /*unknown*/
-    public function getArmoryRating() {
-        return $this->hasOne(ArmoryRating::className(),['level' => 'level']);
-    }
     public function clearOnlineCache($server_id) {
         $cache_key = 'server_' . $server_id . '_characters_online';
         Yii::$app->cache->delete($cache_key);
@@ -399,84 +401,6 @@ class Characters extends CoreModel
             Yii::$app->cache->set($cache_key, $output, self::UPDATE_TIME * 5);
         }
         return $output;
-    }
-    public function findStats($server_id) {
-        $cache_key = 'armory_character-stats_' . $this->guid . '_' . $server_id;
-        $output = Yii::$app->cache->get($cache_key);
-        if($output === false) {
-            if($this->statsRelation) {
-                $output['maxhealth'] = $this->statsRelation->maxhealth;
-                $output['maxpower'] = Yii::$app->CoreHelper->getMaxPowerByClass($this);
-                $output['strength'] = $this->statsRelation->strength;
-                $output['agility'] = $this->statsRelation->agility;
-                $output['stamina'] = $this->statsRelation->stamina;
-                $output['intellect'] = $this->statsRelation->intellect;
-                $output['spirit'] = $this->statsRelation->spirit;
-                $output['armor'] = $this->statsRelation->armor;
-                $output['expertiseBaseAttackPct'] = $this->statsRelation->expertiseBaseAttackPct;
-                $output['attackPower'] = $this->statsRelation->attackPower;
-                $output['hitMelee'] = $this->statsRelation->hitMelee;
-                $output['critPct'] = $this->statsRelation->critPct;
-                $output['expertiseOffAttackPct'] = $this->statsRelation->expertiseOffAttackPct;
-                $output['rangedAttackPower'] = $this->statsRelation->rangedAttackPower;
-                $output['hitRanged'] = $this->statsRelation->hitRanged;
-                $output['rangedCritPct'] = $this->statsRelation->rangedCritPct;
-                $output['spellPower'] = $this->statsRelation->spellPower;
-                $output['hitSpell'] = $this->statsRelation->hitSpell;
-                $output['hasteSpell'] = $this->statsRelation->hasteSpell;
-                $output['dodgePct'] = $this->statsRelation->dodgePct;
-                $output['parryPct'] = $this->statsRelation->parryPct;
-                $output['blockPct'] = $this->statsRelation->blockPct;
-                $output['resilience'] = $this->statsRelation->resilience;
-                $output['spellCrit'] = avg(
-                    $this->statsRelation->spellCritPctHoly,
-                    $this->statsRelation->spellCritPctFire,
-                    $this->statsRelation->spellCritPctNature,
-                    $this->statsRelation->spellCritPctFrost,
-                    $this->statsRelation->spellCritPctShadow,
-                    $this->statsRelation->spellCritPctArcane
-                );
-                $output['melee_damage_from'] = $this->calculateMeleeDamageMin();
-                $output['melee_damage_to'] = $this->calculateMeleeDamageMax();
-                $output['range_damage_from'] = $this->calculateRangeDamageMin();
-                $output['range_damage_to'] = $this->calculateRangeDamageMax();
-                $output['experience'] = 0;
-                $output['spellHealing'] = 0;
-                $output['mp5'] = $this->calculateManaPerFiveSeconds($this->armoryRating);
-                $output['defence'] = $this->calculateDefence($this->armoryRating);
-            }
-            Yii::$app->cache->set($cache_key, $output, self::UPDATE_TIME * 5);
-        }
-        return $output;
-    }
-    //TODO - calculate function stat ratings
-    public function calculateMeleeDamageMin() {
-        return 0;
-    }
-    public function calculateMeleeDamageMax() {
-        return 0;
-    }
-    public function calculateRangeDamageMin() {
-        return 0;
-    }
-    public function calculateRangeDamageMax() {
-        return 0;
-    }
-    public function calculateManaPerFiveSeconds($rating) {
-        return 0;
-    }
-    public function calculateDefence($rating) {
-        return 0;
-    }
-    protected function GetRatingCoefficient($rating,$id) {
-        $coef = 1;
-        
-        if($rating) {
-            $coef = 1;
-        }
-        
-        return $coef;
-        
     }
     public function findProfessions($server_id) {
         $cache_key = 'armory_character-professions_' . $this->guid . '_' . $server_id;

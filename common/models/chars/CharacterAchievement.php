@@ -6,6 +6,8 @@ use Yii;
 
 use common\core\models\characters\CoreModel;
 
+use common\models\armory\ArmoryAchievement;
+
 /**
  * This is the model class for table "character_achievement".
  *
@@ -47,7 +49,7 @@ class CharacterAchievement extends CoreModel
     * Связь для получения объекта содержащего данные о участниках команды
     * @return \yii\db\ActiveQuery
     */
-    public function getAchievementRelation() {
+    public function getRelationAchievement() {
         return $this->hasOne(ArmoryAchievement::className(), ['id' => 'achievement']);
     }
 
