@@ -5,147 +5,146 @@ namespace common\models\armory;
 use Yii;
 
 /**
- * This is the model class for table "armory_item_template".
+ * This is the model class for table "{{%armory_item_template}}".
  *
- * @property integer $entry
- * @property integer $class
- * @property integer $subclass
- * @property integer $SoundOverrideSubclass
+ * @property int $entry
+ * @property int $class
+ * @property int $subclass
+ * @property int $unk0
  * @property string $name
- * @property integer $displayid
- * @property integer $Quality
- * @property integer $Flags
- * @property integer $FlagsExtra
- * @property integer $BuyCount
- * @property integer $BuyPrice
- * @property integer $SellPrice
- * @property integer $InventoryType
- * @property integer $AllowableClass
- * @property integer $AllowableRace
- * @property integer $ItemLevel
- * @property integer $RequiredLevel
- * @property integer $RequiredSkill
- * @property integer $RequiredSkillRank
- * @property integer $requiredspell
- * @property integer $requiredhonorrank
- * @property integer $RequiredCityRank
- * @property integer $RequiredReputationFaction
- * @property integer $RequiredReputationRank
- * @property integer $maxcount
- * @property integer $stackable
- * @property integer $ContainerSlots
- * @property integer $StatsCount
- * @property integer $stat_type1
- * @property integer $stat_value1
- * @property integer $stat_type2
- * @property integer $stat_value2
- * @property integer $stat_type3
- * @property integer $stat_value3
- * @property integer $stat_type4
- * @property integer $stat_value4
- * @property integer $stat_type5
- * @property integer $stat_value5
- * @property integer $stat_type6
- * @property integer $stat_value6
- * @property integer $stat_type7
- * @property integer $stat_value7
- * @property integer $stat_type8
- * @property integer $stat_value8
- * @property integer $stat_type9
- * @property integer $stat_value9
- * @property integer $stat_type10
- * @property integer $stat_value10
- * @property integer $ScalingStatDistribution
- * @property integer $ScalingStatValue
+ * @property int $displayid
+ * @property int $Quality
+ * @property int $Flags
+ * @property int $Flags2
+ * @property int $BuyCount
+ * @property int $BuyPrice
+ * @property int $SellPrice
+ * @property int $InventoryType
+ * @property int $AllowableClass
+ * @property int $AllowableRace
+ * @property int $ItemLevel
+ * @property int $RequiredLevel
+ * @property int $RequiredSkill
+ * @property int $RequiredSkillRank
+ * @property int $requiredspell
+ * @property int $requiredhonorrank
+ * @property int $RequiredCityRank
+ * @property int $RequiredReputationFaction
+ * @property int $RequiredReputationRank
+ * @property int $maxcount
+ * @property int $stackable
+ * @property int $ContainerSlots
+ * @property int $StatsCount
+ * @property int $stat_type1
+ * @property int $stat_value1
+ * @property int $stat_type2
+ * @property int $stat_value2
+ * @property int $stat_type3
+ * @property int $stat_value3
+ * @property int $stat_type4
+ * @property int $stat_value4
+ * @property int $stat_type5
+ * @property int $stat_value5
+ * @property int $stat_type6
+ * @property int $stat_value6
+ * @property int $stat_type7
+ * @property int $stat_value7
+ * @property int $stat_type8
+ * @property int $stat_value8
+ * @property int $stat_type9
+ * @property int $stat_value9
+ * @property int $stat_type10
+ * @property int $stat_value10
+ * @property int $ScalingStatDistribution
+ * @property int $ScalingStatValue
  * @property double $dmg_min1
  * @property double $dmg_max1
- * @property integer $dmg_type1
+ * @property int $dmg_type1
  * @property double $dmg_min2
  * @property double $dmg_max2
- * @property integer $dmg_type2
- * @property integer $armor
- * @property integer $holy_res
- * @property integer $fire_res
- * @property integer $nature_res
- * @property integer $frost_res
- * @property integer $shadow_res
- * @property integer $arcane_res
- * @property integer $delay
- * @property integer $ammo_type
+ * @property int $dmg_type2
+ * @property int $armor
+ * @property int $holy_res
+ * @property int $fire_res
+ * @property int $nature_res
+ * @property int $frost_res
+ * @property int $shadow_res
+ * @property int $arcane_res
+ * @property int $delay
+ * @property int $ammo_type
  * @property double $RangedModRange
- * @property integer $spellid_1
- * @property integer $spelltrigger_1
- * @property integer $spellcharges_1
+ * @property int $spellid_1
+ * @property int $spelltrigger_1
+ * @property int $spellcharges_1
  * @property double $spellppmRate_1
- * @property integer $spellcooldown_1
- * @property integer $spellcategory_1
- * @property integer $spellcategorycooldown_1
- * @property integer $spellid_2
- * @property integer $spelltrigger_2
- * @property integer $spellcharges_2
+ * @property int $spellcooldown_1
+ * @property int $spellcategory_1
+ * @property int $spellcategorycooldown_1
+ * @property int $spellid_2
+ * @property int $spelltrigger_2
+ * @property int $spellcharges_2
  * @property double $spellppmRate_2
- * @property integer $spellcooldown_2
- * @property integer $spellcategory_2
- * @property integer $spellcategorycooldown_2
- * @property integer $spellid_3
- * @property integer $spelltrigger_3
- * @property integer $spellcharges_3
+ * @property int $spellcooldown_2
+ * @property int $spellcategory_2
+ * @property int $spellcategorycooldown_2
+ * @property int $spellid_3
+ * @property int $spelltrigger_3
+ * @property int $spellcharges_3
  * @property double $spellppmRate_3
- * @property integer $spellcooldown_3
- * @property integer $spellcategory_3
- * @property integer $spellcategorycooldown_3
- * @property integer $spellid_4
- * @property integer $spelltrigger_4
- * @property integer $spellcharges_4
+ * @property int $spellcooldown_3
+ * @property int $spellcategory_3
+ * @property int $spellcategorycooldown_3
+ * @property int $spellid_4
+ * @property int $spelltrigger_4
+ * @property int $spellcharges_4
  * @property double $spellppmRate_4
- * @property integer $spellcooldown_4
- * @property integer $spellcategory_4
- * @property integer $spellcategorycooldown_4
- * @property integer $spellid_5
- * @property integer $spelltrigger_5
- * @property integer $spellcharges_5
+ * @property int $spellcooldown_4
+ * @property int $spellcategory_4
+ * @property int $spellcategorycooldown_4
+ * @property int $spellid_5
+ * @property int $spelltrigger_5
+ * @property int $spellcharges_5
  * @property double $spellppmRate_5
- * @property integer $spellcooldown_5
- * @property integer $spellcategory_5
- * @property integer $spellcategorycooldown_5
- * @property integer $bonding
+ * @property int $spellcooldown_5
+ * @property int $spellcategory_5
+ * @property int $spellcategorycooldown_5
+ * @property int $bonding
  * @property string $description
- * @property integer $PageText
- * @property integer $LanguageID
- * @property integer $PageMaterial
- * @property integer $startquest
- * @property integer $lockid
- * @property integer $Material
- * @property integer $sheath
- * @property integer $RandomProperty
- * @property integer $RandomSuffix
- * @property integer $block
- * @property integer $itemset
- * @property integer $MaxDurability
- * @property integer $area
- * @property integer $Map
- * @property integer $BagFamily
- * @property integer $TotemCategory
- * @property integer $socketColor_1
- * @property integer $socketContent_1
- * @property integer $socketColor_2
- * @property integer $socketContent_2
- * @property integer $socketColor_3
- * @property integer $socketContent_3
- * @property integer $socketBonus
- * @property integer $GemProperties
- * @property integer $RequiredDisenchantSkill
+ * @property int $PageText
+ * @property int $LanguageID
+ * @property int $PageMaterial
+ * @property int $startquest
+ * @property int $lockid
+ * @property int $Material
+ * @property int $sheath
+ * @property int $RandomProperty
+ * @property int $RandomSuffix
+ * @property int $block
+ * @property int $itemset
+ * @property int $MaxDurability
+ * @property int $area
+ * @property int $Map
+ * @property int $BagFamily
+ * @property int $TotemCategory
+ * @property int $socketColor_1
+ * @property int $socketContent_1
+ * @property int $socketColor_2
+ * @property int $socketContent_2
+ * @property int $socketColor_3
+ * @property int $socketContent_3
+ * @property int $socketBonus
+ * @property int $GemProperties
+ * @property int $RequiredDisenchantSkill
  * @property double $ArmorDamageModifier
- * @property integer $duration
- * @property integer $ItemLimitCategory
- * @property integer $HolidayId
+ * @property int $Duration
+ * @property int $ItemLimitCategory
+ * @property int $HolidayId
  * @property string $ScriptName
- * @property integer $DisenchantID
- * @property integer $FoodType
- * @property integer $minMoneyLoot
- * @property integer $maxMoneyLoot
- * @property integer $flagsCustom
- * @property integer $VerifiedBuild
+ * @property int $DisenchantID
+ * @property int $FoodType
+ * @property int $minMoneyLoot
+ * @property int $maxMoneyLoot
+ * @property int $ExtraFlags
  */
 class ArmoryItemTemplate extends \yii\db\ActiveRecord
 {
@@ -154,7 +153,7 @@ class ArmoryItemTemplate extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'armory_item_template';
+        return '{{%armory_item_template}}';
     }
 
     /**
@@ -172,10 +171,11 @@ class ArmoryItemTemplate extends \yii\db\ActiveRecord
     {
         return [
             [['entry'], 'required'],
-            [['entry', 'class', 'subclass', 'SoundOverrideSubclass', 'displayid', 'Quality', 'Flags', 'FlagsExtra', 'BuyCount', 'BuyPrice', 'SellPrice', 'InventoryType', 'AllowableClass', 'AllowableRace', 'ItemLevel', 'RequiredLevel', 'RequiredSkill', 'RequiredSkillRank', 'requiredspell', 'requiredhonorrank', 'RequiredCityRank', 'RequiredReputationFaction', 'RequiredReputationRank', 'maxcount', 'stackable', 'ContainerSlots', 'StatsCount', 'stat_type1', 'stat_value1', 'stat_type2', 'stat_value2', 'stat_type3', 'stat_value3', 'stat_type4', 'stat_value4', 'stat_type5', 'stat_value5', 'stat_type6', 'stat_value6', 'stat_type7', 'stat_value7', 'stat_type8', 'stat_value8', 'stat_type9', 'stat_value9', 'stat_type10', 'stat_value10', 'ScalingStatDistribution', 'ScalingStatValue', 'dmg_type1', 'dmg_type2', 'armor', 'holy_res', 'fire_res', 'nature_res', 'frost_res', 'shadow_res', 'arcane_res', 'delay', 'ammo_type', 'spellid_1', 'spelltrigger_1', 'spellcharges_1', 'spellcooldown_1', 'spellcategory_1', 'spellcategorycooldown_1', 'spellid_2', 'spelltrigger_2', 'spellcharges_2', 'spellcooldown_2', 'spellcategory_2', 'spellcategorycooldown_2', 'spellid_3', 'spelltrigger_3', 'spellcharges_3', 'spellcooldown_3', 'spellcategory_3', 'spellcategorycooldown_3', 'spellid_4', 'spelltrigger_4', 'spellcharges_4', 'spellcooldown_4', 'spellcategory_4', 'spellcategorycooldown_4', 'spellid_5', 'spelltrigger_5', 'spellcharges_5', 'spellcooldown_5', 'spellcategory_5', 'spellcategorycooldown_5', 'bonding', 'PageText', 'LanguageID', 'PageMaterial', 'startquest', 'lockid', 'Material', 'sheath', 'RandomProperty', 'RandomSuffix', 'block', 'itemset', 'MaxDurability', 'area', 'Map', 'BagFamily', 'TotemCategory', 'socketColor_1', 'socketContent_1', 'socketColor_2', 'socketContent_2', 'socketColor_3', 'socketContent_3', 'socketBonus', 'GemProperties', 'RequiredDisenchantSkill', 'duration', 'ItemLimitCategory', 'HolidayId', 'DisenchantID', 'FoodType', 'minMoneyLoot', 'maxMoneyLoot', 'flagsCustom', 'VerifiedBuild'], 'integer'],
+            [['entry', 'class', 'subclass', 'unk0', 'displayid', 'Quality', 'Flags', 'Flags2', 'BuyCount', 'BuyPrice', 'SellPrice', 'InventoryType', 'AllowableClass', 'AllowableRace', 'ItemLevel', 'RequiredLevel', 'RequiredSkill', 'RequiredSkillRank', 'requiredspell', 'requiredhonorrank', 'RequiredCityRank', 'RequiredReputationFaction', 'RequiredReputationRank', 'maxcount', 'stackable', 'ContainerSlots', 'StatsCount', 'stat_type1', 'stat_value1', 'stat_type2', 'stat_value2', 'stat_type3', 'stat_value3', 'stat_type4', 'stat_value4', 'stat_type5', 'stat_value5', 'stat_type6', 'stat_value6', 'stat_type7', 'stat_value7', 'stat_type8', 'stat_value8', 'stat_type9', 'stat_value9', 'stat_type10', 'stat_value10', 'ScalingStatDistribution', 'ScalingStatValue', 'dmg_type1', 'dmg_type2', 'armor', 'holy_res', 'fire_res', 'nature_res', 'frost_res', 'shadow_res', 'arcane_res', 'delay', 'ammo_type', 'spellid_1', 'spelltrigger_1', 'spellcharges_1', 'spellcooldown_1', 'spellcategory_1', 'spellcategorycooldown_1', 'spellid_2', 'spelltrigger_2', 'spellcharges_2', 'spellcooldown_2', 'spellcategory_2', 'spellcategorycooldown_2', 'spellid_3', 'spelltrigger_3', 'spellcharges_3', 'spellcooldown_3', 'spellcategory_3', 'spellcategorycooldown_3', 'spellid_4', 'spelltrigger_4', 'spellcharges_4', 'spellcooldown_4', 'spellcategory_4', 'spellcategorycooldown_4', 'spellid_5', 'spelltrigger_5', 'spellcharges_5', 'spellcooldown_5', 'spellcategory_5', 'spellcategorycooldown_5', 'bonding', 'PageText', 'LanguageID', 'PageMaterial', 'startquest', 'lockid', 'Material', 'sheath', 'RandomProperty', 'RandomSuffix', 'block', 'itemset', 'MaxDurability', 'area', 'Map', 'BagFamily', 'TotemCategory', 'socketColor_1', 'socketContent_1', 'socketColor_2', 'socketContent_2', 'socketColor_3', 'socketContent_3', 'socketBonus', 'GemProperties', 'RequiredDisenchantSkill', 'Duration', 'ItemLimitCategory', 'HolidayId', 'DisenchantID', 'FoodType', 'minMoneyLoot', 'maxMoneyLoot', 'ExtraFlags'], 'integer'],
             [['dmg_min1', 'dmg_max1', 'dmg_min2', 'dmg_max2', 'RangedModRange', 'spellppmRate_1', 'spellppmRate_2', 'spellppmRate_3', 'spellppmRate_4', 'spellppmRate_5', 'ArmorDamageModifier'], 'number'],
             [['name', 'description'], 'string', 'max' => 255],
             [['ScriptName'], 'string', 'max' => 64],
+            [['entry'], 'unique'],
         ];
     }
 
@@ -188,12 +188,12 @@ class ArmoryItemTemplate extends \yii\db\ActiveRecord
             'entry' => Yii::t('common', 'Entry'),
             'class' => Yii::t('common', 'Class'),
             'subclass' => Yii::t('common', 'Subclass'),
-            'SoundOverrideSubclass' => Yii::t('common', 'Sound Override Subclass'),
+            'unk0' => Yii::t('common', 'Unk0'),
             'name' => Yii::t('common', 'Name'),
             'displayid' => Yii::t('common', 'Displayid'),
             'Quality' => Yii::t('common', 'Quality'),
             'Flags' => Yii::t('common', 'Flags'),
-            'FlagsExtra' => Yii::t('common', 'Flags Extra'),
+            'Flags2' => Yii::t('common', 'Flags2'),
             'BuyCount' => Yii::t('common', 'Buy Count'),
             'BuyPrice' => Yii::t('common', 'Buy Price'),
             'SellPrice' => Yii::t('common', 'Sell Price'),
@@ -314,7 +314,7 @@ class ArmoryItemTemplate extends \yii\db\ActiveRecord
             'GemProperties' => Yii::t('common', 'Gem Properties'),
             'RequiredDisenchantSkill' => Yii::t('common', 'Required Disenchant Skill'),
             'ArmorDamageModifier' => Yii::t('common', 'Armor Damage Modifier'),
-            'duration' => Yii::t('common', 'Duration'),
+            'Duration' => Yii::t('common', 'Duration'),
             'ItemLimitCategory' => Yii::t('common', 'Item Limit Category'),
             'HolidayId' => Yii::t('common', 'Holiday ID'),
             'ScriptName' => Yii::t('common', 'Script Name'),
@@ -322,8 +322,7 @@ class ArmoryItemTemplate extends \yii\db\ActiveRecord
             'FoodType' => Yii::t('common', 'Food Type'),
             'minMoneyLoot' => Yii::t('common', 'Min Money Loot'),
             'maxMoneyLoot' => Yii::t('common', 'Max Money Loot'),
-            'flagsCustom' => Yii::t('common', 'Flags Custom'),
-            'VerifiedBuild' => Yii::t('common', 'Verified Build'),
+            'ExtraFlags' => Yii::t('common', 'Extra Flags'),
         ];
     }
     

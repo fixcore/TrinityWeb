@@ -33,7 +33,11 @@ class CharacterData extends Model
     public function generateGeneral() {
         $data = $data['stats'] = Yii::$app->cache->get(Yii::$app->request->url);
         if($data === false) {
-            $character = Characters::find()->where(['name' => $this->name])->with(['relationStats', 'relationGuild.relationGuild'])->one();
+            $character = Characters::find()->where(['name' => $this->name])->with([
+                'relationStats',
+                'relationEquipment',
+                'relationGuild.relationGuild'
+            ])->one();
             $data['name'] = $this->name;
             $data['title'] = CharacterData::EMPTY_DATA;
             $data['guild'] = $character->relationGuild ? $character->relationGuild->relationGuild->name : CharacterData::EMPTY_DATA;
@@ -81,7 +85,7 @@ class CharacterData extends Model
                     if(is_object($item) && $slot == $item->slot) {
                         $data['items'][$slot] = [
                             'item_url' => Yii::$app->AppHelper->buildDBUrl($item->relationItemInstance->itemEntry, Yii::$app->AppHelper::$TYPE_ITEM),
-                            //'icon_url' => Yii::$app->AppHelper->buildItemIconUrl($slot, $item->relationItemInstance->armoryItem->iconRelation->icon),
+                            'icon_url' => Yii::$app->AppHelper->buildItemIconUrl($slot, $item->relationItemInstance->relationArmoryItem->relationIcon->icon),
                             'rel_item' => Yii::$app->AppHelper->buildItemRel($item->relationItemInstance->itemEntry,explode(' ',$item->relationItemInstance->enchantments)),
                         ];
                     } else {
