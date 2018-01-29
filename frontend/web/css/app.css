@@ -160,18 +160,18 @@ ul.nav > li {
     perspective: 1000px;
     vertical-align: baseline;
 }
-nav.navbar ul.nav > .active > a:focus,
-nav.navbar ul.nav > .active > a:hover,
+#general-menu.navbar ul.nav > .active > a:focus,
+#general-menu.navbar ul.nav > .active > a:hover,
 ul.nav > .active > a.dropdown-toggle {
     background-color: inherit;
 }
 ul.nav > .active > a.dropdown-toggle, 
-nav.navbar ul.nav > .active > a:focus,
-nav.navbar ul.nav > .active > a:hover {
+#general-menu.navbar ul.nav > .active > a:focus,
+#general-menu.navbar ul.nav > .active > a:hover {
     color: #36BBA6;
 }
 
-ul.nav > li > a:not(.dropdown-toggle):before {
+#general-menu ul.nav > li > a:not(.dropdown-toggle):before {
     display: block;
     position: absolute;
     top: 100%;
@@ -195,7 +195,7 @@ ul.nav > li > a:not(.dropdown-toggle):before {
     -webkit-transform-origin: 50% 0;
     transform-origin: 50% 0;
 }
-ul.nav > li > a {
+#general-menu ul.nav > li > a {
     position: relative;    
     -moz-transition: background 0.3s;
     -o-transition: background 0.3s;
@@ -213,8 +213,8 @@ ul.nav > li > a {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
-ul.nav > li.active > a:not(.dropdown-toggle),
-ul.nav > li:hover > a:not(.dropdown-toggle) {
+#general-menu ul.nav > li.active > a:not(.dropdown-toggle),
+#general-menu ul.nav > li:hover > a:not(.dropdown-toggle) {
     -moz-transform: rotateX(90deg) translateY(-22px);
     -ms-transform: rotateX(90deg) translateY(-22px);
     -webkit-transform: rotateX(90deg) translateY(-22px);
