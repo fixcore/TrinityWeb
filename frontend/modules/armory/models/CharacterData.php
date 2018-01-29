@@ -35,11 +35,21 @@ class CharacterData extends Model
         if($data === false) {
             $character = Characters::find()->where(['name' => $this->name])->with([
                 'relationStats',
+                'relationTitle',
                 'relationEquipment',
                 'relationGuild.relationGuild'
             ])->one();
             $data['name'] = $this->name;
+            $data['level'] = $character->level;
+            $data['race_index'] = $character->race;
+            $data['race'] = Yii::$app->AppHelper->getRaces($character->race);
+            $data['class_index'] = $character->class;
+            $data['class'] = Yii::$app->AppHelper->getClasses($character->class);
             $data['title'] = CharacterData::EMPTY_DATA;
+            if($character->relationTitle) {
+                $gender = $character->gender ? 'F' : 'M';
+                $data['title'] = Yii::$app->AppHelper->i18nAttribute($character->relationTitle,'title_' . $gender);
+            }
             $data['guild'] = $character->relationGuild ? $character->relationGuild->relationGuild->name : CharacterData::EMPTY_DATA;
             $data['stats']['maxhealth'] = $character->relationStats ? $character->relationStats->maxhealth : 0;
             $data['stats']['maxpower'] = Yii::$app->AppHelper->getCharacterPowerByClass($character->class);

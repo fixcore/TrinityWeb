@@ -436,7 +436,7 @@ class AppHelper extends \yii\base\Component
         if($icon_name) {
             return Yii::$app->params['database_icon_url'] . "/$icon_name.jpg";
         }
-        return "/img/armory/$slot.jpg";
+        return "/img/armory/slots/$slot.png";
     }
     /**
     * Сформировать значение для rel аттрибута - для отображения доп. эффектов
@@ -481,6 +481,8 @@ class AppHelper extends \yii\base\Component
     * @return i18n string
     */
     public function i18nAttribute($var, $attribute = null) {
+        $lang = strtolower(explode('-',Yii::$app->language)[0]);
+        $attribute .=  '_' . $lang . '_' . $lang;
         if(is_array($var)) {
             if($var[$attribute]) {
                 return Yii::t('common',$var[$attribute]);
