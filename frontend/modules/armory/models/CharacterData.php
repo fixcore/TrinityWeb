@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 
 use common\models\chars\Characters;
+use common\models\chars\CharacterAchievement;
 
 /**
  * SearchForm
@@ -107,6 +108,17 @@ class CharacterData extends Model
                     }
                 }
                 next($_items);
+            }
+            
+            $data['achievements'] = [];
+            $achiv_models = CharacterAchievement::find()->where(['guid' => $character->guid])->limit(10)->orderBy(['date' => SORT_DESC])->with('relationAchievement')->asArray()->all();
+            foreach($achiv_models as $ach_m) {
+                $data['achievements'][] = [
+                    'id' => $ach_m['achievement'],
+                    'name' => $ach_m['relationAchievement'] ? Yii::$app->AppHelper->i18nAttribute($ach_m['relationAchievement'],'name') : 'null',
+                    'icon' => $ach_m['relationAchievement'] ? $ach_m['relationAchievement']['iconname'] : 'null.png',
+                    'date' => $ach_m['date'],
+                ];
             }
             
             Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->params['cache_armory_character']);

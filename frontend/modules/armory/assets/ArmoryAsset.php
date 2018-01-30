@@ -29,12 +29,14 @@ class ArmoryAsset extends AssetBundle
      * @var array
      */
     public $css = [
+        'css/armory.css',
     ];
 
     /**
      * @var array
      */
     public $js = [
+        'js/armory.js',
     ];
 
     /**

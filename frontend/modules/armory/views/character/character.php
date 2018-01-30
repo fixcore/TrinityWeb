@@ -367,6 +367,20 @@ use yii\helpers\Url;
     </div>
     <div class="col-xs-12 col-md-5">
         <div id="professions_info"></div>
-        <div id="achievements_info"></div>
+        <div id="achievements_info">
+            <?php
+            foreach($data['achievements'] as $achiv) {
+                ?>
+                <div class="achievement_data">
+                    <a href="<?=Yii::$app->AppHelper->buildDBUrl($achiv['id'],Yii::$app->AppHelper::$TYPE_ACHIEVEMENT)?>" target="_blank">
+                        <img src="<?php//=Yii::$app->AppHelper->getIconUrl($achiv['iconname'])?>" width="15" alt="" />
+                        <?=$achiv['name']?>
+                    </a>
+                    <?=date('Y-m-d H:i:s',$achiv['date'])?>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
     </div>
 </div>

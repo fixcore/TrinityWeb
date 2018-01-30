@@ -1,0 +1,25 @@
+#amory_character_switch {
+    border-bottom-width: 0px;
+}
+#amory_character_switch .tab-content>.tab-pane {
+    padding-top: 10px;
+    min-height: 130px;
+}
+#amory_character_switch li {
+    display: none;
+    float: none;
+    width: 120px;
+}
+#amory_character_switch li.previous-tab,
+#amory_character_switch li.next-tab {
+    display: inline-block;
+    width: 40px;
+}
+#amory_character_switch li.active {
+    display: inline-block;
+}
+#amory_character_switch li a {
+    padding: 5px 10px;
+    background-color: inherit;
+    border-width: 0px;
+}

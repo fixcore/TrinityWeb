@@ -14,8 +14,10 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public $controllerNamespace = 'frontend\modules\armory\controllers';
     
-    
-    public $defaultRouge = 'main';
+    /**
+     * @inheritdoc
+     */
+    public $layout = 'main';
     
     /**
      * @inheritdoc
@@ -23,7 +25,6 @@ class Module extends \yii\base\Module implements BootstrapInterface
     public function init()
     {
         parent::init();
-        $this->layout = '@frontend/views/layouts/main_full';
         $this->setAliases(['@armory' => __DIR__]);
         $this->registerTranslations();
     }
