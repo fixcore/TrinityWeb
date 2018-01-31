@@ -7,6 +7,7 @@ use yii\base\Model;
 
 use common\models\chars\Characters;
 use common\models\chars\CharacterAchievement;
+use common\models\armory\ArmoryProfessions;
 
 /**
  * SearchForm
@@ -38,6 +39,7 @@ class CharacterData extends Model
                 'relationStats',
                 'relationTitle',
                 'relationEquipment',
+                'relationGeneralProfessions',
                 'relationGuild.relationGuild'
             ])->one();
             $data['name'] = $this->name;
@@ -120,6 +122,14 @@ class CharacterData extends Model
                     'date' => $ach_m['date'],
                 ];
             }
+            
+            $data['professions'] = [];
+            if($character->relationGeneralProfessions) {
+                foreach($character->relationGeneralProfessions as $prof) {
+                    
+                }
+            }
+            
             
             Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->params['cache_armory_character']);
         }

@@ -366,7 +366,13 @@ use yii\helpers\Url;
         </div>
     </div>
     <div class="col-xs-12 col-md-5">
-        <div id="professions_info"></div>
+        <div id="professions_info">
+            <?php
+            foreach($data['professions'] as $prof) {
+                
+            }
+            ?>
+        </div>
         <div id="achievements_info">
             <?php
             foreach($data['achievements'] as $achiv) {

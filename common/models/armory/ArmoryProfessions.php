@@ -64,4 +64,32 @@ class ArmoryProfessions extends \yii\db\ActiveRecord
             'icon' => Yii::t('common', 'Icon'),
         ];
     }
+    
+    public function getProfessionData($id) {
+        if($id) {
+            return ArmoryProfessions::getData($id);
+        }
+        return null;
+    }
+    
+    protected function getList() {
+        $data = Yii::$app->cache->get(ArmoryProfessions::className());
+        if($data === false) {
+            $data = ArmoryProfessions::find()->asArray()->all();
+            Yii::$app->cache->set(ArmoryProfessions::className(),$data);
+        }
+        return $data;
+    }
+    
+    protected function getData($id) {
+        
+        $list = ArmoryProfessions::getList();
+        foreach($list as $data_item) {
+            if($data_item['id'] == $id) {
+                return $data_item;
+            }
+        }
+        return null;
+    }
+    
 }

@@ -279,8 +279,8 @@ class Characters extends CoreModel
     */
     public function getRelationGeneralProfessions() {
         return $this->hasMany(CharacterSkills::className(),['guid' => 'guid'])->andWhere([
-            'skill' => Yii::$app->CoreHelper->_professions
-        ])->with(['armoryProfession']);
+            'skill' => Yii::$app->AppHelper::$GENERAL_PROFESSIONS
+        ])->with(['relationArmoryProfession']);
     }
     /**
     * Функция проверки существования заклинания у персонажа
