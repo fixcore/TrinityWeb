@@ -4,10 +4,15 @@ namespace frontend\modules\armory\models;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\ArrayHelper;
 
 use common\models\chars\Characters;
 use common\models\chars\CharacterAchievement;
+use common\models\chars\CharacterTalent;
+
 use common\models\armory\ArmoryProfessions;
+use common\models\armory\ArmoryTalentTab;
+use common\models\armory\ArmoryTalent;
 
 /**
  * SearchForm
@@ -33,7 +38,7 @@ class CharacterData extends Model
     }
     
     public function generateGeneral() {
-        $data = $data['stats'] = Yii::$app->cache->get(Yii::$app->request->url);
+        $data = Yii::$app->cache->get(Yii::$app->request->url);
         if($data === false) {
             $character = Characters::find()->where(['name' => $this->name])->with([
                 'relationStats',
@@ -136,11 +141,66 @@ class CharacterData extends Model
     }
     
     public function generateTalents() {
-        $data = $data['stats'] = Yii::$app->cache->get(Yii::$app->request->url);
+        $data = Yii::$app->cache->get(Yii::$app->request->url);
         if($data === false) {
+            $character = Characters::find()->where(['name' => $this->name])->one();
+            $data['name'] = $character->name;
+            $talentTabs = ArmoryTalentTab::find()
+                    ->where([
+                        'refmask_chrclasses' => Yii::$app->AppHelper->getArmoryClassMask($character->class)
+                    ])->with('relationTree')->asArray()->all();
+            for($i = 0; $i <=1; $i++) {
+                foreach($talentTabs as $tab) {
+                    $data['talents'][$i][$tab['tab_number']] = [
+                        'name' => Yii::$app->AppHelper->i18nAttribute($tab, 'name'),
+                    ];
+                    $tree = ArrayHelper::index($tab['relationTree'], null, 'Row');
+                    foreach($tree as $k_row => $row) {
+                        foreach($row as $k_col => $col) {
+                            $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['id_spell'] = $col['Rank_1'];
+                            $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['max'] = Yii::$app->AppHelper->getMaxRankSpell($col);
+                            $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['count'] = static::checkCountTalentLearned($character->guid, $col, $i);
+                        }
+                    }
+                }
+            }
             Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->params['cache_armory_character_talents']);
         }
         return $data;
+    }
+    
+    public static function checkCountTalentLearned($char_guid, $col, $group) {
+        $spells = CharacterTalent::find()->where([
+            'guid' => $char_guid,
+            'spell' => [
+                $col['Rank_5'],  
+                $col['Rank_4'],  
+                $col['Rank_3'],  
+                $col['Rank_2'],  
+                $col['Rank_1'],  
+            ],
+            'talentGroup' => $group
+            ])->asArray()->all();
+        if(!$spells) {
+            $output = 0;
+        } else {
+            foreach($spells as $spell) {
+                if($col['Rank_5'] == $spell['spell']) {
+                    $output = 5;
+                } elseif ($col['Rank_4'] == $spell['spell']) {
+                    $output = 4;
+                } elseif ($col['Rank_3'] == $spell['spell']) {
+                    $output = 3;
+                } elseif ($col['Rank_2'] == $spell['spell']) {
+                    $output = 2;
+                } elseif ($col['Rank_1'] == $spell['spell']) {
+                    $output = 1;
+                } else {
+                    $output = 0;
+                }
+            }
+        }
+        return $output;
     }
     
 }

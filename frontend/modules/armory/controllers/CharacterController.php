@@ -50,7 +50,7 @@ class CharacterController extends Controller
      */
     public function actionTalents($server,$character)
     {
-        $data = (new CharacterData($character))->talents;
+        $data = (new CharacterData($character))->generateTalents();
         return $this->render('index', [
             'data' => $data,
             'view' => 'talents'
