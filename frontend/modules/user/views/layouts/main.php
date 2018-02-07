@@ -83,9 +83,7 @@ $this->beginContent('@frontend/views/layouts/base.php')
             <div class="col-xs-12 col-sm-7 col-md-9" id="user-panel-right-side">
                 <?php
                 Pjax::begin();
-                
                     echo $content;
-                    
                 Pjax::end();
                 ?>
             </div>
