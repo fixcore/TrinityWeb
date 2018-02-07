@@ -53,7 +53,7 @@ class SelectCharacterForm extends Model
     }
     
     public function confirm() {
-        if(Yii::$app->user->identity->HasCharacter($this->character_id)) {
+        if(Yii::$app->user->identity->HasCharacterByGuid($this->character_id)) {
             Yii::$app->user->identity->character_id = $this->character_id;
             Yii::$app->user->identity->save();
             Yii::$app->session->setFlash('success',Yii::t('cp','Выбраный персонаж успешно изменён'));

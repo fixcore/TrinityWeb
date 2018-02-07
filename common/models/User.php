@@ -330,7 +330,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function getRelationGameAccount() {
         return $this->hasOne(Accounts::className(),['id' => 'external_id']);
     }
-    
+    /**
+     * Проерка есть ли данный персонаж у пользователя (сервер выбраный пользователем)
+     * @param string $name
+     * @return bool true|false
+     */
     public function HasCharacterByName($name) {
         $data = Characters::getList();
         foreach($data as $character) {
@@ -340,7 +344,11 @@ class User extends ActiveRecord implements IdentityInterface
         }
         return false;
     }
-    
+    /**
+     * Проерка есть ли данный персонаж у пользователя (сервер выбраный пользователем)
+     * @param int $guid
+     * @return bool true|false
+     */
     public function HasCharacterByGuid($guid) {
         $data = Characters::getList();
         foreach($data as $character) {

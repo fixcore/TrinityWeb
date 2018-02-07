@@ -122,7 +122,6 @@ class CharacterData extends Model
                     'date' => $ach_m['date'],
                 ];
             }
-            
             $data['professions'] = [];
             if($character->relationGeneralProfessions) {
                 foreach($character->relationGeneralProfessions as $prof) {
@@ -139,8 +138,6 @@ class CharacterData extends Model
     public function generateTalents() {
         $data = $data['stats'] = Yii::$app->cache->get(Yii::$app->request->url);
         if($data === false) {
-            
-            
             Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->params['cache_armory_character_talents']);
         }
         return $data;

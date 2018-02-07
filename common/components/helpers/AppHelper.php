@@ -482,7 +482,11 @@ class AppHelper extends \yii\base\Component
     */
     public function i18nAttribute($var, $attribute = null) {
         $lang = strtolower(explode('-',Yii::$app->language)[0]);
-        $attribute .=  '_' . $lang . '_' . $lang;
+        if($lang == 'en') {
+            $attribute .=  '_en_gb';
+        } else {
+            $attribute .=  '_' . $lang . '_' . $lang;
+        }
         if(is_array($var)) {
             if($var[$attribute]) {
                 return Yii::t('common',$var[$attribute]);
