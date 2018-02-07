@@ -434,9 +434,17 @@ class AppHelper extends \yii\base\Component
     */
     public static function buildItemIconUrl($slot, $icon_name = null) {
         if($icon_name) {
-            return Yii::$app->params['database_icon_url'] . "/$icon_name.jpg";
+            return Yii::$app->params['database_icon_url_large'] . "/$icon_name.jpg";
         }
         return "/img/armory/slots/$slot.png";
+    }
+    /**
+    * Сформировать ссылку на иконку в базу данных.
+    * @param string $icon_name название иконки
+    * @return string
+    */
+    public static function buildSpellIconUrl($icon_name) {
+        return Yii::$app->params['database_icon_url_medium'] . "/$icon_name.jpg";
     }
     /**
     * Сформировать значение для rel аттрибута - для отображения доп. эффектов

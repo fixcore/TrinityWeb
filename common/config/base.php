@@ -168,7 +168,8 @@ $config = [
     'params' => [
         
         'database_url' => 'https://wotlk.cavernoftime.com',
-        'database_icon_url' => 'https://cdn.cavernoftime.com/wotlk/icons/large',
+        'database_icon_url_large' => 'https://cdn.cavernoftime.com/wotlk/icons/large',
+        'database_icon_url_medium' => 'https://cdn.cavernoftime.com/wotlk/icons/medium',
         
         'cache_armory_search' => 120,
         'cache_armory_character' => 60,
