@@ -6,9 +6,6 @@ use common\models\User;
 use Yii;
 use yii\filters\RateLimitInterface;
 
-/**
- * @author Eugene Terentev <eugene@terentev.net>
- */
 class ApiUserIdentity extends User implements RateLimitInterface
 {
 

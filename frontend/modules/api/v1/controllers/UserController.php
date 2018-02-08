@@ -12,7 +12,7 @@ use yii\rest\ActiveController;
 use yii\web\NotFoundHttpException;
 
 /**
- * @author Eugene Terentev <eugene@terentev.net>
+ * Class UserController
  */
 class UserController extends ActiveController
 {

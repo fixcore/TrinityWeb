@@ -6,9 +6,6 @@ use yii\helpers\Url;
 use yii\web\Link;
 use yii\web\Linkable;
 
-/**
- * @author Eugene Terentev <eugene@terentev.net>
- */
 class Article extends \common\models\Article implements Linkable
 {
     public function fields()
