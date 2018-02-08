@@ -23,3 +23,19 @@
     background-color: inherit;
     border-width: 0px;
 }
+#armory_character_talents .talents_tab:first-child {
+    margin-top: 30px;
+}
+#armory_character_talents .talents_tab {
+    margin-bottom: 10px;
+}
+#armory_character_talents .talents_tab .talent_tab_header {
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+#armory_character_talents .talents_tab hr {
+    
+}
+#armory_character_talents .talents_tab .talents_counter {
+    padding: 3px 0px;
+}

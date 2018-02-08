@@ -21,25 +21,21 @@ class CharacterData extends Model
 {
  
     const EMPTY_DATA = '- - - -';
-    
     private $name;
-    
     public $talents = [];
     
     public function __construct($character) {
-        
         $this->name = $character;
-        
         $this->talents = [
             'name' => $character,
         ];
-        
         return $this;
     }
     
     public function generateGeneral() {
         $data = Yii::$app->cache->get(Yii::$app->request->url);
         if($data === false) {
+            
             $character = Characters::find()->where(['name' => $this->name])->with([
                 'relationStats',
                 'relationTitle',
@@ -47,6 +43,7 @@ class CharacterData extends Model
                 'relationGeneralProfessions',
                 'relationGuild.relationGuild'
             ])->one();
+            
             $data['name'] = $this->name;
             $data['level'] = $character->level;
             $data['race_index'] = $character->race;
@@ -54,10 +51,12 @@ class CharacterData extends Model
             $data['class_index'] = $character->class;
             $data['class'] = Yii::$app->AppHelper->getClasses($character->class);
             $data['title'] = CharacterData::EMPTY_DATA;
+            
             if($character->relationTitle) {
                 $gender = $character->gender ? 'F' : 'M';
                 $data['title'] = Yii::$app->AppHelper->i18nAttribute($character->relationTitle,'title_' . $gender);
             }
+            
             $data['guild'] = $character->relationGuild ? $character->relationGuild->relationGuild->name : CharacterData::EMPTY_DATA;
             $data['stats']['maxhealth'] = $character->relationStats ? $character->relationStats->maxhealth : 0;
             $data['stats']['maxpower'] = Yii::$app->AppHelper->getCharacterPowerByClass($character->class);
@@ -94,7 +93,6 @@ class CharacterData extends Model
             $data['stats']['mp5'] = -1;
             $data['stats']['defence'] = -1;
             
-            
             $data['items'] = [];
             $_items = $character->relationEquipment;
             foreach(Yii::$app->AppHelper::$ARRAY_SLOTS as $slot) {
@@ -116,7 +114,6 @@ class CharacterData extends Model
                 }
                 next($_items);
             }
-            
             $data['achievements'] = [];
             $achiv_models = CharacterAchievement::find()->where(['guid' => $character->guid])->limit(10)->orderBy(['date' => SORT_DESC])->with('relationAchievement')->asArray()->all();
             foreach($achiv_models as $ach_m) {
@@ -133,8 +130,6 @@ class CharacterData extends Model
                     
                 }
             }
-            
-            
             Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->params['cache_armory_character']);
         }
         return $data;
@@ -149,22 +144,26 @@ class CharacterData extends Model
                     ->where([
                         'refmask_chrclasses' => Yii::$app->AppHelper->getArmoryClassMask($character->class)
                     ])->with('relationTree.relationSpell.relationIcon')->asArray()->all();
-                    //])->with('relationTree.relationSpell')->asArray()->all();
-            for($i = 0; $i <=1; $i++) {
+            for($i = 0; $i <= 1; $i++) {
                 foreach($talentTabs as $tab) {
+                    $tab_counter = 0;
                     $data['talents'][$i][$tab['tab_number']] = [
                         'name' => Yii::$app->AppHelper->i18nAttribute($tab, 'name'),
+                        'counter' => $tab_counter,
                     ];
                     $tree = ArrayHelper::index($tab['relationTree'], null, 'Row');
                     foreach($tree as $k_row => $row) {
                         foreach($row as $k_col => $col) {
+                            $talent_learned = static::checkCountTalentLearned($character->guid, $col, $i);
+                            $tab_counter += $talent_learned;
                             $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['id_spell'] = $col['Rank_1'];
                             $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['max'] = Yii::$app->AppHelper->getMaxRankSpell($col);
-                            $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['count'] = static::checkCountTalentLearned($character->guid, $col, $i);
+                            $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['count'] = $talent_learned;
                             $spell_icon_array = explode('\\',$col['relationSpell']['relationIcon']['Name']);
                             $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['icon_name'] = strtolower(end($spell_icon_array));
                         }
                     }
+                    $data['talents'][$i][$tab['tab_number']]['counter'] = $tab_counter;
                 }
             }
             Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->params['cache_armory_character_talents']);
@@ -204,6 +203,5 @@ class CharacterData extends Model
             }
         }
         return $output;
-    }
-    
+    }   
 }
