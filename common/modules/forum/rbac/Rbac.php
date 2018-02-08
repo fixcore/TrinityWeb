@@ -124,12 +124,24 @@ class Rbac
         }
 
         $user = $authManager->getRole(self::ROLE_USER);
-        $authManager->addChild($user, $viewThread);
-        $authManager->addChild($user, $viewForum);
-        $authManager->addChild($user, $createThread);
-        $authManager->addChild($user, $createPost);
-        $authManager->addChild($user, $updateOwnPost);
-        $authManager->addChild($user, $deleteOwnPost);
+        if(!$authManager->hasChild($user,$viewThread)) {
+            $authManager->addChild($user, $viewThread);
+        }
+        if(!$authManager->hasChild($user,$viewForum)) {
+            $authManager->addChild($user, $viewForum);
+        }
+        if(!$authManager->hasChild($user,$createThread)) {
+            $authManager->addChild($user, $createThread);
+        }
+        if(!$authManager->hasChild($user,$createPost)) {
+            $authManager->addChild($user, $createPost);
+        }
+        if(!$authManager->hasChild($user,$updateOwnPost)) {
+            $authManager->addChild($user, $updateOwnPost);
+        }
+        if(!$authManager->hasChild($user,$deleteOwnPost)) {
+            $authManager->addChild($user, $deleteOwnPost);
+        }
             
         $updateThread = $authManager->getPermission(self::PERM_UPDATE_THREAD);
         if (!($updateThread instanceof Permission)) {
@@ -187,15 +199,33 @@ class Rbac
         }
 
         $moderator = $authManager->getRole(self::ROLE_MODERATOR);
-        $authManager->addChild($moderator, $updatePost);
-        $authManager->addChild($moderator, $updateThread);
-        $authManager->addChild($moderator, $deletePost);
-        $authManager->addChild($moderator, $deleteThread);
-        $authManager->addChild($moderator, $pinThread);
-        $authManager->addChild($moderator, $lockThread);
-        $authManager->addChild($moderator, $moveThread);
-        $authManager->addChild($moderator, $movePost);
-        $authManager->addChild($moderator, $banUser);
+        if(!$authManager->hasChild($moderator,$updatePost)) {
+            $authManager->addChild($moderator, $updatePost);
+        }
+        if(!$authManager->hasChild($moderator,$updateThread)) {
+            $authManager->addChild($moderator, $updateThread);
+        }
+        if(!$authManager->hasChild($moderator,$deletePost)) {
+            $authManager->addChild($moderator, $deletePost);
+        }
+        if(!$authManager->hasChild($moderator,$deleteThread)) {
+            $authManager->addChild($moderator, $deleteThread);
+        }
+        if(!$authManager->hasChild($moderator,$pinThread)) {
+            $authManager->addChild($moderator, $pinThread);
+        }
+        if(!$authManager->hasChild($moderator,$lockThread)) {
+            $authManager->addChild($moderator, $lockThread);
+        }
+        if(!$authManager->hasChild($moderator,$moveThread)) {
+            $authManager->addChild($moderator, $moveThread);
+        }
+        if(!$authManager->hasChild($moderator,$movePost)) {
+            $authManager->addChild($moderator, $movePost);
+        }
+        if(!$authManager->hasChild($moderator,$banUser)) {
+            $authManager->addChild($moderator, $banUser);
+        }
 
         $deleteUser = $authManager->getPermission(self::PERM_DELETE_USER);
         if (!($deleteUser instanceof Permission)) {
@@ -268,15 +298,35 @@ class Rbac
         }
         
         $admin = $authManager->getRole(self::ROLE_ADMIN);
-        $authManager->addChild($admin, $deleteUser);
-        $authManager->addChild($admin, $promoteUser);
-        $authManager->addChild($admin, $createForum);
-        $authManager->addChild($admin, $updateForum);
-        $authManager->addChild($admin, $deleteForum);
-        $authManager->addChild($admin, $createCategory);
-        $authManager->addChild($admin, $updateCategory);
-        $authManager->addChild($admin, $deleteCategory);
-        $authManager->addChild($admin, $settings);
-        $authManager->addChild($admin, $createInClosed);
+        if(!$authManager->hasChild($admin,$deleteUser)) {
+            $authManager->addChild($admin, $deleteUser);
+        }
+        if(!$authManager->hasChild($admin,$promoteUser)) {
+            $authManager->addChild($admin, $promoteUser);
+        }
+        if(!$authManager->hasChild($admin,$createForum)) {
+            $authManager->addChild($admin, $createForum);
+        }
+        if(!$authManager->hasChild($admin,$updateForum)) {
+            $authManager->addChild($admin, $updateForum);
+        }
+        if(!$authManager->hasChild($admin,$deleteForum)) {
+            $authManager->addChild($admin, $deleteForum);
+        }
+        if(!$authManager->hasChild($admin,$createCategory)) {
+            $authManager->addChild($admin, $createCategory);
+        }
+        if(!$authManager->hasChild($admin,$updateCategory)) {
+            $authManager->addChild($admin, $updateCategory);
+        }
+        if(!$authManager->hasChild($admin,$deleteCategory)) {
+            $authManager->addChild($admin, $deleteCategory);
+        }
+        if(!$authManager->hasChild($admin,$settings)) {
+            $authManager->addChild($admin, $settings);
+        }
+        if(!$authManager->hasChild($admin,$createInClosed)) {
+            $authManager->addChild($admin, $createInClosed);
+        }
     }
 }
