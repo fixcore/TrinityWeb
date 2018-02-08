@@ -1,40 +1,22 @@
 <?php
-
-/**
- * Podium Module
- * Yii 2 Forum Module
- * @author Paweł Bizley Brzozowski <pawel@positive.codes>
- * @since 0.1
- */
-
+/* @var $this \yii\web\View */
+use yii\helpers\ArrayHelper;
 use common\modules\forum\assets\PodiumAsset;
-use common\modules\forum\helpers\Helper;
-use common\modules\forum\widgets\Alert;
-use yii\helpers\Html;
 
 PodiumAsset::register($this);
-$this->beginPage() ?>
-<!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
-<head>
-<meta charset="<?= Yii::$app->charset ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<?= Html::csrfMetaTags() ?>
-<title><?= Html::encode(Helper::title($this->title)) ?></title>
-<?php $this->head() ?>
-</head>
-<body>
 
-<?php $this->beginBody() ?>
-    <div class="container">
-        <?= $this->render('/elements/main/_navbar') ?>
-        <?= $this->render('/elements/main/_breadcrumbs') ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+/* @var $content string */
+$this->beginContent('@frontend/views/layouts/base.php')
+?>
+<div class="container">
+    <?= \common\widgets\Alert::widget()?>
+    
+    <?= $this->render('/elements/main/_breadcrumbs') ?>
+    
+    <div class="row">
+        <div class="col-xs-12">
+            <?php echo $content ?>
+        </div>
     </div>
-    <?= $this->render('/elements/main/_footer') ?>
-<?php $this->endBody() ?>
-
-</body>
-</html>
-<?php $this->endPage() ?>
+</div>
+<?php $this->endContent() ?>

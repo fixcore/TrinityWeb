@@ -12,9 +12,9 @@ use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 
 $this->title = $model->isNewRecord ? Yii::t('podium/view', 'New Category') : Yii::t('podium/view', 'Edit Category');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Administration Dashboard'), 'url' => ['admin/index']];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Forums'), 'url' => ['admin/categories']];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Administration Dashboard'), 'url' => ['admin/index']];
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Forums'), 'url' => ['admin/categories']];
+Yii::$app->params['breadcrumbs'][] = $this->title;
 
 $this->registerJs("$('[data-toggle=\"popover\"]').popover();");
 

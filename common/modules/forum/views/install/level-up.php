@@ -11,8 +11,8 @@ use yii\bootstrap\Progress;
 use yii\helpers\Url;
 
 $this->title = Yii::t('podium/view', 'Podium update');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Podium Installation'), 'url' => ['install/run']];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Podium Installation'), 'url' => ['install/run']];
+Yii::$app->params['breadcrumbs'][] = $this->title;
 $this->params['no-search']     = true;
 
 $url = Url::to(['install/update']);

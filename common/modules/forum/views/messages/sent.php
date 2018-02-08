@@ -14,8 +14,8 @@ use common\modules\forum\widgets\Modal;
 use yii\helpers\Html;
 
 $this->title = Yii::t('podium/view', 'Sent Messages');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'My Profile'), 'url' => ['profile/index']];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'My Profile'), 'url' => ['profile/index']];
+Yii::$app->params['breadcrumbs'][] = $this->title;
 
 $this->registerJs("$('#podiumModalDelete').on('show.bs.modal', function(e) { var button = $(e.relatedTarget); var url = button.data('url'); $('#deleteUrl').attr('href', url); });");
 

@@ -13,8 +13,8 @@ use yii\grid\CheckboxColumn;
 use yii\helpers\Html;
 
 $this->title = Yii::t('podium/view', 'Subscriptions');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'My Profile'), 'url' => ['profile/index']];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'My Profile'), 'url' => ['profile/index']];
+Yii::$app->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="row">

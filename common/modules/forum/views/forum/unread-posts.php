@@ -13,8 +13,8 @@ use yii\helpers\Url;
 use yii\widgets\ListView;
 
 $this->title = Yii::t('podium/view', 'Unread posts');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
+Yii::$app->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="row">

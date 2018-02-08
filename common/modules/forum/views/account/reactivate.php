@@ -11,7 +11,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $this->title = Yii::t('podium/view', 'Account Activation');
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="row">

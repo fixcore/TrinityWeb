@@ -12,7 +12,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = Yii::t('podium/view', 'Sign in');
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = $this->title;
 
 $this->registerJs("$('[data-toggle=\"tooltip\"]').tooltip();");
 

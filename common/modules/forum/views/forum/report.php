@@ -12,11 +12,11 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 $this->title = Yii::t('podium/view', 'Report post');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
-$this->params['breadcrumbs'][] = ['label' => $post->forum->category->name, 'url' => ['forum/category', 'id' => $post->forum->category->id, 'slug' => $post->forum->category->slug]];
-$this->params['breadcrumbs'][] = ['label' => $post->forum->name, 'url' => ['forum/forum', 'cid' => $post->forum->category->id, 'id' => $post->forum->id, 'slug' => $post->forum->slug]];
-$this->params['breadcrumbs'][] = ['label' => $post->thread->name, 'url' => ['forum/thread', 'cid' => $post->forum->category->id, 'fid' => $post->forum->id, 'id' => $post->thread->id, 'slug' => $post->thread->slug]];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
+Yii::$app->params['breadcrumbs'][] = ['label' => $post->forum->category->name, 'url' => ['forum/category', 'id' => $post->forum->category->id, 'slug' => $post->forum->category->slug]];
+Yii::$app->params['breadcrumbs'][] = ['label' => $post->forum->name, 'url' => ['forum/forum', 'cid' => $post->forum->category->id, 'id' => $post->forum->id, 'slug' => $post->forum->slug]];
+Yii::$app->params['breadcrumbs'][] = ['label' => $post->thread->name, 'url' => ['forum/thread', 'cid' => $post->forum->category->id, 'fid' => $post->forum->id, 'id' => $post->thread->id, 'slug' => $post->thread->slug]];
+Yii::$app->params['breadcrumbs'][] = $this->title;
 
 ?>
 <?= $this->render('/elements/forum/_post', ['model' => $post, 'category' => $post->forum->category->id, 'slug' => $post->thread->slug]) ?>

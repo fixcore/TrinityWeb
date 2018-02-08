@@ -14,7 +14,7 @@ use yii\captcha\Captcha;
 use yii\helpers\Html;
 
 $this->title = Yii::t('podium/view', 'Registration');
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = $this->title;
 
 $this->registerJs("$('[data-toggle=\"popover\"]').popover();");
 

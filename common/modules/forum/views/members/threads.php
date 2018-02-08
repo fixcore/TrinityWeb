@@ -10,9 +10,9 @@
 use yii\helpers\Url;
 
 $this->title = Yii::t('podium/view', 'Threads started by {name}', ['name' => $user->podiumName]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Members List'), 'url' => ['members/index']];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Member View'), 'url' => ['members/view', 'id' => $user->id, 'slug' => $user->podiumSlug]];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Members List'), 'url' => ['members/index']];
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Member View'), 'url' => ['members/view', 'id' => $user->id, 'slug' => $user->podiumSlug]];
+Yii::$app->params['breadcrumbs'][] = $this->title;
 
 ?>
 <ul class="nav nav-tabs">

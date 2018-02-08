@@ -16,8 +16,8 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = Yii::t('podium/view', 'Member View');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Members List'), 'url' => ['members/index']];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Members List'), 'url' => ['members/index']];
+Yii::$app->params['breadcrumbs'][] = $this->title;
 
 $this->registerJs("$('[data-toggle=\"tooltip\"]').tooltip();");
 if (!Podium::getInstance()->user->isGuest) {
