@@ -522,7 +522,7 @@ class ArmorySpell extends \yii\db\ActiveRecord
     }
 
     public function getRelationIcon() {
-        return $this->hasOne(ArmorySpellIcon::className(),['id' => 'SpellIconID']);
+        return $this->hasOne(ArmorySpellIcon::className(),['Id' => 'SpellIconID']);
     }
 
 }

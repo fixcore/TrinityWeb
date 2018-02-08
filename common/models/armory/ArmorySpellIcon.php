@@ -7,8 +7,8 @@ use Yii;
 /**
  * This is the model class for table "dbc_spellicon".
  *
- * @property integer $id
- * @property string $name
+ * @property integer $Id
+ * @property string $Name
  */
 class ArmorySpellIcon extends \yii\db\ActiveRecord
 {
@@ -34,9 +34,9 @@ class ArmorySpellIcon extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'name'], 'required'],
-            [['id'], 'integer'],
-            [['name'], 'string'],
+            [['Id', 'Name'], 'required'],
+            [['Id'], 'integer'],
+            [['Name'], 'string'],
         ];
     }
 
@@ -46,8 +46,8 @@ class ArmorySpellIcon extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('common', 'ID'),
-            'name' => Yii::t('common', 'Name'),
+            'Id' => Yii::t('common', 'ID'),
+            'Name' => Yii::t('common', 'Name'),
         ];
     }
 }

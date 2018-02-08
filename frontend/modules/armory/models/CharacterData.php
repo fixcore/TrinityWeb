@@ -148,8 +148,8 @@ class CharacterData extends Model
             $talentTabs = ArmoryTalentTab::find()
                     ->where([
                         'refmask_chrclasses' => Yii::$app->AppHelper->getArmoryClassMask($character->class)
-                    //])->with('relationTree.relationSpell.relationIcon')->asArray()->all();
-                    ])->with('relationTree.relationSpell')->asArray()->all();
+                    ])->with('relationTree.relationSpell.relationIcon')->asArray()->all();
+                    //])->with('relationTree.relationSpell')->asArray()->all();
             for($i = 0; $i <=1; $i++) {
                 foreach($talentTabs as $tab) {
                     $data['talents'][$i][$tab['tab_number']] = [
@@ -161,8 +161,8 @@ class CharacterData extends Model
                             $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['id_spell'] = $col['Rank_1'];
                             $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['max'] = Yii::$app->AppHelper->getMaxRankSpell($col);
                             $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['count'] = static::checkCountTalentLearned($character->guid, $col, $i);
-                            //$data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['icon_name'] = $col['relationSpell']['relationIcon']['name'];
-                            $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['icon_name'] = 'fire_blast';
+                            $spell_icon_array = explode('\\',$col['relationSpell']['relationIcon']['Name']);
+                            $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['icon_name'] = strtolower(end($spell_icon_array));
                         }
                     }
                 }
