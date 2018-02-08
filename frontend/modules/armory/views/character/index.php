@@ -4,6 +4,7 @@ use yii\bootstrap\Nav;
 
 $this->registerJsFile('https://cdn.cavernoftime.com/api/tooltip.js');
 ?>
+
 <div id="character_container">
     <div>
         <?php echo Nav::widget([

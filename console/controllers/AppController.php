@@ -152,13 +152,13 @@ class AppController extends Controller
     public function setGenerateCharactersConfig($path) {
         
         $data = "<?php
-                    return [
-                        'components' => [
-                            'char_{realm_id from table realmlist DB -> auth}' => [
-                                //config yii/db/Connection
-                            ],
-                        ],
-                    ];";
+    return [
+        'components' => [
+            'char_{realm_id from table realmlist DB -> auth}' => [
+                //config yii/db/Connection
+            ],
+        ],
+    ];";
         
         file_put_contents($path . 'base_characters.php', $data);
     }

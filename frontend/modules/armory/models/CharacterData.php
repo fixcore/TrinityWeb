@@ -15,7 +15,7 @@ use common\models\armory\ArmoryTalentTab;
 use common\models\armory\ArmoryTalent;
 
 /**
- * SearchForm
+ * CharacterData model
  */
 class CharacterData extends Model
 {
@@ -162,7 +162,7 @@ class CharacterData extends Model
                             $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['max'] = Yii::$app->AppHelper->getMaxRankSpell($col);
                             $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['count'] = static::checkCountTalentLearned($character->guid, $col, $i);
                             //$data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['icon_name'] = $col['relationSpell']['relationIcon']['name'];
-                            $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['icon_name'] = 'fireblast';
+                            $data['talents'][$i][$tab['tab_number']]['tree'][$k_row][$col['Col']]['icon_name'] = 'fire_blast';
                         }
                     }
                 }

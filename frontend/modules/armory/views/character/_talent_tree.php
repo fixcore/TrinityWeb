@@ -14,6 +14,7 @@ use Yii;
                     <div class="row">
                         <div class="col-xs-3">
                             <?php
+                            //col-1
                             if(isset($row[0])) {
                             ?>
                                 <a href="<?=Yii::$app->AppHelper->buildDBUrl($row[0]['id_spell'], Yii::$app->AppHelper::$TYPE_SPELL)?>" target="_blank">
@@ -28,6 +29,7 @@ use Yii;
                         </div>
                         <div class="col-xs-3">
                             <?php
+                            //col-2
                             if(isset($row[1])) {
                             ?>
                                 <a href="<?=Yii::$app->AppHelper->buildDBUrl($row[1]['id_spell'], Yii::$app->AppHelper::$TYPE_SPELL)?>" target="_blank">
@@ -42,6 +44,7 @@ use Yii;
                         </div>
                         <div class="col-xs-3">
                             <?php
+                            //col-3
                             if(isset($row[2])) {
                             ?>
                                 <a href="<?=Yii::$app->AppHelper->buildDBUrl($row[2]['id_spell'], Yii::$app->AppHelper::$TYPE_SPELL)?>" target="_blank">
@@ -56,6 +59,7 @@ use Yii;
                         </div>
                         <div class="col-xs-3">
                             <?php
+                            //col-4
                             if(isset($row[3])) {
                             ?>
                                 <a href="<?=Yii::$app->AppHelper->buildDBUrl($row[3]['id_spell'], Yii::$app->AppHelper::$TYPE_SPELL)?>" target="_blank">
