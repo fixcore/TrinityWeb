@@ -254,7 +254,7 @@ class Podium extends Module implements BootstrapInterface
     protected function setPodiumLogTarget($app)
     {
         $dbTarget = new DbTarget;
-        $dbTarget->logTable = '{{%podium_log}}';
+        $dbTarget->logTable = '{{%forum_log}}';
         $dbTarget->categories = ['common\modules\forum\*'];
         $dbTarget->logVars = [];
         $app->log->targets['podium'] = $dbTarget;

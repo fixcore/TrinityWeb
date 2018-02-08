@@ -47,7 +47,7 @@ class PostActiveRecord extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%podium_post}}';
+        return '{{%forum_post}}';
     }
 
     /**

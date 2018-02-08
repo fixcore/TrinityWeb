@@ -58,7 +58,7 @@ class MessageActiveRecord extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%podium_message}}';
+        return '{{%forum_message}}';
     }
 
     /**

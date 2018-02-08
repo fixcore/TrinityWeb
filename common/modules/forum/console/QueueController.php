@@ -54,7 +54,7 @@ class QueueController extends Controller
     /**
      * @var string the name of the table for email queue.
      */
-    public $queueTable = '{{%podium_email}}';
+    public $queueTable = '{{%forum_email}}';
 
     /**
      * @inheritdoc

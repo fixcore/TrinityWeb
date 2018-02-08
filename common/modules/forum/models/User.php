@@ -335,7 +335,7 @@ class User extends UserActiveRecord
      */
     public function isBefriendedBy($userId)
     {
-        if ((new Query)->select('id')->from('{{%podium_user_friend}}')->where([
+        if ((new Query)->select('id')->from('{{%forum_user_friend}}')->where([
                 'user_id' => $userId,
                 'friend_id' => $this->id
             ])->exists()) {
@@ -352,7 +352,7 @@ class User extends UserActiveRecord
      */
     public function isFriendOf($userId)
     {
-        if ((new Query)->select('id')->from('{{%podium_user_friend}}')->where([
+        if ((new Query)->select('id')->from('{{%forum_user_friend}}')->where([
                 'user_id' => $this->id,
                 'friend_id' => $userId
             ])->exists()) {
@@ -368,7 +368,7 @@ class User extends UserActiveRecord
      */
     public function isIgnoredBy($userId)
     {
-        if ((new Query)->select('id')->from('{{%podium_user_ignore}}')->where([
+        if ((new Query)->select('id')->from('{{%forum_user_ignore}}')->where([
                 'user_id' => $userId,
                 'ignored_id' => $this->id
             ])->exists()) {
@@ -384,7 +384,7 @@ class User extends UserActiveRecord
      */
     public function isIgnoring($user_id)
     {
-        if ((new Query)->select('id')->from('{{%podium_user_ignore}}')->where([
+        if ((new Query)->select('id')->from('{{%forum_user_ignore}}')->where([
                 'user_id' => $this->id,
                 'ignored_id' => $user_id
             ])->exists()) {
@@ -821,7 +821,7 @@ class User extends UserActiveRecord
     {
         try {
             if ($this->isIgnoredBy($member)) {
-                if (!Podium::getInstance()->db->createCommand()->delete('{{%podium_user_ignore}}', [
+                if (!Podium::getInstance()->db->createCommand()->delete('{{%forum_user_ignore}}', [
                         'user_id' => $member,
                         'ignored_id' => $this->id
                     ])->execute()) {
@@ -829,7 +829,7 @@ class User extends UserActiveRecord
                 }
                 Log::info('User unignored', $this->id, __METHOD__);
             } else {
-                if (!Podium::getInstance()->db->createCommand()->insert('{{%podium_user_ignore}}', ['user_id' => $member, 'ignored_id' => $this->id])->execute()) {
+                if (!Podium::getInstance()->db->createCommand()->insert('{{%forum_user_ignore}}', ['user_id' => $member, 'ignored_id' => $this->id])->execute()) {
                     return false;
                 }
                 Log::info('User ignored', $this->id, __METHOD__);
@@ -851,7 +851,7 @@ class User extends UserActiveRecord
     {
         try {
             if ($this->isBefriendedBy($friend)) {
-                if (!Podium::getInstance()->db->createCommand()->delete('{{%podium_user_friend}}', [
+                if (!Podium::getInstance()->db->createCommand()->delete('{{%forum_user_friend}}', [
                         'user_id' => $friend,
                         'friend_id' => $this->id
                     ])->execute()) {
@@ -859,7 +859,7 @@ class User extends UserActiveRecord
                 }
                 Log::info('User unfriended', $this->id, __METHOD__);
             } else {
-                if (!Podium::getInstance()->db->createCommand()->insert('{{%podium_user_friend}}', ['user_id' => $friend, 'friend_id' => $this->id])->execute()) {
+                if (!Podium::getInstance()->db->createCommand()->insert('{{%forum_user_friend}}', ['user_id' => $friend, 'friend_id' => $this->id])->execute()) {
                     return false;
                 }
                 Log::info('User befriended', $this->id, __METHOD__);

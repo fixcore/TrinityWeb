@@ -50,7 +50,7 @@ class PodiumConfig extends Component
      */
     public static function tableName()
     {
-        return '{{%podium_config}}';
+        return '{{%forum_config}}';
     }
 
     /**

@@ -36,7 +36,7 @@ class VocabularyActiveRecord extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%podium_vocabulary}}';
+        return '{{%forum_vocabulary}}';
     }
 
     /**
@@ -76,6 +76,6 @@ class VocabularyActiveRecord extends ActiveRecord
      */
     public function getPosts()
     {
-        return $this->hasMany(Post::className(), ['id' => 'post_id'])->viaTable('{{%podium_vocabulary_junction}}', ['word_id' => 'id']);
+        return $this->hasMany(Post::className(), ['id' => 'post_id'])->viaTable('{{%forum_vocabulary_junction}}', ['word_id' => 'id']);
     }
 }

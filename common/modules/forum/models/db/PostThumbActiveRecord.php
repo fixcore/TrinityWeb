@@ -24,7 +24,7 @@ class PostThumbActiveRecord extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%podium_post_thumb}}';
+        return '{{%forum_post_thumb}}';
     }
 
     /**

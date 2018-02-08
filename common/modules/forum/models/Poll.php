@@ -38,7 +38,7 @@ class Poll extends PollActiveRecord
      */
     public function getUserVoted($userId)
     {
-        return (new Query())->from('{{%podium_poll_vote}}')->where([
+        return (new Query())->from('{{%forum_poll_vote}}')->where([
             'poll_id' => $this->id,
             'caster_id' => $userId
         ])->count('id') ? true : false;
@@ -61,7 +61,7 @@ class Poll extends PollActiveRecord
             $transaction = static::getDb()->beginTransaction();
             try {
                 if (!Podium::getInstance()->db->createCommand()->batchInsert(
-                        '{{%podium_poll_vote}}', ['poll_id', 'answer_id', 'caster_id', 'created_at'], $votes
+                        '{{%forum_poll_vote}}', ['poll_id', 'answer_id', 'caster_id', 'created_at'], $votes
                     )->execute()) {
                     throw new Exception('Votes saving error!');
                 }
@@ -124,7 +124,7 @@ class Poll extends PollActiveRecord
     {
         $transaction = static::getDb()->beginTransaction();
         try {
-            if (!Podium::getInstance()->db->createCommand()->delete('{{%podium_poll_vote}}', ['poll_id' => $this->id])->execute()) {
+            if (!Podium::getInstance()->db->createCommand()->delete('{{%forum_poll_vote}}', ['poll_id' => $this->id])->execute()) {
                 throw new Exception('Poll Votes deleting error!');
             }
             if (!PollAnswer::deleteAll(['poll_id' => $this->id])) {

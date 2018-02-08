@@ -52,7 +52,7 @@ class SchemaOperation extends Component
     /**
      * @var string table name prefix.
      */
-    protected $_prefix = 'podium_';
+    protected $_prefix = 'forum_';
 
     /**
      * Initialize component.

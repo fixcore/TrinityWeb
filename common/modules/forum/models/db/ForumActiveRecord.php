@@ -40,7 +40,7 @@ class ForumActiveRecord extends \kartik\tree\models\Tree
      */
     public static function tableName()
     {
-        return '{{%podium_forum}}';
+        return '{{%forum_forum}}';
     }
     
     /**

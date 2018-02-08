@@ -24,7 +24,7 @@ class ContentActiveRecord extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%podium_content}}';
+        return '{{%forum_content}}';
     }
 
     /**

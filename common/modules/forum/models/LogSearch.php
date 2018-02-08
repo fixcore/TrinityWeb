@@ -19,7 +19,7 @@ class LogSearch extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%podium_log}}';
+        return '{{%forum_log}}';
     }
 
     /**

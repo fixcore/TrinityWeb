@@ -50,7 +50,7 @@ class PollActiveRecord extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%podium_poll}}';
+        return '{{%forum_poll}}';
     }
 
     /**

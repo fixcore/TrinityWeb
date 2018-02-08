@@ -58,7 +58,7 @@ abstract class UserActiveRecord extends ActiveRecord implements IdentityInterfac
      */
     public static function tableName()
     {
-        return '{{%podium_user}}';
+        return '{{%forum_user}}';
     }
 
     /**
@@ -261,7 +261,7 @@ abstract class UserActiveRecord extends ActiveRecord implements IdentityInterfac
      */
     public function getFriends()
     {
-        return $this->hasMany(static::className(), ['id' => 'friend_id'])->viaTable('{{%podium_user_friend}}', ['user_id' => 'id']);
+        return $this->hasMany(static::className(), ['id' => 'friend_id'])->viaTable('{{%forum_user_friend}}', ['user_id' => 'id']);
     }
 
     /**

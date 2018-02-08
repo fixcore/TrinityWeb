@@ -132,7 +132,7 @@ class Post extends PostActiveRecord
             }
             if (!empty($vocabulary)) {
                 if (!Podium::getInstance()->db->createCommand()->batchInsert(
-                        '{{%podium_vocabulary_junction}}', ['word_id', 'post_id'], $vocabulary
+                        '{{%forum_vocabulary_junction}}', ['word_id', 'post_id'], $vocabulary
                     )->execute()) {
                     throw new Exception('Words connections saving error!');
                 }
@@ -159,16 +159,16 @@ class Post extends PostActiveRecord
             }
             if (!empty($vocabulary)) {
                 if (!Podium::getInstance()->db->createCommand()->batchInsert(
-                        '{{%podium_vocabulary_junction}}', ['word_id', 'post_id'], array_values($vocabulary)
+                        '{{%forum_vocabulary_junction}}', ['word_id', 'post_id'], array_values($vocabulary)
                     )->execute()) {
                     throw new Exception('Words connections saving error!');
                 }
             }
-            $queryJunction = (new Query())->from('{{%podium_vocabulary_junction}}')->where(['post_id' => $this->id]);
+            $queryJunction = (new Query())->from('{{%forum_vocabulary_junction}}')->where(['post_id' => $this->id]);
             foreach ($queryJunction->each() as $junk) {
                 if (!array_key_exists($junk['word_id'], $vocabulary)) {
                     if (!Podium::getInstance()->db->createCommand()->delete(
-                            '{{%podium_vocabulary_junction}}', ['id' => $junk['id']]
+                            '{{%forum_vocabulary_junction}}', ['id' => $junk['id']]
                         )->execute()) {
                         throw new Exception('Words connections deleting error!');
                     }

@@ -28,7 +28,7 @@ class SubscriptionActiveRecord extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%podium_subscription}}';
+        return '{{%forum_subscription}}';
     }
 
     /**

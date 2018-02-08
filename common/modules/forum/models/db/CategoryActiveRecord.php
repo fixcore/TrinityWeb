@@ -32,7 +32,7 @@ class CategoryActiveRecord extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%podium_category}}';
+        return '{{%forum_category}}';
     }
     
     public function __construct($config = array()) {

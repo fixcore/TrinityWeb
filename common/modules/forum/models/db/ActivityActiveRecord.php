@@ -31,7 +31,7 @@ class ActivityActiveRecord extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%podium_user_activity}}';
+        return '{{%forum_user_activity}}';
     }
 
     /**
