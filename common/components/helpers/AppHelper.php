@@ -410,7 +410,7 @@ class AppHelper extends \yii\base\Component
     * @return html tag -> img
     */
     public static function buildTagRaceImage($race, $gender) {
-        return '<img src="' . Yii::$app->AppHelper->buildRaceImageUrl($race,$gender) . '" alt="' . Yii::$app->AppHelper->getRaces($race) . '"/>';
+        return '<img src="' . Yii::$app->AppHelper->buildRaceImageUrl($race,$gender) . '" class="armory-image" alt="' . Yii::$app->AppHelper->getRaces($race) . '"/>';
     }
     /**
     * Сформировать ссылку на картинку класса (локально).
@@ -424,7 +424,7 @@ class AppHelper extends \yii\base\Component
     * @return html tag -> img
     */
     public static function buildTagClassImage($class) {
-        return '<img src="' . Yii::$app->AppHelper::buildClassImageUrl($class) . '" alt="' . Yii::$app->AppHelper::getClasses($class) . '"/>';
+        return '<img src="' . Yii::$app->AppHelper::buildClassImageUrl($class) . '" class="armory-image" alt="' . Yii::$app->AppHelper::getClasses($class) . '"/>';
     }
     /**
     * Сформировать ссылку на иконку в базу данных.

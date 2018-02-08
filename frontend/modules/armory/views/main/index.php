@@ -43,12 +43,9 @@ if($counter) {
         foreach($searchResult as $character) {
     ?>
         <div class="row">
-            <div class="col-xs-3 col-sm-4">&nbsp;</div>
-            <div class="col-xs-2 col-sm-2">
+            <div class="col-xs-push-3 col-xs-6 col-sm-push-4 col-sm-4">
                 <?=Yii::$app->AppHelper->buildTagRaceImage($character['race'],$character['gender'])?>
                 <?=Yii::$app->AppHelper->buildTagClassImage($character['class'])?>
-            </div>
-            <div class="col-xs-6 col-sm-6">
                 <?php
                 echo Html::a($character['name'], '/armory/character/' . Yii::$app->CharactersDbHelper->getServerName() . '/' . $character['name'], [
                     'target' => '_blank'

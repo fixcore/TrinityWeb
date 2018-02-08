@@ -23,6 +23,9 @@
     background-color: inherit;
     border-width: 0px;
 }
+#character_container .armory__character_item {
+    text-align: center;
+}
 #armory_character_talents .talents_tab:first-child {
     margin-top: 30px;
 }

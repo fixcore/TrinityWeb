@@ -22,12 +22,12 @@ use yii\helpers\Url;
         </div>
         <div class="row">
             <div class="col-xs-3 col-sm-1 col-md-2 col-lg-2">
-                <div class="armory_character_item noselect character_item_head">
+                <div class="armory__character_item noselect character_item_head">
                     <?php
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_HEAD];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_neck">
@@ -35,7 +35,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_NECK];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_shoulder">
@@ -43,7 +43,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_SHOULDER];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_back">
@@ -51,7 +51,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_BACK];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_chest">
@@ -59,7 +59,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_CHEST];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_shirt">
@@ -67,7 +67,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_SHIRT];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_tabard">
@@ -75,7 +75,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_TABARD];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_wrist">
@@ -83,7 +83,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_WRIST];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
             </div>
@@ -303,7 +303,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_GLOVES];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_waist">
@@ -311,7 +311,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_BELT];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_legs">
@@ -319,7 +319,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_LEGS];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_feet">
@@ -327,7 +327,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_BOOTS];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_ring_1">
@@ -335,7 +335,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_RING_1];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_ring_2">
@@ -343,7 +343,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_RING_2];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_trinket_1">
@@ -351,7 +351,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_TRINKET_1];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
                 <div class="armory__character_item noselect character_item_trinket_2">
@@ -359,7 +359,7 @@ use yii\helpers\Url;
                     $item_info = $data['items'][Yii::$app->AppHelper::$INV_TRINKET_2];
                     ?>
                     <a href="<?=$item_info['item_url']?>" rel="<?=$item_info['rel_item']?>" target="_blank">
-                        <img src="<?=$item_info['icon_url']?>" />
+                        <img src="<?=$item_info['icon_url']?>" class="armory-character-image" />
                     </a>
                 </div>
             </div>
