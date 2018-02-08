@@ -559,20 +559,24 @@ class User extends UserActiveRecord
      * @param bool $allowCaching whether to allow caching the result.
      * @return bool
      */
-    public static function can($permissionName, $params = [], $allowCaching = true)
+    public static function can($permissionName, $params = [], $allowCaching = false)
     {
         if (Podium::getInstance()->userComponent === true) {
             return Podium::getInstance()->user->can($permissionName, $params, $allowCaching);
         }
         if (!Podium::getInstance()->user->isGuest) {
+            
             $user = static::findMe();
+            
             if (empty($user)) {
                 return false;
             }
             if ($allowCaching && empty($params) && isset($user->_access[$permissionName])) {
                 return $user->_access[$permissionName];
             }
-            $access = Podium::getInstance()->rbac->checkAccess($user->id, $permissionName, $params);
+            
+            $access = Podium::getInstance()->rbac->checkAccess($user->inherited_id, $permissionName, $params);
+            
             if ($allowCaching && empty($params)) {
                 $user->_access[$permissionName] = $access;
             }

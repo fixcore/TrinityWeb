@@ -478,10 +478,10 @@ class Thread extends ThreadActiveRecord
             if (!$this->save()) {
                 throw new Exception('Thread saving error!');
             }
-
             $loggedIn = User::loggedId();
 
             if ($this->pollAdded && Podium::getInstance()->podiumConfig->get('allow_polls')) {
+                
                 $poll = new Poll();
                 $poll->thread_id = $this->id;
                 $poll->question = $this->pollQuestion;
@@ -503,10 +503,11 @@ class Thread extends ThreadActiveRecord
                 }
                 Log::info('Poll added', $poll->id, __METHOD__);
             }
-
+            
             $this->forum->updateCounters(['threads' => 1]);
-
+            
             $post = new Post();
+            
             $post->content = $this->post;
             $post->thread_id = $this->id;
             $post->forum_id = $this->forum_id;
@@ -516,7 +517,6 @@ class Thread extends ThreadActiveRecord
             if (!$post->save()) {
                 throw new Exception('Post saving error!');
             }
-
             $post->markSeen();
             $this->forum->updateCounters(['posts' => 1]);
             $this->updateCounters(['posts' => 1]);

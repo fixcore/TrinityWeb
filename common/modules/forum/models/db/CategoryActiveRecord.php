@@ -20,6 +20,7 @@ use common\modules\forum\slugs\PodiumSluggableBehavior;
  * @property string $keywords
  * @property string $description
  * @property integer $visible
+ * @property integer $create_thread
  * @property integer $sort
  * @property integer $updated_at
  * @property integer $created_at
@@ -33,7 +34,12 @@ class CategoryActiveRecord extends ActiveRecord
     {
         return '{{%podium_category}}';
     }
-
+    
+    public function __construct($config = array()) {
+        parent::__construct($config);
+        $this->create_thread = 1;
+    }
+    
     /**
      * @inheritdoc
      */
@@ -61,6 +67,7 @@ class CategoryActiveRecord extends ActiveRecord
                 return HtmlPurifier::process(trim($value));
             }],
             [['keywords', 'description'], 'string'],
+            [['create_thread'], 'boolean'],
         ];
     }
 }

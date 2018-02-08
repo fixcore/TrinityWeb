@@ -50,9 +50,18 @@
     "bower-asset/html5shiv": "^3.0",
     "bower-asset/jquery-slimscroll": "^1.3",
     "bower-asset/flot": "^0.8",
+    "bower-asset/codemirror": "^5.0",
+    "bower-asset/codemirror-buttons": "^1.0",
     "symfony/process": "^3.0",
     "guzzlehttp/guzzle": "^6.0",
     "kartik-v/yii2-tree-manager": "@dev",
+    "bizley/quill": "^2.0",
+    "cebe/markdown": "^1.0",
+    "kartik-v/yii2-widget-fileinput": "^1.0",
+    "kartik-v/yii2-sortable": "^1.0",
+    "kartik-v/yii2-widget-select2": "^2.0",
+    "kartik-v/yii2-widget-datepicker": "^1.0",
+    "himiklab/yii2-recaptcha-widget": "^1.0",
     "mdmsoft/yii2-admin": "~2.0"
   },
   "require-dev": {

@@ -66,6 +66,7 @@ class Forum extends ForumActiveRecord
     public function search($categoryId = null, $onlyVisible = false)
     {
         $query = static::find();
+        $query->roots();
         if ($categoryId) {
             $query->andWhere(['category_id' => $categoryId]);
         }
@@ -74,10 +75,11 @@ class Forum extends ForumActiveRecord
                 $query->andWhere([Category::tableName() . '.visible' => 1]);
             }]);
             $query->andWhere([static::tableName() . '.visible' => 1]);
+            $query->andWhere([static::tableName() . '.active' => 1]);
         }
 
         $dataProvider = new ActiveDataProvider(['query' => $query]);
-        $dataProvider->sort->defaultOrder = ['sort' => SORT_ASC, 'id' => SORT_ASC];
+        $dataProvider->sort->defaultOrder = ['id' => SORT_ASC];
         return $dataProvider;
     }
 
@@ -123,8 +125,29 @@ class Forum extends ForumActiveRecord
                                 ['!=', 'id', $this->id],
                                 ['category_id' => $this->category_id]
                             ])
-                            ->orderBy(['sort' => SORT_ASC, 'id' => SORT_ASC])
+                            ->orderBy(['id' => SORT_ASC])
                             ->indexBy('id');
         return $sorter->run();
     }
+
+    /**
+     * Searches forums.
+     * @param int|null $parent_id
+     * @return ActiveDataProvider
+     */
+    public function search_child($parent_id = null, $onlyVisible = false)
+    {
+        $query = static::find()->where(['root' => $parent_id, 'lvl' => $this->lvl + 1]);
+        if ($onlyVisible) {
+            $query->joinWith(['category' => function ($query) {
+                $query->andWhere([Category::tableName() . '.visible' => 1]);
+            }]);
+            $query->andWhere([static::tableName() . '.visible' => 1]);
+        }
+
+        $dataProvider = new ActiveDataProvider(['query' => $query]);
+        $dataProvider->sort->defaultOrder = ['id' => SORT_ASC];
+        return $dataProvider;
+    }
+
 }

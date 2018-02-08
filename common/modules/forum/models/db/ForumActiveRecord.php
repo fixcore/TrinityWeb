@@ -8,7 +8,6 @@ use common\modules\forum\models\Post;
 use common\modules\forum\Podium;
 use common\modules\forum\slugs\PodiumSluggableBehavior;
 use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveQuery;
 use yii\helpers\HtmlPurifier;
 
 /**
@@ -18,19 +17,24 @@ use yii\helpers\HtmlPurifier;
  * @since 0.6
  *
  * @property integer $id
+ * @property integer $root
+ * @property integer $lvl
+ * @property integer $lft
+ * @property integer $rgt
  * @property integer $category_id
  * @property string $name
  * @property string $sub
+ * @property string $icon
+ * @property integer $icon_type
  * @property string $slug
  * @property string $keywords
  * @property string $description
  * @property integer $visible
- * @property integer $sort
  * @property integer $updated_at
  * @property integer $created_at
  */
-class ForumActiveRecord extends ActiveRecord
-{
+class ForumActiveRecord extends \kartik\tree\models\Tree
+{   
     /**
      * @inheritdoc
      */
@@ -38,20 +42,20 @@ class ForumActiveRecord extends ActiveRecord
     {
         return '{{%podium_forum}}';
     }
-
+    
     /**
      * @inheritdoc
      */
     public function behaviors()
     {
-        return [
+        return array_merge(parent::behaviors(),[
             TimestampBehavior::className(),
             [
                 'class' => Podium::getInstance()->slugGenerator,
                 'attribute' => 'name',
                 'type' => PodiumSluggableBehavior::FORUM
             ]
-        ];
+        ]);
     }
 
     /**
@@ -59,14 +63,15 @@ class ForumActiveRecord extends ActiveRecord
      */
     public function rules()
     {
-        return [
+        return array_merge(parent::rules(),[
             [['name', 'visible'], 'required'],
             ['visible', 'boolean'],
             [['name', 'sub'], 'filter', 'filter' => function ($value) {
                 return HtmlPurifier::process(trim($value));
             }],
             [['keywords', 'description'], 'string'],
-        ];
+            [['category_id'],'safe'],
+        ]);
     }
 
     /**
@@ -86,4 +91,13 @@ class ForumActiveRecord extends ActiveRecord
     {
         return $this->hasOne(Post::className(), ['forum_id' => 'id'])->orderBy(['id' => SORT_DESC]);
     }
+
+    /**
+     * Parent relation.
+     * @return ActiveQuery
+     */
+    public function getParent() {
+        return $this->hasOne(ForumActiveRecord::className(), ['id' => 'root'])->andWhere(['lvl' => (($this->lvl - 1) >= 0 ? 0 : ($this->lvl - 1))]);
+    }
+
 }
