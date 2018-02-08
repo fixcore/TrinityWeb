@@ -145,6 +145,40 @@ $bundle = BackendAsset::register($this);
                         ]
                     ],
                     [
+                        'label' => Yii::t('backend', 'Права доступа'),
+                        'icon' => '<i class="fa fa-bolt"></i>',
+                        'url' => '#',
+                        'options' => ['class' => 'treeview'],
+                        'active' => (\Yii::$app->controller->module->id == 'rbac'),
+                        'visible' => Yii::$app->user->can('administrator'),
+                        'items' => [
+                            [
+                                'label' => Yii::t('backend','Роли'),
+                                'icon' => '<i class="fa fa-angle-double-right"></i>',
+                                'active' => (\Yii::$app->controller->id == 'role'),
+                                'url' => ['/rbac/role/index'],
+                            ],
+                            [   
+                                'label' => Yii::t('backend','Правила'),
+                                'icon' => '<i class="fa fa-angle-double-right"></i>',
+                                'active' => (\Yii::$app->controller->id == 'rule'),
+                                'url' => ['/rbac/rule/index'],
+                            ],
+                            [   
+                                'label' => Yii::t('backend','Разрешения'),
+                                'icon' => '<i class="fa fa-angle-double-right"></i>',
+                                'active' => (\Yii::$app->controller->id == 'permission'),
+                                'url' => ['/rbac/permission/index'],
+                            ],
+                            [
+                                'label' => Yii::t('backend','Назначить'),
+                                'icon' => '<i class="fa fa-angle-double-right"></i>',
+                                'active' => (\Yii::$app->controller->id == 'assignment'),
+                                'url' => ['/rbac/assignment/index'],
+                            ],
+                        ]
+                    ],
+                    [
                         'label' => Yii::t('backend', 'System'),
                         'options' => ['class' => 'header']
                     ],

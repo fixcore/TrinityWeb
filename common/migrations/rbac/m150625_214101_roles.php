@@ -3,6 +3,8 @@
 use common\models\User;
 use common\rbac\Migration;
 
+use common\rbac\rule\createThreadInClosedCategory;
+
 class m150625_214101_roles extends Migration
 {
     public function up()
@@ -10,6 +12,8 @@ class m150625_214101_roles extends Migration
         $this->auth->removeAll();
 
         $user = $this->auth->createRole(User::ROLE_USER);
+        $createThread = new createThreadInClosedCategory();
+        $user->ruleName = $createThread->className();
         $this->auth->add($user);
         
         $manager = $this->auth->createRole(User::ROLE_MODERATOR);

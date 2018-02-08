@@ -5,10 +5,20 @@ $config = [
     'extensions' => require(__DIR__ . '/../../vendor/yiisoft/extensions.php'),
     'sourceLanguage' => 'ru',
     'language' => 'ru',
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log','forum'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
+    ],
+    'modules' => [
+        'forum' => [
+            'class' => 'common\modules\forum\Podium',
+            'userComponent' => 'user',
+            'adminId' => 1,
+            'rbacComponent' => 'authManager',
+            'cacheComponent' => 'cache',
+            'userNameField' => 'username',
+        ]
     ],
     'components' => [
         'authManager' => [

@@ -38,7 +38,10 @@ $config = [
         'i18n' => [
             'class' => backend\modules\i18n\Module::class,
             'defaultRoute' => 'i18n-message/index'
-        ]
+        ],
+        'rbac' => [
+            'class' => 'mdm\admin\Module',
+        ],
     ],
     'as globalAccess' => [
         'class' => common\behaviors\GlobalAccessBehavior::class,
