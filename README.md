@@ -58,6 +58,7 @@ Password: user
 - User management
 - RBAC with predefined `guest`, `user`, `moderator` and `administrator` roles
 - RBAC migrations support
+- RBAC management
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
 - [Webpack](https://webpack.js.org/) configuration
 - Key-value storage component
@@ -86,7 +87,10 @@ Password: user
 - Built-in [mailcatcher](http://mailcatcher.me/)
 - Assets compression and concatenation
 - [Some useful shortcuts](https://github.com/trntv/yii2-starter-kit/blob/master/common/helpers.php)
-- many other features i'm lazy to write about :-)
+- inherit Forum system (https://github.com/bizley/yii2-podium)  - modifed
+- Armory module
+- Ladder module
+- ...
 
 
 # Application Components
@@ -204,9 +208,9 @@ Add in your application config:
                 'actions'=>['error']
             ],
             [
-				'allow' => true,
-				'roles' => ['@']
-			]
+                'allow' => true,
+                'roles' => ['@']
+            ]
         ]
     ]
 ```
