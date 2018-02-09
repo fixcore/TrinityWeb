@@ -12,8 +12,8 @@ use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 
 $this->title = Yii::t('podium/view', 'Podium Settings');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Administration Dashboard'), 'url' => ['admin/index']];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Administration Dashboard'), 'url' => ['admin/index']];
+Yii::$app->params['breadcrumbs'][] = $this->title;
 
 ?>
 <?= $this->render('/elements/admin/_navbar', ['active' => 'settings']); ?>

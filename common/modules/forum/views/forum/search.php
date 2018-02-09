@@ -36,9 +36,9 @@ elseif (empty($query) && !empty($author)) {
 else {
     $this->title = Yii::t('podium/view', 'Search for {type}', ['type' => $typeName]);
 }
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Search Forum'), 'url' => ['forum/search']];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Search Forum'), 'url' => ['forum/search']];
+Yii::$app->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
     <div class="col-sm-12">
@@ -57,8 +57,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php else: ?>
 <?php
 $this->title = Yii::t('podium/view', 'Search Forum');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
+Yii::$app->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
 <?= $this->render('/elements/search/_search', ['model' => $model, 'list' => $list]) ?>

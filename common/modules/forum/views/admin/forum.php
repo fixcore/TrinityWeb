@@ -16,9 +16,9 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = Yii::t('podium/view', 'List Forums');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Administration Dashboard'), 'url' => ['admin/index']];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Categories List'), 'url' => ['admin/categories']];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Administration Dashboard'), 'url' => ['admin/index']];
+Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Categories List'), 'url' => ['admin/categories']];
+Yii::$app->params['breadcrumbs'][] = $this->title;
 
 $this->registerJs("$('[data-toggle=\"popover\"]').popover();");
 
