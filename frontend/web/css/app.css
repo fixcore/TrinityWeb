@@ -353,7 +353,6 @@ ul.nav > li.active > a:focus {
 }
 /*# breadcrumb end */
 /*# tables */
-
 .table > tbody > tr:hover {
     background-color: #34373cc7;
 }
@@ -365,7 +364,7 @@ ul.nav > li.active > a:focus {
 }
 /*# tables end */
 /*# content */
-.wrap > .push-header {padding: 51px 15px 20px;}
+.wrap > .push-header {padding: 51px 0px 20px;}
 /*# content end */
 /*# articles */
 .article-item {margin-bottom: 15px;}
@@ -410,6 +409,10 @@ ul.nav > li.active > a:focus {
 }
 #widget-status_servers .panel-body .panel.server-panel .panel-heading {
     color: #C5C0C0;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 100%;
 }
 /*# widgets end */
 /*# footer */

@@ -82,7 +82,7 @@ class Forum extends ForumActiveRecord
             $query->andWhere([static::tableName() . '.active' => 1]);
         }
         $dataProvider = new ActiveDataProvider(['query' => $query]);
-        $dataProvider->sort->defaultOrder = ['id' => SORT_ASC];
+        $dataProvider->sort->defaultOrder = ['lft' => SORT_ASC];
         return $dataProvider;
     }
 
@@ -149,7 +149,7 @@ class Forum extends ForumActiveRecord
         }
 
         $dataProvider = new ActiveDataProvider(['query' => $query]);
-        $dataProvider->sort->defaultOrder = ['id' => SORT_ASC];
+        $dataProvider->sort->defaultOrder = ['lft' => SORT_ASC];
         return $dataProvider;
     }
 
