@@ -42,6 +42,9 @@ $config = [
         'rbac' => [
             'class' => 'mdm\admin\Module',
         ],
+        'treemanager' =>  [
+            'class' => '\kartik\tree\Module',
+        ]
     ],
     'as globalAccess' => [
         'class' => common\behaviors\GlobalAccessBehavior::class,

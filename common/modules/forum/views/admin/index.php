@@ -13,7 +13,7 @@ use yii\helpers\StringHelper;
 use yii\helpers\Url;
 
 $this->title = Yii::t('podium/view', 'Administration Dashboard');
-Yii::$app->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $this->title;
 
 $this->registerJs("$('[data-toggle=\"tooltip\"]').tooltip();");
 $this->registerJs("$('[data-toggle=\"popover\"]').popover();");

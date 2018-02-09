@@ -13,8 +13,8 @@ use kartik\sortable\Sortable;
 use yii\helpers\Url;
 
 $this->title = Yii::t('podium/view', 'Forums');
-Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Administration Dashboard'), 'url' => ['admin/index']];
-Yii::$app->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Administration Dashboard'), 'url' => ['admin/index']];
+$this->params['breadcrumbs'][] = $this->title;
 
 $items = [];
 foreach ($dataProvider as $category) {

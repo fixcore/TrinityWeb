@@ -30,9 +30,7 @@ class Helper
     public static function adminCategoriesPrepareContent($category)
     {
         $actions = [];
-        $actions[] = Html::button(Html::tag('span', '', ['class' => 'glyphicon glyphicon-eye-' . ($category->visible ? 'open' : 'close')]), ['class' => 'btn btn-xs text-muted', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => $category->visible ? Yii::t('podium/view', 'Category visible for guests') : Yii::t('podium/view', 'Category hidden for guests')]);
-        $actions[] = Html::a(Html::tag('span', '', ['class' => 'glyphicon glyphicon-list']) . ' ' . Yii::t('podium/view', 'List Forums'), ['admin/forums', 'cid' => $category->id], ['class' => 'btn btn-default btn-xs']);
-        $actions[] = Html::a(Html::tag('span', '', ['class' => 'glyphicon glyphicon-plus-sign']) . ' ' . Yii::t('podium/view', 'Create new forum'), ['admin/new-forum', 'cid' => $category->id], ['class' => 'btn btn-success btn-xs']);
+        $actions[] = Html::a(Html::tag('span', '', ['class' => 'glyphicon glyphicon-list']) . ' ' . Yii::t('podium/view', 'List Forums'), ['admin/new-forum', 'cid' => $category->id], ['class' => 'btn btn-default btn-xs']);
         $actions[] = Html::a(Html::tag('span', '', ['class' => 'glyphicon glyphicon-cog']), ['admin/edit-category', 'id' => $category->id], ['class' => 'btn btn-default btn-xs', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => Yii::t('podium/view', 'Edit Category')]);
         $actions[] = Html::tag('span', Html::button(Html::tag('span', '', ['class' => 'glyphicon glyphicon-trash']), ['class' => 'btn btn-danger btn-xs', 'data-url' => Url::to(['admin/delete-category', 'id' => $category->id]), 'data-toggle' => 'modal', 'data-target' => '#podiumModalDelete']), ['data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => Yii::t('podium/view', 'Delete Category')]);
 
@@ -60,7 +58,7 @@ class Helper
      */
     public static function defaultAvatar()
     {
-        return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAD6CAMAAAC/MqoPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjRGNTcxMDVGRTQ3MDExRTQ4MUUyREZENUQ4MzQwNURGIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjRGNTcxMDYwRTQ3MDExRTQ4MUUyREZENUQ4MzQwNURGIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NEY1NzEwNURFNDcwMTFFNDgxRTJERkQ1RDgzNDA1REYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NEY1NzEwNUVFNDcwMTFFNDgxRTJERkQ1RDgzNDA1REYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5Mv8iSAAAAJ1BMVEXz8/P////9/f309PT5+fn29vb7+/v19fX4+Pj39/f8/Pz6+vr+/v5CXjXPAAAEKUlEQVR42uydaa6bIQxFY+Zp/+vt8KNVpSf1JQFzneuzgyOM7Y+A83g4juM4juM4juM4juM4juM4juM4juM4juM4juM4juM4juM4z1NzS2WEtURkrTBKarl+vHXMrQT5ilBajp/r3efX2n/0Z4+M3p9qX9uQ7zLaB238moI8Q0iVU/xj5GN7Xvy3fLO+53uRVynd9JKnJa+zkt2Fz0Xeo2Sj5i/u8n93vM1glx0YDPo6ZQ/TWpmrRXZRbLnnIfsYmdXclHvda/7TvfLtc2P7PU7ZzzRR45KcIFno4eQM+H1dDofUA3qaj0VOUSLjRrew3fs6qL46Z7ijh3yTs+Bm+RoOq4fKmOOwM93xRcdd9vOLjrrsCouOuuxNNEBM8nGoqA/A2t5FB8CWbiqpT7x4D0rqIbLGO2DETzX1yRrveBGfRQ+wk6qmqA7W1RRF9YKlHhTVA9ani2hSWbMcWJ5rqupQeS6pqifWBA+W4oeq+mCtbWDVbamqL1eHQHRxdVf3ve7qXte9m/Me3r/c/HvdT2n8bM5PZP0c3n998d/cvgPxL63Ev68z36ogvktDfIOK+d4c8W1J4juyzDejie/DM7+CIH77wvziifidG/PrRuI3rcwvmZnfrxNPLWCeVcE8oYR5Lg3xNCLmGVTMk8eY580xTxlkni3JPFH0QTxH9sE8PZh5ZvTjrUnhw/Sk8F9z8V9ed9vj8XN6K9OFlPlW/O92ryZT3JbzmmAv17VtXfywVdvz1k92Q+V9U6wbjPp84EDaxsK3I8fRBrr5euwmFfrXaz94mQi7s21Hf2EHDvp4/FoFaqavChcmMTd8VnkJgVjlstILR7yj6a72FiB0VnM09676lBnJXdccyV3bHMc9q5uj3KzJQy6AUOPqFXOE6waxyCWu36Obco3Lb5+SXOTqhbK2bqqvxlXWMEpcLXKZa/dsplznUqprAkBj3Oj3tnssAsGFziYJCOrVvS8Ude3XQCjhfiHkkwChGvJ5IakvzSxfBIpC1sxcaWxuHcwAHNkkgSMx5jjVTDcFEJVPuC6QdL7CpljgmoByvMDFgap+fEQT7KIfX3bcRT++7MCLfnrZB7L6IKzpGrW9YKsfrO1ZwDnXyU909WOdfF3o6uvUd3sSeA59t8eAr35owG4XA3TGynawvuVlQf3ISVUSEyS29v1oI9/FCJ2vkzvW0Vko6odKu5l43x/x0476ZI337RFvKN53R/y0pL434oMl9a1//ZXFFJmvfz/Rxxdb6hu/XOuypb7xiK6LMTpnadtb3oY19W0f7VXMUVm3+r7NPu2pT9atvm2zx2VPfUXGBn5nG98sqjfWLLcrzw2L6oM1y23Kcyaz3J4812yqN9YstyfPFZvqO05qgk31DceyUYwSWRP8jhTfraq//8merKon1tr2/+r2Q4ABAIdWbQqxqb1TAAAAAElFTkSuQmCC';
+        return '/img/default-profile.jpg';
     }
 
     /**
@@ -141,6 +139,7 @@ class Helper
         }
 
         return Html::a($encodedName, $url, ['class' => 'btn btn-xs btn-default', 'data-pjax' => '0']);
+        
     }
 
     /**

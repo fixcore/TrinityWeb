@@ -63,10 +63,14 @@ class Forum extends ForumActiveRecord
      * @param int|null $categoryId
      * @return ActiveDataProvider
      */
-    public function search($categoryId = null, $onlyVisible = false)
+    public function search($categoryId = null, $onlyVisible = false, $onlyRoots = true)
     {
         $query = static::find();
-        $query->roots();
+        
+        if($onlyRoots) {
+            $query->roots();
+        }
+        
         if ($categoryId) {
             $query->andWhere(['category_id' => $categoryId]);
         }
@@ -77,7 +81,6 @@ class Forum extends ForumActiveRecord
             $query->andWhere([static::tableName() . '.visible' => 1]);
             $query->andWhere([static::tableName() . '.active' => 1]);
         }
-
         $dataProvider = new ActiveDataProvider(['query' => $query]);
         $dataProvider->sort->defaultOrder = ['id' => SORT_ASC];
         return $dataProvider;

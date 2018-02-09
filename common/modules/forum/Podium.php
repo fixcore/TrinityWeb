@@ -194,7 +194,9 @@ class Podium extends Module implements BootstrapInterface
         $this->setAliases(['@podium' => '@common/modules/forum']);
         if (Yii::$app instanceof WebApplication) {
             $this->podiumComponent->registerComponents();
-            $this->layout = 'main';
+            if(Yii::$app->id != 'backend') {
+                $this->layout = 'main';
+            }
             if (!is_string($this->slugGenerator)) {
                 $this->slugGenerator = PodiumSluggableBehavior::className();
             }

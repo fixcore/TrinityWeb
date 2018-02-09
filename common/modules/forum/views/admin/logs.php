@@ -14,8 +14,8 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 $this->title = Yii::t('podium/view', 'Logs');
-Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Administration Dashboard'), 'url' => ['admin/index']];
-Yii::$app->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Administration Dashboard'), 'url' => ['admin/index']];
+$this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <?= $this->render('/elements/admin/_navbar', ['active' => 'logs']); ?>

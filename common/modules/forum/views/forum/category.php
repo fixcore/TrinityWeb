@@ -11,8 +11,8 @@ use common\modules\forum\Podium;
 use yii\helpers\Url;
 
 $this->title = $model->name;
-Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
-Yii::$app->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
+$this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <?php if (!Podium::getInstance()->user->isGuest): ?>

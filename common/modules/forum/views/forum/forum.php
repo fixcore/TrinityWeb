@@ -13,9 +13,9 @@ use common\modules\forum\rbac\Rbac;
 use yii\helpers\Url;
 
 $this->title = $model->name;
-Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
-Yii::$app->params['breadcrumbs'][] = ['label' => $model->category->name, 'url' => ['forum/category', 'id' => $model->category->id, 'slug' => $model->category->slug]];
-Yii::$app->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
+$this->params['breadcrumbs'][] = ['label' => $model->category->name, 'url' => ['forum/category', 'id' => $model->category->id, 'slug' => $model->category->slug]];
+$this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <?php if (!Podium::getInstance()->user->isGuest): ?>

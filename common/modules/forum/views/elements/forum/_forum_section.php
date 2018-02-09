@@ -21,11 +21,19 @@ use yii\helpers\Url;
         <small class="text-muted"><?= Html::encode($model->sub) ?></small>
 <?php endif; ?>
     </div>
+    <?php
+    if($model->isRoot()) {
+        ?>
+        <div class="child_list_forum">
+            <?= $this->render('/elements/forum/_child_forums', ['parent_id' => $model->id]) ?>
+        </div>
+        <?php
+    }
+    ?>
     <div id="collapse<?= $model->id ?>" class="panel-collapse collapse in table-responsive" role="tabpanel" aria-labelledby="forum<?= $model->id ?>">
         <?= $this->render('/elements/forum/_threads', ['forum' => $model->id, 'category' => $model->category_id, 'slug' => $model->slug, 'filters' => $filters]) ?>
     </div>
 </div>
-
 <div class="panel panel-default">
     <div class="panel-body small">
         <?= $this->render('/elements/forum/_icons') ?>

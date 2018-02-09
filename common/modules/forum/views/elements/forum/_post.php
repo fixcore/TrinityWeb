@@ -56,8 +56,8 @@ function thumbVote(link, type, thumb, removeClass, addClass) {
 }
 JS
 );
-$this->registerJs("$('.podium-thumb-up').click(function(e) { e.preventDefault(); thumbVote($(this), 'up', '.podium-thumb-down', 'btn-success', 'btn-danger'); });");
-$this->registerJs("$('.podium-thumb-down').click(function(e) { e.preventDefault(); thumbVote($(this), 'down', '.podium-thumb-up', 'btn-danger', 'btn-success'); });");
+$this->registerJs("$('.podium-thumb-up').click(function(e) { e.preventDefault(); thumbVote($(this), 'up', '.podium-thumb-down', 'btn-info', 'btn-info'); });");
+$this->registerJs("$('.podium-thumb-down').click(function(e) { e.preventDefault(); thumbVote($(this), 'down', '.podium-thumb-up', 'btn-info', 'btn-info'); });");
 $this->registerJs("$('.podium-rating').click(function (e) { e.preventDefault(); $('.podium-rating-details').removeClass('hidden'); });");
 $this->registerJs("$('.podium-rating-details').click(function (e) { e.preventDefault(); $('.podium-rating-details').addClass('hidden'); });");
 
@@ -82,12 +82,11 @@ if (strpos($model->content, '<pre class="ql-syntax">') !== false) {
 }
 ?>
 <div class="row podium-post" id="post<?= $model->id ?>">
-    <div class="col-sm-2 text-center" id="postAvatar<?= $model->id ?>">
-        <?= Avatar::widget(['author' => $model->author, 'showName' => false]) ?>
+    <div class="col-sm-2 text-center slick_block" id="postAvatar<?= $model->id ?>">
+        <?= Avatar::widget(['author' => $model->author, 'showName' => true]) ?>
     </div>
     <div class="col-sm-10" id="postContent<?= $model->id ?>">
         <div class="popover right podium">
-            <div class="arrow"></div>
             <div class="popover-title">
                 <small class="pull-right">
                     <span data-toggle="tooltip" data-placement="top" title="<?= Podium::getInstance()->formatter->asDatetime($model->created_at, 'long') ?>">
@@ -140,7 +139,7 @@ if (strpos($model->content, '<pre class="ql-syntax">') !== false) {
                         ], 'post', ['class' => 'quick-quote-form']) ?>
                         <?= Html::hiddenInput('quote', '', ['class' => 'quote-selection']); ?>
                         <?= Html::endForm(); ?><button
-                            class="btn btn-primary btn-xs podium-quote"
+                            class="btn btn-info btn-xs podium-quote"
                             data-toggle="tooltip"
                             data-placement="top"
                             title="<?= Yii::t('podium/view', 'Reply with quote') ?>">
@@ -158,15 +157,6 @@ if (strpos($model->content, '<pre class="ql-syntax">') !== false) {
                             <span class="glyphicon glyphicon-edit"></span>
                         </a></li>
 <?php endif; ?>
-                    <li><a
-                            href="<?= Url::to(['forum/show', 'id' => $model->id]) ?>"
-                            class="btn btn-default btn-xs"
-                            data-pjax="0"
-                            data-toggle="tooltip"
-                            data-placement="top"
-                            title="<?= Yii::t('podium/view', 'Direct link to this post') ?>">
-                            <span class="glyphicon glyphicon-link"></span>
-                        </a></li>
 <?php if (!Podium::getInstance()->user->isGuest && $model->author_id != $loggedId): ?>
 <?php if ($model->thumb && $model->thumb->thumb == 1): ?>
                     <li><a
@@ -181,7 +171,7 @@ if (strpos($model->content, '<pre class="ql-syntax">') !== false) {
 <?php else: ?>
                     <li><a
                             href="#"
-                            class="btn btn-success btn-xs podium-thumb-up"
+                            class="btn btn-info btn-xs podium-thumb-up"
                             data-post-id="<?= $model->id ?>"
                             data-toggle="tooltip"
                             data-placement="top"
@@ -202,7 +192,7 @@ if (strpos($model->content, '<pre class="ql-syntax">') !== false) {
 <?php else: ?>
                     <li><a
                             href="#"
-                            class="btn btn-danger btn-xs podium-thumb-down"
+                            class="btn btn-info btn-xs podium-thumb-down"
                             data-post-id="<?= $model->id ?>"
                             data-toggle="tooltip"
                             data-placement="top"
@@ -212,7 +202,7 @@ if (strpos($model->content, '<pre class="ql-syntax">') !== false) {
 <?php endif; ?>
                     <li><a
                             href="<?= Url::to(['forum/report', 'cid' => $model->thread->category_id, 'fid' => $model->forum_id, 'tid' => $model->thread_id, 'pid' => $model->id]) ?>"
-                            class="btn btn-warning btn-xs"
+                            class="btn btn-info btn-xs"
                             data-pjax="0"
                             data-toggle="tooltip"
                             data-placement="top"
@@ -223,7 +213,7 @@ if (strpos($model->content, '<pre class="ql-syntax">') !== false) {
 <?php if ($model->author_id == $loggedId || User::can(Rbac::PERM_DELETE_POST, ['item' => $model->thread])): ?>
                     <li><a
                             href="<?= Url::to(['forum/deletepost', 'cid' => $model->thread->category_id, 'fid' => $model->forum_id, 'tid' => $model->thread_id, 'pid' => $model->id]) ?>"
-                            class="btn btn-danger btn-xs"
+                            class="btn btn-info btn-xs"
                             data-pjax="0"
                             data-toggle="tooltip"
                             data-placement="top"

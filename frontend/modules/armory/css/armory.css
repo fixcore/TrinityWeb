@@ -26,9 +26,6 @@
 #character_container .armory__character_item {
     text-align: center;
 }
-#armory_character_talents .talents_tab:first-child {
-    margin-top: 30px;
-}
 #armory_character_talents .talents_tab {
     margin-bottom: 10px;
 }
@@ -36,9 +33,16 @@
     padding-left: 15px;
     padding-bottom: 5px;
 }
-#armory_character_talents .talents_tab hr {
-    
-}
 #armory_character_talents .talents_tab .talents_counter {
     padding: 3px 0px;
+}
+@media (min-width: 990px) {
+    #armory_character_talents .talents_tab hr {
+        display: none;
+    }
+}
+@media (max-width: 989px) {
+    #armory_character_talents .talents_tab:first-child {
+        margin-top: 30px;
+    }
 }

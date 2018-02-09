@@ -185,27 +185,8 @@ class AdminForumController extends BaseController
         }
         return $this->render('forum', [
             'model' => $model,
-            'forums' => Forum::find()->where(['category_id' => $cid])->orderBy(['sort' => SORT_ASC, 'id' => SORT_ASC])->all(),
+            'forums' => Forum::find()->where(['category_id' => $cid])->orderBy(['id' => SORT_ASC])->all(),
             'categories' => Category::find()->orderBy(['sort' => SORT_ASC, 'id' => SORT_ASC])->all()
-        ]);
-    }
-
-    /**
-     * Listing the forums of given category ID.
-     * @param int $cid parent category ID
-     * @return string|Response
-     */
-    public function actionForums($cid = null)
-    {
-        $model = Category::find()->where(['id' => $cid])->limit(1)->one();
-        if (empty($model)) {
-            $this->error(Yii::t('podium/flash', 'Sorry! We can not find Category with this ID.'));
-            return $this->redirect(['admin/categories']);
-        }
-        return $this->render('forums', [
-            'model' => $model,
-            'categories' => Category::find()->orderBy(['sort' => SORT_ASC, 'id' => SORT_ASC])->all(),
-            'forums' => Forum::find()->where(['category_id' => $model->id])->orderBy(['sort' => SORT_ASC, 'id' => SORT_ASC])->all()
         ]);
     }
 
@@ -266,18 +247,12 @@ class AdminForumController extends BaseController
             $this->error(Yii::t('podium/flash', 'Sorry! We can not find Category with this ID.'));
             return $this->redirect(['admin/categories']);
         }
-        $model = new Forum();
-        $model->category_id = $category->id;
-        $model->visible = 1;
-        $model->sort = 0;
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Log::info('Forum added', $model->id, __METHOD__);
-            $this->success(Yii::t('podium/flash', 'New forum has been created.'));
-            return $this->redirect(['admin/forums', 'cid' => $category->id]);
-        }
+        
+        $query = new Forum();
+        $query = $query->search($category->id, false, false)->query;
+        
         return $this->render('forum', [
-            'model' => $model,
-            'forums' => Forum::find()->where(['category_id' => $category->id])->orderBy(['sort' => SORT_ASC, 'id' => SORT_ASC])->all(),
+            'query' => $query,
             'categories' => Category::find()->orderBy(['sort' => SORT_ASC, 'id' => SORT_ASC])->all()
         ]);
     }
@@ -404,4 +379,5 @@ class AdminForumController extends BaseController
             ['class' => 'text-danger']
         );
     }
+    
 }

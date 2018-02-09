@@ -12,7 +12,7 @@ use common\modules\forum\widgets\LatestPosts;
 use yii\helpers\Url;
 
 $this->title = Yii::t('podium/view', 'Main Forum');
-Yii::$app->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="row">
