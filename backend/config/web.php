@@ -33,16 +33,8 @@ $config = [
             'enableAutoLogin' => true,
             'as afterLogin' => common\behaviors\LoginTimestampBehavior::class
         ],
-        'i18n' => [
-            'translations' => [
-                'rbac-admin' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@vendor/mdsoft/yii2-admin/messages',
-                    'on missingTranslation' => ['\backend\modules\i18n\Module', 'missingTranslation']
-                ],
-            ],
-        ],
     ],
+    'bootstrap' => ['rbac'],
     'modules' => [
         'i18n' => [
             'class' => backend\modules\i18n\Module::class,
