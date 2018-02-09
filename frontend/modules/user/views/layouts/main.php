@@ -20,7 +20,7 @@ UserAsset::register($this);
 
 $this->beginContent('@frontend/views/layouts/base.php')
 ?>
-    <div class="container">
+    <div class="container push-header">
         
         <?php echo Breadcrumbs::widget([
             'links' => isset(Yii::$app->params['breadcrumbs']) ? Yii::$app->params['breadcrumbs'] : [],

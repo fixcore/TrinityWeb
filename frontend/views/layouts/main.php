@@ -9,6 +9,14 @@ use common\widgets\StatusServers\StatusServersWidget;
 
 $this->beginContent('@frontend/views/layouts/base.php')
 ?>
+    <div id="carousel-container" class="push-header">
+        <?php echo \common\widgets\DbCarousel::widget([
+            'key'=>'index',
+            'options' => [
+                'class' => 'slide carousel-with-indicator',
+            ],
+        ]) ?>
+    </div>
     <div class="container">
         
         <?php echo Breadcrumbs::widget([

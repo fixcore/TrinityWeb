@@ -8,7 +8,7 @@ PodiumAsset::register($this);
 /* @var $content string */
 $this->beginContent('@frontend/views/layouts/base.php')
 ?>
-<div class="container">
+<div class="container push-header">
     <?= \common\widgets\Alert::widget()?>
     
     <?= $this->render('/elements/main/_breadcrumbs') ?>

@@ -365,7 +365,7 @@ ul.nav > li.active > a:focus {
 }
 /*# tables end */
 /*# content */
-.wrap > .container {padding: 70px 15px 20px;}
+.wrap > .push-header {padding: 51px 15px 20px;}
 /*# content end */
 /*# articles */
 .article-item {margin-bottom: 15px;}
