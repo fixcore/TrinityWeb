@@ -1,14 +1,18 @@
 <?php
+
+use yii\helpers\Html;
+
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Articles'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+Yii::$app->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="content">
-    <article class="article-item">
-        <h1><?php echo $model->title ?></h1>
-
+    <article class="article-item flat">
+        <h2 class="article-title">
+            <?php echo $model->title ?>
+        </h2>
+        
         <?php if ($model->thumbnail_path): ?>
             <?php echo \yii\helpers\Html::img(
                 Yii::$app->glide->createSignedUrl([
@@ -19,7 +23,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => 'article-thumb img-rounded pull-left']
             ) ?>
         <?php endif; ?>
-
+        <div class="article-meta">
+            <span class="article-date">
+                <?php echo Yii::$app->formatter->asDatetime($model->created_at) ?>
+            </span>,
+            <span class="article-category">
+                <?php echo Html::a(
+                    $model->category->title,
+                    ['/category/' . $model->category_id]
+                )?>
+            </span>
+        </div>
         <?php echo $model->body ?>
 
         <?php if (!empty($model->articleAttachments)): ?>

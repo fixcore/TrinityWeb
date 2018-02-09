@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c199d728e0361fe531f18a60856c31a",
+    "content-hash": "049271513965c62391d8e54af1557b09",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
-            "version": "0.0.3",
+            "version": "dev-master",
             "target-dir": "yii/imperavi",
             "source": {
                 "type": "git",
                 "url": "https://github.com/asofter/yii2-imperavi-redactor.git",
-                "reference": "08e05dd323f7b8f247a68324a5767eb14ffb7a1f"
+                "reference": "24c9a1e83dd44f18953bef876099366d5907b95e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asofter/yii2-imperavi-redactor/zipball/08e05dd323f7b8f247a68324a5767eb14ffb7a1f",
-                "reference": "08e05dd323f7b8f247a68324a5767eb14ffb7a1f",
+                "url": "https://api.github.com/repos/asofter/yii2-imperavi-redactor/zipball/24c9a1e83dd44f18953bef876099366d5907b95e",
+                "reference": "24c9a1e83dd44f18953bef876099366d5907b95e",
                 "shasum": ""
             },
             "require": {
@@ -55,7 +55,7 @@
                 "imperavi redactor",
                 "yii"
             ],
-            "time": "2016-01-12T16:21:51+00:00"
+            "time": "2017-12-16T06:41:54+00:00"
         },
         {
             "name": "bizley/quill",
@@ -5495,6 +5495,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "asofter/yii2-imperavi-redactor": 20,
         "trntv/cheatsheet": 20,
         "kartik-v/yii2-tree-manager": 20
     },

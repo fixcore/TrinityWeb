@@ -58,4 +58,9 @@ class ArticleSearch extends Article
 
         return $dataProvider;
     }
+    
+    public function formName() {
+        return '';
+    }
+    
 }

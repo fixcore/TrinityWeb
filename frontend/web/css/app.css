@@ -3,6 +3,7 @@ body {background-color: #23262D;font-family: "Play";color:#C5C0C0;}
 * {
     outline: none;
 }
+h1,h2,h3 {margin-top: 0px;}
 .wrap {
     min-height: 100%;
     height: auto;
@@ -367,7 +368,7 @@ ul.nav > li.active > a:focus {
 .wrap > .push-header {padding: 51px 0px 20px;}
 /*# content end */
 /*# articles */
-.article-item {margin-bottom: 15px;}
+.article-item {margin-bottom: 15px; padding: 10px;}
 .article-item .article-title,
 .article-item .article-title a {
     color: inherit;

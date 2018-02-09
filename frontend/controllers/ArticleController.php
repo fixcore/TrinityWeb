@@ -16,18 +16,6 @@ use frontend\models\search\ArticleSearch;
  */
 class ArticleController extends Controller
 {
-    /**
-     * @return string
-     */
-    public function actionIndex()
-    {
-        $searchModel = new ArticleSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->sort = [
-            'defaultOrder' => ['created_at' => SORT_DESC]
-        ];
-        return $this->render('index', ['dataProvider' => $dataProvider]);
-    }
 
     /**
      * @param $slug
