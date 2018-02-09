@@ -34,7 +34,7 @@ $config = [
             'as afterLogin' => common\behaviors\LoginTimestampBehavior::class
         ],
     ],
-    'bootstrap' => ['rbac'],
+    'bootstrap' => ['rbac','treemanager'],
     'modules' => [
         'i18n' => [
             'class' => backend\modules\i18n\Module::class,
