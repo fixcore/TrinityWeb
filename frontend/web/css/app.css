@@ -303,14 +303,8 @@ ul.nav > li.active > a:focus {
 
 .pagination > li > a,
 .pagination > li > span {
-    padding: 8px 10px;
-    color: #afacac;
     background-color: inherit;
-    border: 0px;
-}
-
-.pagination > li > a,
-.pagination > li > span {
+    border: 0px;   
     position: relative;
     float: left;
     padding: 6px 12px;
@@ -318,8 +312,6 @@ ul.nav > li.active > a:focus {
     line-height: 1.42857143;
     color: #9d9d9d;
     text-decoration: none;
-    background-color: inherit;
-    border: 0px;
 }
 
 .pagination > .active > a,
@@ -395,11 +387,30 @@ ul.nav > li.active > a:focus {
 .article-item .article-text {margin-top: 7px;}
 /*# articles end */
 /*# widgets */
-#widget-status_servers {}
-#widget-status_servers .panel-heading{}
-#widget-status_servers .panel-body{}
-#widget-status_servers .panel-body .panel.server-panel{}
-#widget-status_servers .panel-body .panel.server-panel .panel-heading{}
+.widget,
+.flat {
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
+}
+#widget-status_servers {
+    background-color: inherit;
+    padding: 10px 5px;
+    border: 0px;
+}
+#widget-status_servers .panel-heading {
+    background-color: inherit;
+    border-bottom-color: #C5C0C0;
+    color: #C5C0C0;
+}
+#widget-status_servers .panel-body {}
+#widget-status_servers .panel-body .panel.server-panel {
+    background-color: inherit;
+    border: 0px;
+}
+#widget-status_servers .panel-body .panel.server-panel .panel-heading {
+    color: #C5C0C0;
+}
 /*# widgets end */
 /*# footer */
 .footer {

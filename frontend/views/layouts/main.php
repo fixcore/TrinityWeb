@@ -19,7 +19,9 @@ $this->beginContent('@frontend/views/layouts/base.php')
         
         <div class="row">
             <div class="col-md-8" id="left-side">
-                <?php echo $content ?>
+                <div class="flat">
+                    <?php echo $content ?>
+                </div>
             </div>
             <div class="col-md-4" id="right-side">
                 <?= StatusServersWidget::widget() ?>

@@ -1,4 +1,4 @@
-<div class="panel panel-default" id="widget-status_servers">
+<div class="panel panel-default widget" id="widget-status_servers">
     <div class="panel-heading">
         <?=Yii::t('app','Всего: {count}', [
             'count' => $shared_online,

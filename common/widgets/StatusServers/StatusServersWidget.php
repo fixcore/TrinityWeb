@@ -18,7 +18,7 @@ class StatusServersWidget extends Widget
         if($status_data === false) {
             foreach($servers as $server) {
                 $status_list[$server['name']]['id'] = $server['id'];
-                if (!$world = @fsockopen($server['address'],$server['port'],$errno,$errstr,1)) {
+                if (!$world = @fsockopen($server['address'],$server['port'],$errno,$errstr,1)) {//timeout 1 second
                     $status_list[$server['name']]['status'] = 'off';
                     $status_list[$server['name']]['online_list'] = [];
                     Yii::$app->CharactersDbHelper::clearOnlineCache($server['id']);
