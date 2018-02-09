@@ -145,6 +145,10 @@ $bundle = BackendAsset::register($this);
                         ]
                     ],
                     [
+                        'label' => Yii::t('backend', 'Модули'),
+                        'options' => ['class' => 'header']
+                    ],
+                    [
                         'label' => Yii::t('backend', 'Права доступа'),
                         'icon' => '<i class="fa fa-bolt"></i>',
                         'url' => '#',
@@ -153,30 +157,81 @@ $bundle = BackendAsset::register($this);
                         'visible' => Yii::$app->user->can('administrator'),
                         'items' => [
                             [
-                                'label' => Yii::t('backend','Роли'),
+                                'label' => Yii::t('rbac-admin','Roles'),
                                 'icon' => '<i class="fa fa-angle-double-right"></i>',
                                 'active' => (\Yii::$app->controller->id == 'role'),
                                 'url' => ['/rbac/role/index'],
                             ],
                             [   
-                                'label' => Yii::t('backend','Правила'),
+                                'label' => Yii::t('rbac-admin','Rules'),
                                 'icon' => '<i class="fa fa-angle-double-right"></i>',
                                 'active' => (\Yii::$app->controller->id == 'rule'),
                                 'url' => ['/rbac/rule/index'],
                             ],
                             [   
-                                'label' => Yii::t('backend','Разрешения'),
+                                'label' => Yii::t('rbac-admin','Permissions'),
                                 'icon' => '<i class="fa fa-angle-double-right"></i>',
                                 'active' => (\Yii::$app->controller->id == 'permission'),
                                 'url' => ['/rbac/permission/index'],
                             ],
                             [
-                                'label' => Yii::t('backend','Назначить'),
+                                'label' => Yii::t('rbac-admin','Assignment'),
                                 'icon' => '<i class="fa fa-angle-double-right"></i>',
                                 'active' => (\Yii::$app->controller->id == 'assignment'),
                                 'url' => ['/rbac/assignment/index'],
                             ],
                         ]
+                    ],
+                    [
+                        'label' => Yii::t('podium/view','Forum'),
+                        'icon' => '<i class="fa fa-tasks"></i>',
+                        'url' => '#',
+                        'visible' => Yii::$app->user->can('administrator'),
+                        'active' => (\Yii::$app->controller->module->id == 'forum'),
+                        'items' => [
+                            [
+                                'label' => Yii::t('podium/view','Dashboard'),
+                                'icon' => '<i class="fa fa-cog"></i>',
+                                'active' => (\Yii::$app->controller->id == 'admin' && \Yii::$app->controller->action->id == 'index'),
+                                'url' => ['/forum/admin/index'],
+                            ],
+                            [
+                                'label' => Yii::t('podium/view','Forums'),
+                                'icon' => '<i class="fa fa-list-ul"></i>',
+                                'active' => (\Yii::$app->controller->id == 'admin' && \Yii::$app->controller->action->id == 'categories'),
+                                'url' => ['/forum/admin/categories'],
+                            ],
+                            [
+                                'label' => Yii::t('podium/view','Members'),
+                                'icon' => '<i class="fa fa-vcard"></i>',
+                                'active' => (\Yii::$app->controller->id == 'admin' && \Yii::$app->controller->action->id == 'members'),
+                                'url' => ['/forum/admin/members'],
+                            ],
+                            [
+                                'label' => Yii::t('podium/view','Moderators'),
+                                'icon' => '<i class="fa fa-user-circle"></i>',
+                                'active' => (\Yii::$app->controller->id == 'admin' && \Yii::$app->controller->action->id == 'mods'),
+                                'url' => ['/forum/admin/mods'],
+                            ],
+                            [
+                                'label' => Yii::t('podium/view','Contents'),
+                                'icon' => '<i class="fa fa-vcard"></i>',
+                                'active' => (\Yii::$app->controller->id == 'admin' && \Yii::$app->controller->action->id == 'contents'),
+                                'url' => ['/forum/admin/contents'],
+                            ],
+                            [
+                                'label' => Yii::t('podium/view','Settings'),
+                                'icon' => '<i class="fa fa-cogs"></i>',
+                                'active' => (\Yii::$app->controller->id == 'admin' && \Yii::$app->controller->action->id == 'settings'),
+                                'url' => ['/forum/admin/settings'],
+                            ],
+                            [
+                                'label' => Yii::t('podium/view','Logs'),
+                                'icon' => '<i class="fa fa-list"></i>',
+                                'active' => (\Yii::$app->controller->id == 'admin' && \Yii::$app->controller->action->id == 'logs'),
+                                'url' => ['/forum/admin/logs'],
+                            ],
+                        ],
                     ],
                     [
                         'label' => Yii::t('backend', 'System'),
