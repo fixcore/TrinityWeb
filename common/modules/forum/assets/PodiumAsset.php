@@ -15,12 +15,21 @@ class PodiumAsset extends AssetBundle
     /**
      * @inheritdoc
      */
-    public $sourcePath = '@podium/css';
+    public $sourcePath = '@podium';
 
     /**
      * @inheritdoc
      */
-    public $css = ['podium.css'];
+    public $css = [
+        'css/forum.css'
+    ];
+    
+    /**
+     * @inheritdoc
+     */
+    public $js = [
+        'js/forum-app.js'
+    ];
 
     /**
      * @inheritdoc

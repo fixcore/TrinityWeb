@@ -319,7 +319,21 @@ class Characters extends CoreModel
     public function getList() {
         return self::find()->where(['account' => Yii::$app->user->identity->external_id])->all();
     }
-    
+    /**
+    * Получает кол-во активных игровок на текущем сервере
+    * @param int $server_id ID сервера
+    * @param int $upd_time Время жизни кеша
+    * @return integer
+    */
+    public function getOnlineByServer($server_id,$upd_time) {
+        $cache_key = 'server_' . $server_id . '_characters_online';
+        $characters_online_list = Yii::$app->cache->get($cache_key);
+        if ($characters_online_list === false) {
+            $characters_online_list = Characters::find()->where(['online' => 1])->asArray()->all(Yii::$app->CharactersDbHelper::getConnection($server_id));
+            Yii::$app->cache->set($cache_key, $characters_online_list, $upd_time);
+        }
+        return $characters_online_list;
+    }
     
     
     
@@ -346,15 +360,7 @@ class Characters extends CoreModel
         $cache_key = 'server_' . $server_id . '_characters_online';
         Yii::$app->cache->delete($cache_key);
     }
-    public function getOnlineByServer($server_id) {
-        $cache_key = 'server_' . $server_id . '_characters_online';
-        $characters_online_list = Yii::$app->cache->get($cache_key);
-        if ($characters_online_list === false) {
-            $characters_online_list = Characters::find()->where(['online' => 1])->asArray()->all(Characters::getDb($server_id));
-            Yii::$app->cache->set($cache_key, $characters_online_list, self::UPDATE_TIME);
-        }
-        return $characters_online_list;
-    }
+    
     public function getSpecImageUrl($group = null,$spec = false) {
         if($spec !== false) return '/img/class/' . $this->class . '_' . $spec . '.png';
         return '/img/class/' . $this->class . '_' . ($this->getCharacterSpec($group)) . '.png';

@@ -394,6 +394,13 @@ ul.nav > li.active > a:focus {
 }
 .article-item .article-text {margin-top: 7px;}
 /*# articles end */
+/*# widgets */
+#widget-status_servers {}
+#widget-status_servers .panel-heading{}
+#widget-status_servers .panel-body{}
+#widget-status_servers .panel-body .panel.server-panel{}
+#widget-status_servers .panel-body .panel.server-panel .panel-heading{}
+/*# widgets end */
 /*# footer */
 .footer {
     height: 60px;
@@ -407,6 +414,10 @@ ul.nav > li.active > a:focus {
 @media (max-width: 767px) {
     .text-center-xs {
         text-align: center;
+    }
+    #left-side {}
+    #right-side {
+        margin-top: 15px;
     }
 }
 @media (min-width: 768px) {

@@ -4,7 +4,7 @@ use yii\helpers\ArrayHelper;
 use yii\widgets\Breadcrumbs;
 
 use common\widgets\Alert;
-
+use common\widgets\StatusServers\StatusServersWidget;
 /* @var $content string */
 
 $this->beginContent('@frontend/views/layouts/base.php')
@@ -18,11 +18,11 @@ $this->beginContent('@frontend/views/layouts/base.php')
         <?= Alert::widget() ?>
         
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8" id="left-side">
                 <?php echo $content ?>
             </div>
-            <div class="col-md-4">
-                {right side}
+            <div class="col-md-4" id="right-side">
+                <?= StatusServersWidget::widget() ?>
             </div>
         </div>
     </div>

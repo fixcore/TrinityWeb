@@ -166,4 +166,9 @@ class CharactersDbHelper extends \yii\base\Component
         return null;
     }
     
+    public static function clearOnlineCache($server_id) {
+        $cache_key = 'server_' . $server_id . '_characters_online';
+        Yii::$app->cache->delete($cache_key);
+    }
+    
 }
