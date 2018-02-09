@@ -19,11 +19,11 @@ class StatusServersWidget extends Widget
             foreach($servers as $server) {
                 $status_list[$server['name']]['id'] = $server['id'];
                 if (!$world = @fsockopen($server['address'],$server['port'],$errno,$errstr,1)) {//timeout 1 second
-                    $status_list[$server['name']]['status'] = 'off';
+                    $status_list[$server['name']]['status'] = Yii::$app->AppHelper::$OFFLINE;
                     $status_list[$server['name']]['online_list'] = [];
                     Yii::$app->CharactersDbHelper::clearOnlineCache($server['id']);
                 } else {
-                    $status_list[$server['name']]['status'] = 'on';
+                    $status_list[$server['name']]['status'] = Yii::$app->AppHelper::$ONLINE;
                     $status_list[$server['name']]['online_list'] = Characters::getOnlineByServer($server['id'], self::UPDATE_TIME);
                     $shared_online += count($status_list[$server['name']]['online_list']);
                     fclose($world);

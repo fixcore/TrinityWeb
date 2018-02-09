@@ -11,10 +11,10 @@
         <div class="panel panel-default server-panel">
             <div class="panel-heading"><?=$server_name?>: 
                 <?php
-                if($status['status'] == 'on') {
+                if($status['status'] == Yii::$app->AppHelper::$ONLINE) {
                     echo count($status['online_list']);
                 } else {
-                    echo 0;
+                    echo Yii::t('frontend','выключен');
                 }
                 ?>
             </div>

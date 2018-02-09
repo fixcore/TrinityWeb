@@ -13,6 +13,16 @@ class AppHelper extends \yii\base\Component
     */
     public static $UPDATE_TIMER = 300;
     /**
+    * Свойство сервер доступен
+    * @return string
+    */
+    public static $ONLINE = 'on';
+    /**
+    * Свойство сервер недоступен
+    * @return string
+    */
+    public static $OFFLINE = 'off';
+    /**
     * Тип - вещь
     * @return string
     */
