@@ -115,6 +115,7 @@ $config = [
                 'app' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/messages',
+                    'on missingTranslation' => ['\backend\modules\i18n\Module', 'missingTranslation']
                 ],
                 'common' => [
                     'class' => 'yii\i18n\PhpMessageSource',
