@@ -9,6 +9,7 @@ use common\widgets\Alert;
 
 $this->beginContent('@frontend/views/layouts/base.php')
 ?>
+<div class="push-header">
     <div class="container">
         
         <?php echo Breadcrumbs::widget([
@@ -23,4 +24,5 @@ $this->beginContent('@frontend/views/layouts/base.php')
             </div>
         </div>
     </div>
+</div>
 <?php $this->endContent() ?>
