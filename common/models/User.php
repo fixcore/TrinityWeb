@@ -18,6 +18,8 @@ use common\models\chars\Characters;
 
 use common\models\query\UserQuery;
 
+use common\modules\forum\models\User as ForumUser;
+
 /**
  * User model
  *
@@ -279,6 +281,16 @@ class User extends ActiveRecord implements IdentityInterface
         return $this;
     }
     
+    public function checkIssetForumAccount() {
+        if(!$this->relationForumAccount) {
+            ForumUser::createInheritedAccount();
+        }
+    }
+    
+    public function getRelationForumAccount() {
+        return $this->hasOne(ForumUser::className(),['inherited_id' => 'id']);
+    }
+    
     /**
      * Creates user profile and application event
      * @param array $profileData
@@ -303,6 +315,7 @@ class User extends ActiveRecord implements IdentityInterface
         // Default role
         $auth = Yii::$app->authManager;
         $auth->assign($auth->getRole(User::ROLE_USER), $this->getId());
+        $this->checkIssetForumAccount();
     }
 
     /**

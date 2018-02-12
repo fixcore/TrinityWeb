@@ -4,6 +4,11 @@ use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 
+use common\modules\forum\models\User;
+
+$forumUser = User::findMe();
+$messageCount = $forumUser->newMessagesCount;
+
 /* @var $this \yii\web\View */
 /* @var $content string */
 
@@ -90,7 +95,6 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                 'visible' => !Yii::$app->user->isGuest,
                 'linkOptions' => [
                     'class' => 'data-caret',
-                    'data-hover' => Yii::$app->user->isGuest ? '' : Yii::$app->user->identity->getPublicIdentity(),
                 ],
                 'items'=>[
                     [
@@ -112,6 +116,28 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                         'url' => ['/panel/sign-in/logout'],
                         'linkOptions' => ['data-method' => 'post']
                     ]
+                ]
+            ],
+            [
+                'label' => Yii::t('frontend', 'Сообщения') . ($messageCount ? ' ' . Html::tag('span', $messageCount, ['class' => 'badge']) : '' ),
+                'visible' => !Yii::$app->user->isGuest,
+                'linkOptions' => [
+                    'class' => 'data-caret',
+                ],
+                'items'=>[
+                    [
+                        'label' => Yii::t('podium/view', 'Inbox') . ($messageCount ? ' ' . Html::tag('span', $messageCount, ['class' => 'badge']) : ''),
+                        'url' => ['/forum/messages/inbox'],
+                        'encode' => false,
+                    ],
+                    [
+                        'label' => Yii::t('podium/view', 'Sent Messages'),
+                        'url' => ['/forum/messages/sent']
+                    ],
+                    [
+                        'label' => Yii::t('podium/view', 'New Message'),
+                        'url' => ['/forum/messages/new']
+                    ],
                 ]
             ],
         ]
