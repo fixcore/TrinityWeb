@@ -6,13 +6,46 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 
+use frontend\modules\ladder\models\SearchFormModel;
+
 class MainController extends Controller
 {
+    
+    public function beforeAction($action) {
+        if(parent::beforeAction($action)) {
+            $server = Yii::$app->request->get('server');
+            $type = Yii::$app->request->get('type');
+            if(!$server || !$type) {
+                $user_realm = Yii::$app->CharactersDbHelper->getServerNameById(Yii::$app->CharactersDbHelper->getServerId());
+                $type = SearchFormModel::TYPE_2;
+                $this->redirect('/ladder/' . $user_realm . '/' . $type);
+            }
+            return true;
+        }
+        return false;
+    }
+    
     /**
      * @return string|\yii\web\Response
      */
-    public function actionIndex()
+    public function actionIndex($server = '',$type = '')
     {
-        return $this->render('index');
+        $data = Yii::$app->cache->get(Yii::$app->request->getUrl());
+        
+        $formModel = new SearchFormModel();
+        $formModel->load(Yii::$app->request->queryParams);
+        
+        if($data === false) {
+            $dataProvider = $formModel->search(Yii::$app->request->queryParams);
+            $data['list'] = $dataProvider->getModels();
+            $data['totalCount'] = $dataProvider->totalCount;
+            $data['pageSize'] = $dataProvider->pagination->getPageSize();
+            Yii::$app->cache->set(Yii::$app->request->getUrl(),$data,Yii::$app->params['cache_ladder']);
+        }
+        
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'data' => $data,
+        ]);
     }
 }

@@ -50,8 +50,14 @@ a.desc:after {content: "\e152";}
 .rf-studio-black {color: #333;}
 .rf-studio-white {color: #C5C0C0;}
 .rf-studio-orange {color: #e84d3b;}
+.rf-studio-green {color: #5cb85c;}
 .rf-studio-aqua {color: #36BBA6;}
-
+.row.no-gutters {
+    margin: 0px;
+}
+.no-gutters [class^='col-'] {
+    padding: 0px;
+}
 .btn {
     padding: 8px 10px;
     border-radius: 0px;
@@ -433,6 +439,9 @@ ul.nav > li.active > a:focus {
     #left-side {}
     #right-side {
         margin-top: 15px;
+    }
+    .text-center-xs {
+        text-align: center;
     }
 }
 @media (min-width: 768px) {

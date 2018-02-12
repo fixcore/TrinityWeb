@@ -7,7 +7,11 @@ use yii\helpers\Html;
 use common\modules\forum\models\User;
 
 $forumUser = User::findMe();
-$messageCount = $forumUser->newMessagesCount;
+if($forumUser) {
+    $messageCount = $forumUser->newMessagesCount;
+} else {
+    $messageCount = 0;
+}
 
 /* @var $this \yii\web\View */
 /* @var $content string */

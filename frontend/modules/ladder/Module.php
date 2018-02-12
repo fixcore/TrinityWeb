@@ -22,7 +22,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
     public function init()
     {
         parent::init();
-        $this->layout = '@frontend/views/layouts/main_full';
+        $this->layout = 'main';
         $this->setAliases(['@ladder' => __DIR__]);
         $this->registerTranslations();
     }

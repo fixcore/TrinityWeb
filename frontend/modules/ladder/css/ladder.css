@@ -1,0 +1,4 @@
+#ladder-container {}
+#ladder-container .list-header {}
+#ladder-container .list-item:not(first-child) {margin-top: 15px;}
+#ladder-container .list-item .flat {padding: 10px;}

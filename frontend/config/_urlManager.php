@@ -9,6 +9,8 @@ return [
         '/' => '/site/index',
         '/category/<category_id>' => 'site/index',
         
+        '/ladder/<server>/<type>' => '/ladder/main/index',
+        
         ['pattern' => 'page/<slug>', 'route' => 'page/view'],
         
         ['pattern' => 'article/attachment-download', 'route' => 'article/attachment-download'],

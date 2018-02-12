@@ -191,6 +191,9 @@ $config = [
         'database_icon_url_large' => 'https://dbwotlk.com/static/images/wow/icons/large',
         'database_icon_url_medium' => 'https://dbwotlk.com/static/images/wow/icons/medium',
         */
+        
+        'cache_ladder' => 60,
+        
         'cache_armory_search' => 120,
         'cache_armory_character' => 60,
         'cache_armory_character_talents' => 60,

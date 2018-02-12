@@ -29,6 +29,7 @@ class LadderAsset extends AssetBundle
      * @var array
      */
     public $css = [
+        'css/ladder.css',
     ];
 
     /**
