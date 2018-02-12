@@ -119,7 +119,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                 ]
             ],
             [
-                'label' => Yii::t('frontend', 'Сообщения') . ($messageCount ? ' ' . Html::tag('span', $messageCount, ['class' => 'badge']) : '' ),
+                'label' => Yii::t('podium/view', 'Messages') . ($messageCount ? ' ' . Html::tag('span', $messageCount, ['class' => 'badge']) : '' ),
                 'visible' => !Yii::$app->user->isGuest,
                 'linkOptions' => [
                     'class' => 'data-caret',
