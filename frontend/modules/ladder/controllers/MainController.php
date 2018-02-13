@@ -50,7 +50,7 @@ class MainController extends Controller
                     $data['rank_start'] = ++$data['pageSize'];
                 }
             }
-            Yii::$app->cache->set(Yii::$app->request->getUrl(),$data,Yii::$app->params['cache_ladder']);
+            Yii::$app->cache->set(Yii::$app->request->getUrl(),$data,Yii::$app->keyStorage->get('frontend.cache_ladder'));
         }
         
         return $this->render('index', [

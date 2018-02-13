@@ -130,7 +130,7 @@ class CharacterData extends Model
                     
                 }
             }
-            Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->params['cache_armory_character']);
+            Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->keyStorage->get('frontend.cache_armory_character'));
         }
         return $data;
     }
@@ -166,7 +166,7 @@ class CharacterData extends Model
                     $data['talents'][$i][$tab['tab_number']]['counter'] = $tab_counter;
                 }
             }
-            Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->params['cache_armory_character_talents']);
+            Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->keyStorage->get('frontend.cache_armory_character_talents'));
         }
         return $data;
     }

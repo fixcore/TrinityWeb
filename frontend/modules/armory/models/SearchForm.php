@@ -72,8 +72,8 @@ class SearchForm extends Model
             if($data === false || $counter === false) {
                 $data = $dataProvider->getModels();
                 $counter = $dataProvider->getTotalCount();
-                Yii::$app->cache->set(Yii::$app->request->url . '_counter',$counter,Yii::$app->params['cache_armory_search']);
-                Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->params['cache_armory_search']);
+                Yii::$app->cache->set(Yii::$app->request->url . '_counter',$counter,Yii::$app->keyStorage->get('frontend.cache_armory_search'));
+                Yii::$app->cache->set(Yii::$app->request->url,$data,Yii::$app->keyStorage->get('frontend.cache_armory_search'));
             }
         }
         return ['result' => $data, 'counter' => $counter];

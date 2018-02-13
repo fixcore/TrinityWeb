@@ -406,7 +406,7 @@ class AppHelper extends \yii\base\Component
     * @param string $type Тип элемента
     * @return string
     */
-    public static function buildDBUrl($id, $type) {return Yii::$app->params['database_url'] . "/$type=$id";}
+    public static function buildDBUrl($id, $type) {return Yii::$app->keyStorage->get('frontend.database_url') . "/$type=$id";}
     /**
     * Сформировать ссылку на картинку рассы (локально).
     * @param integer $race индекс рассы
@@ -444,7 +444,7 @@ class AppHelper extends \yii\base\Component
     */
     public static function buildItemIconUrl($slot, $icon_name = null) {
         if($icon_name) {
-            return Yii::$app->params['database_icon_url_large'] . "/$icon_name.jpg";
+            return Yii::$app->keyStorage->get('frontend.database_icon_url_large') . "/$icon_name.jpg";
         }
         return "/img/armory/slots/$slot.png";
     }
@@ -454,7 +454,7 @@ class AppHelper extends \yii\base\Component
     * @return string
     */
     public static function buildSpellIconUrl($icon_name) {
-        return Yii::$app->params['database_icon_url_medium'] . "/$icon_name.jpg";
+        return Yii::$app->keyStorage->get('frontend.database_icon_url_medium') . "/$icon_name.jpg";
     }
     /**
     * Сформировать значение для rel аттрибута - для отображения доп. эффектов

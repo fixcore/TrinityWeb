@@ -29,7 +29,7 @@ class TeamController extends Controller
                 'relationMembers.relationCharacter.relationArenaStats'
             ])->one();
             Yii::$app->params['breadcrumbs'][] = ['label' => $data['name']];
-            Yii::$app->cache->set(Yii::$app->request->getUrl(),$data,Yii::$app->params['cache_ladder']);
+            Yii::$app->cache->set(Yii::$app->request->getUrl(),$data,Yii::$app->keyStorage->get('frontend.cache_ladder'));
         }
         return $this->render('index',[
             'data' => $data,

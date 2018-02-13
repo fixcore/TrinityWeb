@@ -379,7 +379,7 @@ use yii\helpers\Url;
                 ?>
                 <div class="achievement_data">
                     <a href="<?=Yii::$app->AppHelper->buildDBUrl($achiv['id'],Yii::$app->AppHelper::$TYPE_ACHIEVEMENT)?>" target="_blank">
-                        <img src="<?php//=Yii::$app->AppHelper->getIconUrl($achiv['iconname'])?>" width="15" alt="" />
+                        <img width="15" alt="" />
                         <?=$achiv['name']?>
                     </a>
                     <?=date('Y-m-d H:i:s',$achiv['date'])?>
