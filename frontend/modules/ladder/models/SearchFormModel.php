@@ -14,7 +14,7 @@ use common\models\chars\ArenaTeamMember;
  */
 class SearchFormModel extends Model
 {
-    public $realm_id = null;
+    public $server = null;
     public $type = null;
     
     public $_arr_types = [
@@ -29,9 +29,7 @@ class SearchFormModel extends Model
     
     public function __construct($config = array()) {
         parent::__construct($config);
-        if($_id = Yii::$app->CharactersDbHelper->getServerId()) {
-            $this->realm_id = $_id;
-        }
+        $this->server = Yii::$app->CharactersDbHelper->getServerName();
         $this->type = $this->_arr_types[2];
     }
     
@@ -45,8 +43,10 @@ class SearchFormModel extends Model
     public function rules()
     {
         return [
-            [['realm_id', 'type'], 'required'],
-            [['realm_id', 'type'], 'integer'],
+            [['server', 'type'], 'required'],
+            [['type'], 'integer'],
+            [['server'], 'trim'],
+            [['server'], 'string'],
         ];
     }
     
@@ -56,7 +56,7 @@ class SearchFormModel extends Model
     public function attributeLabels()
     {
         return [
-            'realm_id' => Yii::t('ladder', 'Игровой мир'),
+            'server' => Yii::t('ladder', 'Игровой мир'),
             'type' => Yii::t('ladder', 'Тип')
         ];
     }
@@ -81,4 +81,14 @@ class SearchFormModel extends Model
 
         return $dataProvider;
     }
+    
+    public function getServers() {
+        $servers = Yii::$app->CharactersDbHelper->getServers(true);
+        $data = [];
+        foreach($servers as $server) {
+            $data[$server] = $server;
+        }
+        return $data;
+    }
+    
 }

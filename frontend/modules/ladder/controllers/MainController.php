@@ -46,6 +46,7 @@ class MainController extends Controller
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'data' => $data,
+            'searchModel' => $formModel,
         ]);
     }
 }

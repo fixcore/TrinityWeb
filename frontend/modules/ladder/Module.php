@@ -14,7 +14,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public $controllerNamespace = 'frontend\modules\ladder\controllers';
     
-    public $defaultRoute = 'main';
+    public $defaultRoute = 'main/index';
     
     /**
      * @inheritdoc

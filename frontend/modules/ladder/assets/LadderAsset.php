@@ -36,6 +36,7 @@ class LadderAsset extends AssetBundle
      * @var array
      */
     public $js = [
+        'js/ladder.js',
     ];
 
     /**
