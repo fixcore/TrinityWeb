@@ -8,7 +8,9 @@ $(document).ready(function(){
         percent = percent +0.5;
         if (percent>100) {
             percent=0;
-            crsl.carousel('next');
+            if(crsl) {
+                crsl.carousel('next');
+            }
         }      
     }
     crsl.carousel({
