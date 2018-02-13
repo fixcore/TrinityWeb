@@ -38,7 +38,10 @@ use yii\helpers\Html;
                     ])?>
                 </div>
                 <div class="col-xs-3 hidden-xs col-sm-3 hidden-sm col-md-2 text-center-xs">
-                    {character class info}
+                    <?php
+                    echo Yii::$app->AppHelper->buildTagRaceImage($item['relationCharacter']['race'],$item['relationCharacter']['gender']);
+                    echo Yii::$app->AppHelper->buildTagClassImage($item['relationCharacter']['class']);
+                    ?>
                 </div>
                 <div class="col-xs-2 text-center-xs">
                     <span><?=$item['seasonWins']?></span>
