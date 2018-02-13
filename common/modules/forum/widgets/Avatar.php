@@ -36,13 +36,13 @@ class Avatar extends Widget
     public function run()
     {
         $avatar = Html::img(Helper::defaultAvatar(), [
-            'class' => 'podium-avatar img-circle img-responsive center-block',
+            'class' => 'podium-avatar img-responsive center-block',
             'alt' => Yii::t('podium/view', 'user deleted')
         ]);
         $name = Helper::deletedUserTag(true);
         if ($this->author instanceof User) {
             $avatar = Html::img(Helper::defaultAvatar(), [
-                'class' => 'podium-avatar img-circle img-responsive center-block',
+                'class' => 'podium-avatar img-responsive center-block',
                 'alt'   => Html::encode($this->author->podiumName)
             ]);
             $name = $this->author->podiumTag;
@@ -55,12 +55,12 @@ class Avatar extends Widget
                         'rating'       => 'r',
                         'options'      => [
                             'alt'   => Html::encode($this->author->podiumName),
-                            'class' => 'podium-avatar img-circle img-responsive center-block',
+                            'class' => 'podium-avatar img-responsive center-block',
                         ]
                     ]);
                 } elseif (!empty($meta->avatar)) {
                     $avatar = Html::img('@web/avatars/' . $meta->avatar, [
-                        'class' => 'podium-avatar img-circle img-responsive center-block',
+                        'class' => 'podium-avatar img-responsive center-block',
                         'alt'   => Html::encode($this->author->podiumName)
                     ]);
                 }

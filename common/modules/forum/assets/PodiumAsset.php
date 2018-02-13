@@ -4,6 +4,11 @@ namespace common\modules\forum\assets;
 
 use yii\web\AssetBundle;
 
+use yii\web\YiiAsset;
+use yii\bootstrap\BootstrapAsset;
+use common\assets\Html5shiv;
+use frontend\assets\FrontendAsset;
+
 /**
  * Podium Assets
  *
@@ -35,7 +40,9 @@ class PodiumAsset extends AssetBundle
      * @inheritdoc
      */
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        YiiAsset::class,
+        BootstrapAsset::class,
+        Html5shiv::class,
+        FrontendAsset::class,
     ];
 }

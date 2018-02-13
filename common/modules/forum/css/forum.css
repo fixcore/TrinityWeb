@@ -3,7 +3,8 @@ body { padding-top:20px; padding-bottom:20px }
 .navbar { margin-bottom:20px }
 .note-editor .note-dialog .form-group.row-fluid.note-group-select-from-files { display:none }
 .popover.podium { display:block !important; width:auto !important; max-width:none !important; position:relative !important; z-index:auto !important }
-.popover.right.podium > .arrow { top:55px !important }
+.popover.right.podium > .arrow { top:55px !important; }
+.popover.right.podium > .arrow:after { border-right-color:rgba(52,55,60,0.8); }
 .podium-action-bar { position:absolute; bottom:10px; right:10px; display:none }
 .podium-action-bar.list-inline > li { padding-right:1px; padding-left:1px }
 .podium-content { padding-bottom:17px }
@@ -11,7 +12,7 @@ body { padding-top:20px; padding-bottom:20px }
 .podium-footer { margin-top:10px; max-height:125px; overflow-y:hidden }
 .podium-footer hr { margin-bottom:5px }
 .podium-go-to-new { display:none }
-.podium-gradient { background-image:linear-gradient(to right bottom, white, #c5dee5) }
+.podium-gradient {}
 .podium-poll { margin-bottom:20px }
 .podium-poll label { font-weight:normal }
 .podium-post { margin-bottom:5px }
@@ -31,3 +32,41 @@ body { padding-top:20px; padding-bottom:20px }
 @media (max-width: 767px) { .podium-avatar { display:none !important }}
 .select2-container--krajee .select2-results__option--highlighted[aria-selected] { background-color: #d9edf7 !important }
 @-moz-document url-prefix() { fieldset { display: table-cell }}
+#button-search-submit {
+    height: 35px;
+    border-top: 1px solid rgb(60, 67, 76);
+    border-right: 1px solid rgb(60, 67, 76);
+    border-bottom: 1px solid rgb(60, 67, 76);
+}
+#forum-container {}
+#forum-container .panel {
+    background-color: inherit;
+    border-radius: 0px;
+    border-color: rgba(52,55,60,0.8);
+}
+#forum-container .panel-default .panel-heading,
+#forum-container .panel-default .panel-footer {
+    background-color: inherit;
+    border-color: rgba(52,55,60,0.8);
+    color: #C5C0C0;
+}
+#forum-container .popover-title,
+#forum-container .popover {
+    background-color: inherit;
+    border-color: rgba(52,55,60,0.8);
+}
+#forum-container .panel-default .panel-body {background-color: inherit;}
+#forum-container .table > thead > tr > th,
+#forum-container .table > tbody > tr > th,
+#forum-container .table > tfoot > tr > th,
+#forum-container .table > thead > tr > td,
+#forum-container .table > tbody > tr > td,
+#forum-container .table > tbody + tbody,
+#forum-container .table > tfoot > tr > td {
+    border-color: rgba(52,55,60,0.8);
+}
+#forum-container .panel-info > .panel-heading {
+    color: #C5C0C0;
+    background-color: #23262d;
+    border-color: rgba(52,55,60,0.8);
+}

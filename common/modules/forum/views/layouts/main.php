@@ -9,7 +9,7 @@ PodiumAsset::register($this);
 $this->beginContent('@frontend/views/layouts/base.php')
 ?>
 <div class="push-header">
-    <div class="container">
+    <div class="container" id="forum-container">
         <?= \common\widgets\Alert::widget()?>
         <?= $this->render('/elements/main/_breadcrumbs') ?>
         <div class="row">
