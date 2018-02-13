@@ -30,7 +30,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
                         . '</small></strong>:<hr>'
                         . $model->parsedPost
                         . (Podium::getInstance()->podiumConfig->get('allow_polls') ? Poll::preview($model) : null),
-            'options' => ['class' => 'alert-info']
+            'options' => ['class' => 'alert-info alert-preview']
         ]); ?>
     </div>
 </div>

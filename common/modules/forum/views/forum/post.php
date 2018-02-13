@@ -31,7 +31,7 @@ $author = User::findMe();
             'body' => '<strong><small>'
                         . Yii::t('podium/view', 'Post Preview')
                         . '</small></strong>:<hr>' . $model->parsedContent,
-            'options' => ['class' => 'alert-info']
+            'options' => ['class' => 'alert-info alert-preview']
         ]) ?>
     </div>
 </div>

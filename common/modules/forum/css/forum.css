@@ -3,7 +3,7 @@ body { padding-top:20px; padding-bottom:20px }
 .navbar { margin-bottom:20px }
 .note-editor .note-dialog .form-group.row-fluid.note-group-select-from-files { display:none }
 .popover.podium { display:block !important; width:auto !important; max-width:none !important; position:relative !important; z-index:auto !important }
-.popover.right.podium > .arrow { top:55px !important; }
+.popover.right.podium > .arrow { display: none; }
 .popover.right.podium > .arrow:after { border-right-color:rgba(52,55,60,0.8); }
 .podium-action-bar { position:absolute; bottom:10px; right:10px; display:none }
 .podium-action-bar.list-inline > li { padding-right:1px; padding-left:1px }
@@ -69,6 +69,14 @@ body { padding-top:20px; padding-bottom:20px }
     color: #C5C0C0;
     background-color: #23262d;
     border-color: rgba(52,55,60,0.8);
+}
+#forum-container .alert-preview {
+    color: #C5C0C0;
+    background-color: #23262d;
+    border-color: rgba(52,55,60,0.8);
+}
+#forum-container .alert-preview hr {
+    border-top-color: rgba(52,55,60,0.8);
 }
 @media (max-width: 767px) {
     #forum-container .child-forums .child-forum {

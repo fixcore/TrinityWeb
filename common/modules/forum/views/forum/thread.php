@@ -36,8 +36,10 @@ $this->registerJs("var anchor = window.location.hash; if (anchor.match(/^#post[0
     <div class="col-sm-12">
         <div class="panel panel-info">
             <div class="panel-heading">
+                <h4>
+                    <?= Yii::t('podium/view', 'Moderator options') ?>:
+                </h4>
                 <ul class="list-inline">
-                    <li><strong><?= Yii::t('podium/view', 'Moderator options') ?></strong>:</li>
 <?php if (User::can(Rbac::PERM_PIN_THREAD, ['item' => $thread])): ?>
                     <li>
                         <a href="<?= Url::to(['forum/pin', 'cid' => $thread->category_id, 'fid' => $thread->forum_id, 'id' => $thread->id, 'slug' => $thread->slug]) ?>" class="btn btn-primary btn-xs">
