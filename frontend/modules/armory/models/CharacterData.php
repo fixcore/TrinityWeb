@@ -83,15 +83,15 @@ class CharacterData extends Model
             $data['stats']['resilience'] = $character->relationStats ? $character->relationStats->resilience : 0;
             
             //todo
-            $data['stats']['spellCrit'] = -1;
-            $data['stats']['melee_damage_from'] = -1;
-            $data['stats']['melee_damage_to'] = -1;
-            $data['stats']['range_damage_from'] = -1;
-            $data['stats']['range_damage_to'] = -1;
-            $data['stats']['experience'] = -1;
-            $data['stats']['spellHealing'] = -1;
-            $data['stats']['mp5'] = -1;
-            $data['stats']['defence'] = -1;
+            $data['stats']['spellCrit'] = 0;
+            $data['stats']['melee_damage_from'] = 0;
+            $data['stats']['melee_damage_to'] = 0;
+            $data['stats']['range_damage_from'] = 0;
+            $data['stats']['range_damage_to'] = 0;
+            $data['stats']['experience'] = 0;
+            $data['stats']['spellHealing'] = 0;
+            $data['stats']['mp5'] = 0;
+            $data['stats']['defence'] = 0;
             
             $data['items'] = [];
             $_items = $character->relationEquipment;
