@@ -20,6 +20,6 @@
 #ladder-container .ladder-list .ladder-list-items .ladder-list-item:hover {
     background-color: #30353b;
 }
-#ladder-container .ladder-list .ladder-list-items .ladder-list-item:not(last-child) {
+#ladder-container .ladder-list .ladder-list-items .ladder-list-item:not(:last-child) {
     border-bottom: 1px solid rgba(52,55,60,0.8);
 }

@@ -70,13 +70,6 @@ class ArenaTeam extends CoreModel
         ];
     }
     /**
-    * Функция для получения относительной ссылки на просмотр команды
-    * @return \yii\db\ActiveQuery
-    */
-    public function getUrl($server_id) {
-        return Url::to(['/ladder/team', 'id' => $this->arenaTeamId, 'server' => Yii::$app->CharactersDbHelper->getServerNameById($server_id)]);
-    }
-    /**
     * Связь для получения объектов содержащих данные о участниках команды
     * @return \yii\db\ActiveQuery
     */

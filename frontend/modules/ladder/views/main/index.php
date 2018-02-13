@@ -49,7 +49,7 @@ $pagination->setPageSize($data['pageSize']);
             <div class="col-xs-1">
                 <i class="fas fa-list-ol"></i>
             </div>
-            <div class="col-xs-5">
+            <div class="col-xs-4 col-sm-5">
                 <?=Yii::t('ladder','Название')?>
             </div>
             <div class="col-xs-3 col-sm-2 col-md-1 text-center-xs">
@@ -75,8 +75,12 @@ $pagination->setPageSize($data['pageSize']);
                 <div class="col-xs-1">
                     <?=$_rank++?>
                 </div>
-                <div class="col-xs-5">
-                    <?=$item['name']?>
+                <div class="col-xs-4 col-sm-5">
+                    <?=Html::a($item['name'],[
+                        'team/index',
+                        'teamId' => $item['arenaTeamId'],
+                        'server' => Yii::$app->CharactersDbHelper->getServerNameById(Yii::$app->CharactersDbHelper->getServerFromGet()),
+                    ])?>
                 </div>
                 <div class="col-xs-3 col-sm-2 col-md-1 text-center-xs">
                     <?=$item['seasonGames']?>
