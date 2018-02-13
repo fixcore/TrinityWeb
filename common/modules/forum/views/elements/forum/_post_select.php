@@ -18,7 +18,7 @@ $this->registerJs("$('[data-toggle=\"tooltip\"]').tooltip();");
         <?= Html::checkbox('post[]', false, ['value' => $model->id, 'label' => Yii::t('podium/view', 'Select this post')]) ?>
     </div>
     <div class="col-sm-10" id="postContent<?= $model->id ?>">
-        <div class="popover right podium">
+        <div class="popover podium">
             <div class="arrow"></div>
             <div class="popover-title">
                 <small class="pull-right">

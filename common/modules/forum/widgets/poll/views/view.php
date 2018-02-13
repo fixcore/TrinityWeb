@@ -21,7 +21,7 @@ $loggedId = User::loggedId();
 ?>
 <div class="row podium-poll" id="poll<?= $model->id ?>">
     <div class="col-sm-10 col-sm-offset-2" id="pollContent<?= $model->id ?>">
-        <div class="popover right podium">
+        <div class="popover podium">
             <div class="popover-title">
 <?php if (!empty($model->end_at)): ?>
                 <small class="pull-right">

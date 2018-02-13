@@ -86,7 +86,7 @@ if (strpos($model->content, '<pre class="ql-syntax">') !== false) {
         <?= Avatar::widget(['author' => $model->author, 'showName' => true]) ?>
     </div>
     <div class="col-sm-10" id="postContent<?= $model->id ?>">
-        <div class="popover right podium">
+        <div class="popover podium">
             <div class="popover-title">
                 <small class="pull-right">
                     <span data-toggle="tooltip" data-placement="top" title="<?= Podium::getInstance()->formatter->asDatetime($model->created_at, 'long') ?>">

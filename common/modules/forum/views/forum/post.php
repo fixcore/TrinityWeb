@@ -42,7 +42,7 @@ $author = User::findMe();
         <?= Avatar::widget(['author' => $author, 'showName' => false]) ?>
     </div>
     <div class="col-sm-10">
-        <div class="popover right podium">
+        <div class="popover podium">
             <div class="arrow"></div>
             <div class="popover-title">
                 <small class="pull-right"><span data-toggle="tooltip" data-placement="bottom" title="<?= Yii::t('podium/view', 'As soon as you click Post Reply') ?>"><?= Yii::t('podium/view', 'In a while') ?></span></small>

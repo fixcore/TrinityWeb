@@ -416,4 +416,9 @@ class Podium extends Module implements BootstrapInterface
     {
         return $this->podiumComponent->getComponent('cache');
     }
+    
+    public function beforeAction($action) {
+        return parent::beforeAction($action);
+    }
+    
 }

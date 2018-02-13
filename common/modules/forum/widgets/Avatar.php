@@ -46,20 +46,11 @@ class Avatar extends Widget
                 'alt'   => Html::encode($this->author->podiumName)
             ]);
             $name = $this->author->podiumTag;
-            $meta = $this->author->meta;
+            $meta = $this->author->findGeneralAccount();
             if (!empty($meta)) {
-                if (!empty($meta->gravatar)) {
-                    $avatar = Gravatar::widget([
-                        'email'        => $this->author->email,
-                        'defaultImage' => 'identicon',
-                        'rating'       => 'r',
-                        'options'      => [
-                            'alt'   => Html::encode($this->author->podiumName),
-                            'class' => 'podium-avatar img-responsive center-block',
-                        ]
-                    ]);
-                } elseif (!empty($meta->avatar)) {
-                    $avatar = Html::img('@web/avatars/' . $meta->avatar, [
+                $avatar = $meta->userProfile->getAvatar('img/default-profile.jpg');
+                if (!empty($avatar)) {
+                    $avatar = Html::img($avatar, [
                         'class' => 'podium-avatar img-responsive center-block',
                         'alt'   => Html::encode($this->author->podiumName)
                     ]);

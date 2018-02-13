@@ -17,6 +17,8 @@ use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\Url;
 
+use common\models\User as AppUser;
+
 /**
  * User model
  *
@@ -910,4 +912,9 @@ class User extends UserActiveRecord
         }
         return static::$_identity;
     }
+    
+    public function findGeneralAccount() {
+        return AppUser::find()->where(['id' => $this->inherited_id])->one();
+    }
+    
 }

@@ -144,20 +144,18 @@ class Readers extends Widget
 
         $anonymous = $this->getAnonymousUsers($url);
         if ($anonymous) {
-            $out .= Html::button(
+            $out .= Html::tag('span',
                 Yii::t('podium/view', '{n, plural, =1{# anonymous user} other{# anonymous users}}', [
                     'n' => $anonymous
-                ]),
-                ['class' => 'btn btn-xs btn-default disabled']
+                ])
             ) . ' ';
         }
         $guests = $this->getGuestUsers($url);
         if ($guests) {
-            $out .= Html::button(
+            $out .= Html::tag('span',
                 Yii::t('podium/view', '{n, plural, =1{# guest} other{# guests}}', [
                     'n' => $guests
-                ]),
-                ['class' => 'btn btn-xs btn-default disabled']
+                ])
             );
         }
 

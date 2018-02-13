@@ -13,7 +13,7 @@ use yii\widgets\Breadcrumbs;
 
 ?>
 <div class="row">
-    <div class="hidden-xs col-sm-<?= isset($this->params['no-search']) && $this->params['no-search'] === true ? '12' : '9' ?>">
+    <div class="col-sm-<?= isset($this->params['no-search']) && $this->params['no-search'] === true ? '12' : '9' ?>">
         <?= Breadcrumbs::widget(['links' => isset(Yii::$app->params['breadcrumbs']) ? Yii::$app->params['breadcrumbs'] : []]); ?>
     </div>
 <?php if (!isset($this->params['no-search']) || $this->params['no-search'] !== true): ?>

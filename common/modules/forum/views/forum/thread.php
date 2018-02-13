@@ -184,7 +184,7 @@ if ($thread->locked) {
         <?= Avatar::widget(['author' => User::findMe(), 'showName' => false]) ?>
     </div>
     <div class="col-sm-10">
-        <div class="popover right podium">
+        <div class="popover podium">
             <div class="arrow"></div>
             <div class="popover-title">
                 <small class="pull-right"><?= Html::tag('span', Yii::t('podium/view', 'In a while'), ['data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => Yii::t('podium/view', 'As soon as you click Post Reply')]); ?></small>

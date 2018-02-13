@@ -49,7 +49,7 @@ $loggedId = User::loggedId();
                     <?= Avatar::widget(['author' => $model->sender]) ?>
                 </div>
                 <div class="col-sm-9">
-                    <div class="popover right podium">
+                    <div class="popover podium">
                         <div class="arrow"></div>
                         <div class="popover-title">
                             <small class="pull-right"><span data-toggle="tooltip" data-placement="top" title="<?= Podium::getInstance()->formatter->asDatetime($model->created_at, 'long') ?>"><?= Podium::getInstance()->formatter->asRelativeTime($model->created_at) ?></span></small>

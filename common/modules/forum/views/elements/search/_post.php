@@ -33,7 +33,7 @@ else {
         <?= Avatar::widget(['author' => $model->postData->author, 'showName' => false]) ?>
     </div>
     <div class="col-sm-10" id="postContent<?= $model->postData->id ?>">
-        <div class="popover right podium">
+        <div class="popover podium">
             <div class="arrow"></div>
             <div class="popover-title">
                 <small class="pull-right">

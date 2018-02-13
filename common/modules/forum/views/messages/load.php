@@ -17,7 +17,7 @@ use yii\helpers\Html;
         <?= Avatar::widget(['author' => $reply->reply->sender]) ?>
     </div>
     <div class="col-sm-10">
-        <div class="popover right podium">
+        <div class="popover podium">
             <div class="arrow"></div>
             <div class="popover-title">
                 <small class="pull-right"><span data-toggle="tooltip" data-placement="top" title="<?= Podium::getInstance()->formatter->asDatetime($reply->reply->created_at, 'long') ?>"><?= Podium::getInstance()->formatter->asRelativeTime($reply->reply->created_at) ?></span></small>
