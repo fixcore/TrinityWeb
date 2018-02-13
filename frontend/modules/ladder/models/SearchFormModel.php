@@ -67,7 +67,7 @@ class SearchFormModel extends Model
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => 25,
+                'pageSize' => 5,
             ]
         ]);
 

@@ -47,7 +47,9 @@ if($counter) {
                 <?=Yii::$app->AppHelper->buildTagRaceImage($character['race'],$character['gender'])?>
                 <?=Yii::$app->AppHelper->buildTagClassImage($character['class'])?>
                 <?php
-                echo Html::a($character['name'], '/armory/character/' . Yii::$app->CharactersDbHelper->getServerName() . '/' . $character['name'], [
+                echo Html::a($character['name'], ['character/index',
+                    'server' => Yii::$app->CharactersDbHelper->getServerName(),
+                    'character' => $character['name']], [
                     'target' => '_blank'
                 ]);
                 ?>

@@ -40,6 +40,15 @@ class MainController extends Controller
             $data['list'] = $dataProvider->getModels();
             $data['totalCount'] = $dataProvider->totalCount;
             $data['pageSize'] = $dataProvider->pagination->getPageSize();
+            if($dataProvider->pagination->getPage() === 0) {
+                $data['rank_start'] = 1;
+            } else {
+                if($dataProvider->pagination->getPage() - 1 > 0) {
+                    $data['rank_start'] = $data['pageSize'] * ($dataProvider->pagination->getPage() - 1);
+                } else {
+                    $data['rank_start'] = ++$data['pageSize'];
+                }
+            }
             Yii::$app->cache->set(Yii::$app->request->getUrl(),$data,Yii::$app->params['cache_ladder']);
         }
         

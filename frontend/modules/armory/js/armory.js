@@ -16,3 +16,7 @@ $(document).ready(function(){
         e.preventDefault();
     });
 });
+$('#armory-form').submit(function() {
+   window.location = $(this).attr("action") + '/' + $('#server').val() + '/' + $('#query').val();
+   return false;
+});

@@ -12,13 +12,21 @@ $this->registerJsFile('https://cdn.cavernoftime.com/api/tooltip.js');
         'items' => [
             [
                 'label' => Yii::t('armory','Персонаж'),
-                'url' => '/armory/character/' . Yii::$app->CharactersDbHelper->getServerName() . '/' . $data['name'],
+                'url' => [
+                    'character/index',
+                    'server' => Yii::$app->CharactersDbHelper->getServerName(),
+                    'character' => $data['name']
+                ],
                 'active' => Yii::$app->controller->action->id == 'index' ? true : false,
             ],
 
             [
                 'label' => Yii::t('armory','Таланты'),
-                'url' => '/armory/character/' . Yii::$app->CharactersDbHelper->getServerName() . '/' . $data['name'] . '/talents',
+                'url' => [
+                    'character/talents',
+                    'server' => Yii::$app->CharactersDbHelper->getServerName(),
+                    'character' => $data['name']
+                ],
                 'active' => Yii::$app->controller->action->id == 'talents' ? true : false,
             ]
         ]

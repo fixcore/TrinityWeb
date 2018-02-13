@@ -1,4 +1,25 @@
-#ladder-container {}
-#ladder-container .list-header {}
-#ladder-container .list-item:not(first-child) {margin-top: 15px;}
-#ladder-container .list-item .flat {padding: 10px;}
+#ladder-container {
+    
+}
+#ladder-container .ladder-list {
+    
+}
+#ladder-container .ladder-list.flat {
+    
+}
+#ladder-container .ladder-list .ladder-header {
+    border-bottom: 1px solid rgba(52,55,60,0.8);
+    padding: 5px 0px 10px;
+}
+#ladder-container .ladder-list .ladder-list-items {
+    padding: 0px 0px 5px;
+}
+#ladder-container .ladder-list .ladder-list-items .ladder-list-item {
+    padding: 5px 0px;
+}
+#ladder-container .ladder-list .ladder-list-items .ladder-list-item:hover {
+    background-color: #30353b;
+}
+#ladder-container .ladder-list .ladder-list-items .ladder-list-item:not(last-child) {
+    border-bottom: 1px solid rgba(52,55,60,0.8);
+}
