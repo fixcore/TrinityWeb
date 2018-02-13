@@ -112,6 +112,7 @@ textarea {
 }
 ::-webkit-scrollbar {
 	width: 3px;
+        height: 3px;
 	background-color: #3c434c;
 }
 ::-webkit-scrollbar-thumb {

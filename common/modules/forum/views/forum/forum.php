@@ -21,7 +21,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
 <?php if (!Podium::getInstance()->user->isGuest): ?>
 <div class="row">
     <div class="col-sm-12 text-right">
-        <ul class="list-inline">
+        <ul class="list-inline forum-perm-inline">
 <?php if (User::can(Rbac::PERM_CREATE_THREAD)): ?>
             <li><a href="<?= Url::to(['forum/new-thread', 'cid' => $model->category->id, 'fid' => $model->id]) ?>" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> <?= Yii::t('podium/view', 'Create new thread') ?></a></li>
 <?php endif; ?>

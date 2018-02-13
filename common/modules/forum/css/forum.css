@@ -78,8 +78,34 @@ body { padding-top:20px; padding-bottom:20px }
 #forum-container .alert-preview hr {
     border-top-color: rgba(52,55,60,0.8);
 }
+#forum-container .table-striped > tbody > tr {
+    background-color: #23262d;
+    border-top: 1px solid rgba(52,55,60,0.8);
+    border-bottom: 1px solid rgba(52,55,60,0.8);
+}
+#forum-container .table-striped > tbody > tr:hover {
+    background-color: rgba(48, 53, 59, 0.5);
+}
+#forum-container .table-striped > tbody > tr > td:first-child {
+    border-left: 1px solid rgba(52,55,60,0.8);
+}
+#forum-container .table-striped > tbody > tr > td.text-right {
+    position: relative;
+}
+#forum-container .table-striped > tbody > tr > td:last-child:after {
+    content: '';
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: rgba(52,55,60,0.8);
+}
 @media (max-width: 767px) {
     #forum-container .child-forums .child-forum {
         margin-left: 15px;
+    }
+    #forum-container .forum-perm-inline li:not(:first-child) {
+        margin-top: 10px;
     }
 }

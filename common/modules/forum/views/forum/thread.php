@@ -113,7 +113,7 @@ $this->registerJs("var anchor = window.location.hash; if (anchor.match(/^#post[0
 
 <div class="row">
     <div class="col-sm-12 text-right">
-        <ul class="list-inline">
+        <ul class="list-inline forum-perm-inline">
 <?php if (Podium::getInstance()->user->isGuest): ?>
             <li><a href="<?= Url::to(['account/login']) ?>" class="btn btn-primary btn-sm"><?= Yii::t('podium/view', 'Sign in to reply') ?></a></li>
             <li><a href="<?= Url::to(['account/register']) ?>" class="btn btn-success btn-sm"><?= Yii::t('podium/view', 'Register new account') ?></a></li>
