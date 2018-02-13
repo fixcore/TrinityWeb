@@ -265,8 +265,11 @@ ul.nav > li.active > a:focus {
 .dropdown-menu > li.active > a:hover,
 .dropdown-menu > li.active > a:focus,
 .dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus {
-    background-color: #34373cc7;
+.dropdown-menu > li > a:focus,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: rgba(52,55,60,0.79);
 }
 .dropdown-menu .divider {background-color: #9d9d9d;}
 /*# menu end */
@@ -462,6 +465,23 @@ ul.nav > li.active > a:focus {
 @media (max-width: 992px) {
     .navbar-header {
         float: none;
+    }
+    .navbar-right .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        left: initial;
+        right: initial;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+        background-color: rgba(52,55,60,0.79);
     }
     .navbar-toggle {
         display: block;
