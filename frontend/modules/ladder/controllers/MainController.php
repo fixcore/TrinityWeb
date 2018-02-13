@@ -18,7 +18,7 @@ class MainController extends Controller
             if(!$server || !$type) {
                 $user_realm = Yii::$app->CharactersDbHelper->getServerNameById(Yii::$app->CharactersDbHelper->getServerId());
                 $type = SearchFormModel::TYPE_2;
-                $this->redirect('/ladder/' . $user_realm . '/' . $type);
+                $this->redirect(['/ladder/main/index', 'server' => $user_realm, 'type' => $type]);
                 return false;
             }
             return true;
