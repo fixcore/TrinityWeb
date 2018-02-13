@@ -70,3 +70,8 @@ body { padding-top:20px; padding-bottom:20px }
     background-color: #23262d;
     border-color: rgba(52,55,60,0.8);
 }
+@media (max-width: 767px) {
+    #forum-container .child-forums .child-forum {
+        margin-left: 15px;
+    }
+}

@@ -91,7 +91,20 @@ class ForumActiveRecord extends \kartik\tree\models\Tree
     {
         return $this->hasOne(Post::className(), ['forum_id' => 'id'])->orderBy(['id' => SORT_DESC]);
     }
-
+    
+    /**
+     * Post relation. One latest post.
+     * @return ActiveQuery
+     */
+    public function findLatestPost() {
+        $forum_ids = [$this->id];
+        $childs = $this->children()->all();
+        foreach($childs as $child) {
+            $forum_ids[] = $child->id;
+        }
+        return Post::find()->where(['forum_id' => $forum_ids])->orderBy(['id' => SORT_DESC])->one();
+    }
+    
     /**
      * Parent relation.
      * @return ActiveQuery
