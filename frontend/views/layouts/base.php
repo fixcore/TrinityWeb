@@ -114,8 +114,12 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                     ],
                     '<li class="divider"></li>',
                     [
-                        'label' => Yii::t('frontend', 'Settings'),
+                        'label' => Yii::t('frontend', 'Личный кабинет'),
                         'url' => ['/panel/settings/index']
+                    ],
+                    [
+                        'label' => Yii::t('frontend', 'Настройки форума'),
+                        'url' => ['/forum/profile']
                     ],
                     [
                         'label' => Yii::t('frontend', 'Backend'),

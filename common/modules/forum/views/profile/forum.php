@@ -61,28 +61,6 @@ $this->registerJs("$('[data-toggle=\"popover\"]').popover();");
                                 ->widget(EditorBasic::className()) ?>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <?= $form
-                                ->field($model, 'gravatar')
-                                ->checkbox(['disabled' => empty($user->email)])
-                                ->label('<strong>' . Yii::t('podium/view', 'Use Gravatar image as avatar') . '</strong>')
-                                ->hint(
-                                    (empty($user->email)
-                                        ? Html::tag('span', Yii::t('podium/view', 'You need email address set to use Gravatar.'), ['class' => 'text-danger pull-right'])
-                                        : ''
-                                    ) . Html::a(Yii::t('podium/view', 'What is Gravatar?'), 'http://gravatar.com', ['target' => 'gravatar'])
-                                ) ?>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <?= $form->field($model, 'image')->label(Yii::t('podium/view', 'Or upload your own avatar'))->widget(FileInput::className(), [
-                                'options'       => ['accept' => 'image/*'],
-                                'pluginOptions' => ['allowedFileExtensions' => ['jpg', 'jpeg', 'gif', 'png']]
-                            ])->hint(Yii::t('podium/view', 'Square avatars look best.') . '<br>' . Yii::t('podium/view', 'Maximum size is {size}, {width}x{height} pixels; png, jpg and gif images only.', ['size' => ceil(Meta::MAX_SIZE / 1024) . 'kB', 'width' => Meta::MAX_WIDTH, 'height' => Meta::MAX_HEIGHT])) ?>
-                        </div>
-                    </div>
                 </div>
                 <div class="panel-footer">
                     <div class="row">
