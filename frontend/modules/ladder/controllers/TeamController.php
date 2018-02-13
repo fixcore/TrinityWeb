@@ -26,7 +26,7 @@ class TeamController extends Controller
         $data = Yii::$app->cache->get(Yii::$app->request->getUrl());
         if($data === false) {
             $data = ArenaTeam::find()->where(['arenaTeamId' => $teamId])->with([
-                'relationMembers.relationCharacter'
+                'relationMembers.relationCharacter.relationArenaStats'
             ])->one();
             Yii::$app->params['breadcrumbs'][] = ['label' => $data['name']];
             Yii::$app->cache->set(Yii::$app->request->getUrl(),$data,Yii::$app->params['cache_ladder']);
