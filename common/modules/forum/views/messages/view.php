@@ -43,7 +43,7 @@ $loggedId = User::loggedId();
     <div class="col-md-9 col-sm-8">
         <?= $this->render('/elements/messages/_navbar', ['active' => 'view']) ?>
         <br>
-        <div <?= Helper::replyBgd() ?>>
+        <div>
             <div class="row">
                 <div class="col-sm-3 text-center">
                     <?= Avatar::widget(['author' => $model->sender]) ?>

@@ -58,7 +58,7 @@ $loggedId = User::loggedId();
             </div>
         <?php ActiveForm::end(); ?>
         <br>
-        <div <?= Helper::replyBgd() ?>>
+        <div>
             <div class="row">
                 <div class="col-sm-2 text-center">
                     <?= Avatar::widget(['author' => $reply->sender]) ?>
