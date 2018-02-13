@@ -188,7 +188,7 @@ ul.nav > .active > a.dropdown-toggle,
     display: block;
     position: absolute;
     top: 100%;
-    left: 5px;
+    left: 0px;
     width: 100%;
     height: 100%;
     padding: inherit;
@@ -466,6 +466,9 @@ ul.nav > li.active > a:focus {
 @media (max-width: 992px) {
     .navbar-header {
         float: none;
+    }
+    #general-menu ul.nav > li > a:not(.dropdown-toggle):before {
+        left: 5px;
     }
     .navbar-right .dropdown-menu {
         position: static;

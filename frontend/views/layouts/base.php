@@ -79,6 +79,13 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                 ],
             ],
             [
+                'label' => Yii::t('podium/view', 'Форум'),
+                'url' => ['/forum/forum/index'],
+                'linkOptions' => [
+                    'data-hover' => Yii::t('podium/view', 'Форум'),
+                ],
+            ],
+            [
                 'label' => Yii::t('frontend', 'Signup'),
                 'url' => ['/panel/sign-in/signup'],
                 'visible' => Yii::$app->user->isGuest,
