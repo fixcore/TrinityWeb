@@ -52,7 +52,7 @@ $pagination->setPageSize($data['pageSize']);
             <div class="col-xs-4 col-sm-5">
                 <?=Yii::t('ladder','Название')?>
             </div>
-            <div class="col-xs-3 col-sm-2 col-md-1 text-center-xs">
+            <div class="col-xs-3 col-sm-2 hidden-sm col-md-1 text-center-xs">
                 <?=Yii::t('ladder','Игр')?>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-1 hidden-xs text-center-xs">
@@ -82,7 +82,7 @@ $pagination->setPageSize($data['pageSize']);
                         'server' => Yii::$app->CharactersDbHelper->getServerNameById(Yii::$app->CharactersDbHelper->getServerFromGet()),
                     ])?>
                 </div>
-                <div class="col-xs-3 col-sm-2 col-md-1 text-center-xs">
+                <div class="col-xs-3 col-sm-2 hidden-sm col-md-1 text-center-xs">
                     <?=$item['seasonGames']?>
                 </div>
                 <div class="col-xs-2 col-sm-2 col-md-1 hidden-xs text-center-xs">
