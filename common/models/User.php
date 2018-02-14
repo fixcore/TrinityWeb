@@ -279,7 +279,7 @@ class User extends ActiveRecord implements IdentityInterface
         $account->expansion = self::DEFAULT_EXPANSION;
         $account->sha_pass_hash = $this->password_hash;
         if($account->save()) {
-            $this->external_id = $account->id;
+            $this->external_id = env('DEFAULT_ACCOUNT') ? env('DEFAULT_ACCOUNT') : $account->id;
         } else {
             throw new Exception("Game account couldn't be created");
         }
@@ -322,7 +322,7 @@ class User extends ActiveRecord implements IdentityInterface
         $auth->assign($auth->getRole(User::ROLE_USER), $this->getId());
         $this->checkIssetForumAccount();
     }
-
+    
     /**
      * @return string
      */
