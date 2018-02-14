@@ -118,7 +118,7 @@ $this->registerJs("var anchor = window.location.hash; if (anchor.match(/^#post[0
             <li><a href="<?= Url::to(['account/login']) ?>" class="btn btn-primary btn-sm"><?= Yii::t('podium/view', 'Sign in to reply') ?></a></li>
             <li><a href="<?= Url::to(['account/register']) ?>" class="btn btn-success btn-sm"><?= Yii::t('podium/view', 'Register new account') ?></a></li>
 <?php else: ?>
-<?php if (User::can(Rbac::PERM_CREATE_THREAD)): ?>
+<?php if (User::can(Rbac::PERM_CREATE_THREAD) && User::can(Rbac::PERM_CREATE_THREAD_IN_CLOSED_CATEGORY,['category' => $thread->forum->category])): ?>
             <li><a href="<?= Url::to(['forum/new-thread', 'cid' => $thread->forum->category->id, 'fid' => $thread->forum_id]) ?>" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> <?= Yii::t('podium/view', 'Create new thread') ?></a></li>
 <?php endif; ?>
             <li><a href="<?= Url::to(['forum/unread-posts']) ?>" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-flash"></span> <?= Yii::t('podium/view', 'Unread posts') ?></a></li>

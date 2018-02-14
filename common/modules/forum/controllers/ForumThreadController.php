@@ -198,7 +198,13 @@ class ForumThreadController extends BaseController
             $this->error(Yii::t('podium/flash', 'Sorry! We can not find the forum you are looking for.'));
             return $this->redirect(['forum/index']);
         }
-
+        
+        if(!User::can(Rbac::PERM_CREATE_THREAD_IN_CLOSED_CATEGORY,['category' => $forum->category])) {
+            $this->error(Yii::t('podium/flash', 'Sorry! You do not have the required permission to perform this action.'));
+            return $this->redirect(['forum/index']);
+        }
+        
+        
         $model = new Thread();
         $model->scenario = 'new';
         $model->subscribe = 1;
