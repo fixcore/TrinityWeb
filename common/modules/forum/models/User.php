@@ -716,9 +716,9 @@ class User extends UserActiveRecord
      * @return bool
      * @since 0.2
      */
-    public static function createInheritedAccount()
+    public static function createInheritedAccount($force = false)
     {
-        if (!Podium::getInstance()->user->isGuest) {
+        if (!Podium::getInstance()->user->isGuest || $force) {
             $transaction = static::getDb()->beginTransaction();
             try {
                 $newUser = new static;

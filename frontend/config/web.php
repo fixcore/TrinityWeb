@@ -20,6 +20,9 @@ $config = [
             'modules' => [
                 'v1' => 'frontend\modules\api\v1\Module'
             ]
+        ],
+        'treemanager' =>  [
+            'class' => '\kartik\tree\Module',
         ]
     ],
     'components' => [

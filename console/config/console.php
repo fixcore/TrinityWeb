@@ -3,6 +3,9 @@ return [
     'id' => 'console',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'console\controllers',
+    'modules' => [
+        'podium' => 'common\modules\forum\Podium',
+    ],
     'controllerMap' => [
         'command-bus' => [
             'class' => trntv\bus\console\BackgroundBusController::class,

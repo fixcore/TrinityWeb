@@ -206,7 +206,6 @@ class BaseController extends YiiController
                 }
                 return $this->goHome();
             }
-
             if (!$this->module->user->isGuest) {
                 $user = User::findMe();
                 if ($this->module->userComponent !== true && $this->accessType === 1) {

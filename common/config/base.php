@@ -19,9 +19,6 @@ $config = [
             'cacheComponent' => 'cache',
             'userNameField' => 'username',
         ],
-        'treemanager' =>  [
-            'class' => '\kartik\tree\Module',
-        ]
     ],
     'components' => [
         'authManager' => [

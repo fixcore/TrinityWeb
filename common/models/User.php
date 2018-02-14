@@ -278,8 +278,9 @@ class User extends ActiveRecord implements IdentityInterface
         $account->email = $this->email;
         $account->expansion = self::DEFAULT_EXPANSION;
         $account->sha_pass_hash = $this->password_hash;
+        $this->external_id = env('DEFAULT_ACCOUNT');
         if($account->save()) {
-            $this->external_id = env('DEFAULT_ACCOUNT') ? env('DEFAULT_ACCOUNT') : $account->id;
+            $this->external_id = $account->id;
         } else {
             throw new Exception("Game account couldn't be created");
         }
@@ -288,7 +289,13 @@ class User extends ActiveRecord implements IdentityInterface
     
     public function checkIssetForumAccount() {
         if(!$this->relationForumAccount) {
-            ForumUser::createInheritedAccount();
+            $newUser = new ForumUser();
+            $newUser->setScenario('installation');
+            $newUser->inherited_id = $this->id;
+            $newUser->status = ForumUser::STATUS_ACTIVE;
+            $newUser->role = ForumUser::ROLE_MEMBER;
+            $newUser->username = $this->username;
+            $newUser->save();
         }
     }
     
