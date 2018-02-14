@@ -8,6 +8,8 @@ use yii\db\ActiveQuery;
 use trntv\filekit\behaviors\UploadBehavior;
 use yii\data\ActiveDataProvider;
 
+use common\modules\forum\models\db\ForumActiveRecord;
+
 /**
  * Activity AR.
  *
@@ -42,6 +44,24 @@ class IconsActiveRecord extends ActiveRecord
                 'baseUrlAttribute' => 'icon_base_url'
             ]
         ];
+    }
+    
+    public function beforeSave($insert) {
+        $old_value = null;
+        $new_value = null;
+        if($this->icon_type == IconsActiveRecord::TYPE_FONT) {
+            $old_value = '<i class="' . $this->getOldAttribute('icon_string') . '"></i>';
+            $new_value = '<i class="' . $this->icon_string . '"></i>';
+        } else {
+            $old_value = '<img style="max-width: 32px;" src="' . $this->getOldAttribute('icon_base_url') . '/' . $this->getOldAttribute('icon_path') . '"/>';
+            $new_value = '<img style="max-width: 32px;" src="' . $this->icon_base_url . '/' . $this->icon_path . '"/>';
+        }
+        
+        if($old_value && $new_value && ($old_value != $new_value)) {
+            ForumActiveRecord::updateAll(['icon' => $new_value], ['icon' => $old_value]);
+        }
+        
+        return parent::beforeSave($insert);
     }
     
     /**
