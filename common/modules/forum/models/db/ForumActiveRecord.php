@@ -57,7 +57,12 @@ class ForumActiveRecord extends \kartik\tree\models\Tree
             ]
         ]);
     }
-
+    
+    public function __construct($config = array()) {
+        parent::__construct($config);
+        $this->icon_type = 2;
+    }
+    
     /**
      * @inheritdoc
      */
