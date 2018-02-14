@@ -412,17 +412,17 @@ ul.nav > li.active > a:focus {
     -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
 }
-#widget-status_servers {
+.widget {
     background-color: inherit;
     padding: 10px 5px;
     border: 0px;
 }
-#widget-status_servers .panel-heading {
+.widget .panel-heading {
     background-color: inherit;
     border-bottom-color: #C5C0C0;
     color: #C5C0C0;
 }
-#widget-status_servers .panel-body {}
+.widget .panel-body {}
 #widget-status_servers .panel-body .panel.server-panel {
     background-color: inherit;
     border: 0px;

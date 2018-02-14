@@ -31,6 +31,7 @@ $this->beginContent('@frontend/views/layouts/base.php')
             </div>
             <div class="col-md-4" id="right-side">
                 <?= StatusServersWidget::widget() ?>
+                <?= common\modules\forum\widgets\LatestPosts::widget()?>
             </div>
         </div>
     </div>
