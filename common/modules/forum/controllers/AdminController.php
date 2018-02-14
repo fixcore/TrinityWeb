@@ -9,6 +9,7 @@ use common\modules\forum\models\Forum;
 use common\modules\forum\models\ForumSearch;
 use common\modules\forum\models\User;
 use common\modules\forum\models\UserSearch;
+use common\modules\forum\models\db\IconsActiveRecord;
 use common\modules\forum\PodiumCache;
 use common\modules\forum\rbac\Rbac;
 use Yii;
@@ -296,4 +297,62 @@ class AdminController extends AdminForumController
         }
         return $this->render('view', ['model' => $model]);
     }
+    
+    /**
+     * Lists all Icons models.
+     * @return mixed
+     */
+    public function actionIcons()
+    {
+        $searchModel = new IconsActiveRecord();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('icons', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    
+    /**
+     * Creates a new Icon model.
+     * @return mixed
+     */
+    public function actionIconCreate()
+    {
+        $model = new IconsActiveRecord();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['icons']);
+        }
+        return $this->render('icons-create', [
+            'model' => $model,
+        ]);
+    }
+    
+    /**
+     * Updates an existing Icons model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionIconUpdate($id)
+    {
+        $model = IconsActiveRecord::findOne($id);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['icons']);
+        }
+        return $this->render('icons-update', [
+            'model' => $model,
+        ]);
+    }
+    
+    /**
+     * Deletes an existing Icon model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionIconDelete($id)
+    {
+        IconsActiveRecord::findOne($id)->delete();
+        return $this->redirect(['icons']);
+    }
+    
 }

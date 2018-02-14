@@ -16,7 +16,8 @@ class BackendAsset extends AssetBundle
     public $baseUrl = '@web';
 
     public $css = [
-        'css/app.css'
+        'css/fontawesome-all.min.css',
+        'css/app.css',
     ];
     public $js = [
         'js/app.js'

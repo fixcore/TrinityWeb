@@ -10,6 +10,20 @@ use yii\db\Schema;
 
 return [
     [
+        'table' => 'icons',
+        'call' => 'createTable',
+        'data' => [
+            'schema' => [
+                'id' => Schema::TYPE_BIGPK,
+                'icon' => Schema::TYPE_STRING,
+                'icon_type' => Schema::TYPE_INTEGER,
+                'icon_string' => Schema::TYPE_STRING,
+                'icon_path' => Schema::TYPE_STRING,
+                'icon_base_url' => Schema::TYPE_STRING,
+            ],
+        ],
+    ],
+    [
         'table' => 'log',
         'call' => 'createTable',
         'data' => [

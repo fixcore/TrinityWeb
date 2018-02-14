@@ -10,6 +10,7 @@
 use kartik\tree\TreeView;
 use common\modules\forum\models\Forum;
 
+use common\modules\forum\models\db\IconsActiveRecord;
 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
@@ -45,6 +46,11 @@ $this->registerJs("$('[data-toggle=\"popover\"]').popover();");
                 'mainTemplate' => '<div>{wrapper}</div><div>{detail}</div>',
                 'treeOptions' => [
                     'style' => 'height: 200px;',
+                ],
+                'iconEditSettings'=> [
+                    'show' => 'list',
+                    'type' => TreeView::ICON_RAW,
+                    'listData' => IconsActiveRecord::getDataArray(),
                 ],
                 'fontAwesome' => true,
                 'isAdmin' => true,

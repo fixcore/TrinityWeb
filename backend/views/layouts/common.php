@@ -231,6 +231,12 @@ $bundle = BackendAsset::register($this);
                                 'active' => (\Yii::$app->controller->id == 'admin' && \Yii::$app->controller->action->id == 'logs'),
                                 'url' => ['/forum/admin/logs'],
                             ],
+                            [
+                                'label' => Yii::t('common','Иконки'),
+                                'icon' => '<i class="fa fa-list"></i>',
+                                'active' => (\Yii::$app->controller->id == 'admin' && \Yii::$app->controller->action->id == 'icons'),
+                                'url' => ['/forum/admin/icons'],
+                            ],
                         ],
                     ],
                     [
@@ -299,7 +305,7 @@ $bundle = BackendAsset::register($this);
 
             <?php echo Breadcrumbs::widget([
                 'tag' => 'ol',
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                'links' => isset(Yii::$app->params['breadcrumbs']) ? Yii::$app->params['breadcrumbs'] : [],
             ]) ?>
         </section>
 
