@@ -13,12 +13,12 @@ use yii\helpers\Url;
 
 ?>
 <td class="forum-icon">
-    <a href="<?= Url::to(['forum/forum', 'cid' => $model->category_id, 'id' => $model->id, 'slug' => $model->slug]) ?>" class="rf-aqua center-block">
+    <span class="forum-icon-container">
+        <?=$model->icon?>
+    </span>
+    <a href="<?= Url::to(['forum/forum', 'cid' => $model->category_id, 'id' => $model->id, 'slug' => $model->slug]) ?>" class="rf-aqua">
         <?= Html::encode($model->name) ?>
     </a>
-    <?php if (!empty($model->sub)): ?>
-        <small class="text-muted"><?= Html::encode($model->sub) ?></small>
-    <?php endif; ?>
     <div class="row child-forums"><?php
         foreach($model->children()->all() as $child) {
             ?>
@@ -31,6 +31,9 @@ use yii\helpers\Url;
         }
         ?>
     </div>
+    <?php if (!empty($model->sub)): ?>
+        <small class="text-muted"><?= Html::encode($model->sub) ?></small>
+    <?php endif; ?>
 </td>
 <td class="forum-icon text-right"><?= $model->threads ?></td>
 <td class="forum-icon text-right"><?= $model->posts ?></td>
