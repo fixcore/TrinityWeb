@@ -48,7 +48,7 @@ class Avatar extends Widget
             $name = $this->author->podiumTag;
             $meta = $this->author->findGeneralAccount();
             if (!empty($meta)) {
-                $avatar = $meta->userProfile->getAvatar('img/default-profile.jpg');
+                $avatar = $meta->userProfile->getAvatar('/img/default-profile.jpg');
                 if (!empty($avatar)) {
                     $avatar = Html::img($avatar, [
                         'class' => 'podium-avatar img-responsive center-block',

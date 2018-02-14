@@ -7,7 +7,7 @@ h1,h2,h3 {margin-top: 0px;}
 .wrap {
     min-height: 100%;
     height: auto;
-    margin: 0 auto -60px;
+    margin: 0 auto -40px;
     padding: 0 0 60px;
 }
 .not-set {color: #c55;font-style: italic;}
@@ -297,7 +297,7 @@ ul.nav > li.active > a:focus {
     background-color: rgba(255,255,255,.5);
 }
 .transition-timer-carousel-progress-bar {
-    height: 5px;
+    height: 3px;
     background-color: #36BBA6;
     width: 0%;
     margin: 0px 0px 0px 0px;
