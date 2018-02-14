@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Characters */
 
 $this->title = Yii::t('common', 'Редактирование иконки: ' . $model->id, [
     'nameAttribute' => '' . $model->id,

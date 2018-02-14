@@ -319,7 +319,7 @@ class AdminController extends AdminForumController
      */
     public function actionIconCreate()
     {
-        $model = new IconsActiveRecord();
+        $model = new IconsActiveRecord(['icon_type' => IconsActiveRecord::TYPE_FONT]);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['icons']);
         }

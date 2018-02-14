@@ -6,7 +6,6 @@ use trntv\filekit\widget\Upload;
 use common\modules\forum\models\db\IconsActiveRecord;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Characters */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -31,13 +30,13 @@ use common\modules\forum\models\db\IconsActiveRecord;
     <?= $form->field($model, 'icon_type')->dropDownList(IconsActiveRecord::getTypes(), [
         'onchange' => 'show_input(this);',
     ]) ?>
-    <div id="icon_input_string" style="<?=($model->icon_type != IconsActiveRecord::TYPE_FONT ? 'display:none;': '')?>">
+    <div id="icon_input_string" style="<?=($model->icon_type == IconsActiveRecord::TYPE_IMAGE ? 'display:none;': '')?>">
         <pre>
     https://fontawesome.com/icons
     https://getbootstrap.com/docs/3.3/components/#glyphicons</pre>
         <?= $form->field($model, 'icon_string')->textInput(['maxlength' => true, 'id' => 'icon_string']) ?>
     </div>
-    <div id="picture_input" style="<?=($model->icon_type != IconsActiveRecord::TYPE_IMAGE ? 'display:none;': '')?>">
+    <div id="picture_input" style="<?=($model->icon_type == IconsActiveRecord::TYPE_FONT ? 'display:none;': '')?>">
         <?php echo $form->field($model, 'picture')->widget(
             Upload::className(),
             [

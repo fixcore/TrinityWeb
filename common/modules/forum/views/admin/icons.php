@@ -7,7 +7,6 @@ use yii\helpers\Url;
 use common\modules\forum\models\db\IconsActiveRecord;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\query\CharactersQuery */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('common', 'Иконки');
