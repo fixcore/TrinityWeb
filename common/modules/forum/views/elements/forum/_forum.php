@@ -22,11 +22,11 @@ use yii\helpers\Url;
     <div class="row child-forums"><?php
         foreach($model->children()->all() as $child) {
             ?>
-                <div class="col-xs-push-1 col-xs-11 col-md-push-1 col-md-4 child-forum">
-                    <a href="<?= Url::to(['forum/forum', 'cid' => $child->category_id, 'id' => $child->id, 'slug' => $child->slug]) ?>" class="center-block">
-                        <?= Html::encode($child->name) ?>
-                    </a>
-                </div>
+            <div class="col-xs-push-1 col-xs-11 col-md-push-1 col-md-5 child-forum">
+                <a href="<?= Url::to(['forum/forum', 'cid' => $child->category_id, 'id' => $child->id, 'slug' => $child->slug]) ?>" class="center-block">
+                    <?= Html::encode($child->name) ?>
+                </a>
+            </div>
             <?php
         }
         ?>
