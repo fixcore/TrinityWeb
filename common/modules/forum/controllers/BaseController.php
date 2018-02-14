@@ -75,8 +75,6 @@ class BaseController extends YiiController
             return $upgrade;
         }
         
-        Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Forum'), 'url' => ['/forum']];
-        
         return true;
     }
 
