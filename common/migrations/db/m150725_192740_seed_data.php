@@ -156,6 +156,12 @@ class m150725_192740_seed_data extends Migration
             'comment' => 'Cache time in seconds - armory character talents data'
         ]);
         
+        $this->insert('{{%key_storage_item}}', [
+            'key' => 'frontend.realmlist',
+            'value' => 'logon.change.me',
+            'comment' => 'Realmlist'
+        ]);
+        
     }
 
     public function safeDown()
