@@ -10,6 +10,7 @@ class m150725_192740_seed_data extends Migration
         $this->insert('{{%user}}', [
             'id' => 1,
             'username' => 'admin',
+            'external_id' => env('DEFAULT_ACCOUNT'),
             'email' => 'webmaster@example.com',
             'password_hash' => User::generatePassword('admin','admin'),
             'auth_key' => Yii::$app->getSecurity()->generateRandomString(),

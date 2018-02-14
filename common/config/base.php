@@ -15,6 +15,7 @@ $config = [
             'class' => 'common\modules\forum\Podium',
             'userComponent' => 'user',
             'adminId' => 1,
+            'allowedIPs' => [env('FORUM_INSTALLING_IP_ACCESS'),'::1'],
             'rbacComponent' => 'authManager',
             'cacheComponent' => 'cache',
             'userNameField' => 'username',

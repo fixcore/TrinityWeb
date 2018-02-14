@@ -51,7 +51,7 @@ class AppController extends Controller
         \Yii::$app->runAction('migrate/up', ['interactive' => $this->interactive]);
         \Yii::$app->runAction('rbac-migrate/up', ['interactive' => $this->interactive]);
     }
-
+    
     /**
      * Truncates all tables in the database.
      * @throws \yii\db\Exception
