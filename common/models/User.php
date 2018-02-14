@@ -282,7 +282,7 @@ class User extends ActiveRecord implements IdentityInterface
         if($account->save()) {
             $this->external_id = $account->id;
         } else {
-            throw new Exception("Game account couldn't be created");
+            $this->addError('username',Yii::t('frontend','Ошибка при создании аккаунта'));
         }
         return $this;
     }
