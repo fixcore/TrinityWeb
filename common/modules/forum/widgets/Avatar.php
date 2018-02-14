@@ -40,6 +40,7 @@ class Avatar extends Widget
             'alt' => Yii::t('podium/view', 'user deleted')
         ]);
         $name = Helper::deletedUserTag(true);
+        $character_string = null;
         if ($this->author instanceof User) {
             $avatar = Html::img(Helper::defaultAvatar(), [
                 'class' => 'podium-avatar img-responsive center-block',
@@ -47,6 +48,7 @@ class Avatar extends Widget
             ]);
             $name = $this->author->podiumTag;
             $meta = $this->author->findGeneralAccount();
+            $character_data = $meta->findUserCharacter();
             if (!empty($meta)) {
                 $avatar = $meta->userProfile->getAvatar('/img/default-profile.jpg');
                 if (!empty($avatar)) {
@@ -56,7 +58,15 @@ class Avatar extends Widget
                     ]);
                 }
             }
+            if(!empty($character_data)) {
+                $character_link = Html::a($character_data->name,[
+                    '/armory/character/index',
+                    'server' => Yii::$app->CharactersDbHelper->getServerNameById($meta->realm_id),
+                    'character' => $character_data->name
+                ]);
+                $character_string .= Html::tag('p',Yii::$app->AppHelper->buildTagRaceImage($character_data->race,$character_data->gender) . Yii::$app->AppHelper->buildTagClassImage($character_data->class) . ' ' . $character_link);
+            }
         }
-        return $avatar . ($this->showName ? Html::tag('p', $name, ['class' => 'avatar-name']) : '');
+        return $avatar . ($this->showName ? Html::tag('p', $name, ['class' => 'avatar-name']) : '') . ($character_string ? $character_string : '');
     }
 }

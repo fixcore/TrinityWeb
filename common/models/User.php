@@ -127,7 +127,12 @@ class User extends ActiveRecord implements IdentityInterface
             ->andWhere(['or', ['username' => $login], ['email' => $login]])
             ->one();
     }
-
+    
+    public function findUserCharacter() {
+        $server = $this->realm_id;
+        return Characters::find()->where(['guid' => $this->character_id])->one(Yii::$app->CharactersDbHelper->getConnection($server));
+    }
+    
     /**
      * @inheritdoc
      */
