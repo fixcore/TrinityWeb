@@ -9,7 +9,7 @@ use yii\web\BadRequestHttpException;
 class CoreModel extends ActiveRecord
 {
     /**
-    * Получение правильно БД исходя из запроса
+    * Получение подключения к БД исходя из запроса
     * @param integer $server_id Опициально - индекс сервера
     * @return yii\db\Connection
     */

@@ -123,7 +123,7 @@ class SignInController extends \yii\web\Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             $user = $model->signup();
-            if ($user) {
+            if (!$user->hasErrors()) {
                 if ($model->shouldBeActivated()) {
                     Yii::$app->getSession()->setFlash('alert', [
                         'body' => Yii::t(

@@ -22,7 +22,7 @@ Yii::$app->params['breadcrumbs'][] = $this->title;
 <div class="row">
     <div class="col-sm-12 text-right">
         <ul class="list-inline forum-perm-inline">
-<?php if (User::can(Rbac::PERM_CREATE_THREAD) && User::can(Rbac::PERM_CREATE_THREAD_IN_CLOSED_CATEGORY,['category' => $model->category])): ?>
+<?php if (User::can(Rbac::PERM_CREATE_THREAD) && (User::can(Rbac::PERM_CREATE_THREAD_IN_CLOSED_CATEGORY,['category' => $model->category]) || $model->category->create_thread)): ?>
             <li><a href="<?= Url::to(['forum/new-thread', 'cid' => $model->category->id, 'fid' => $model->id]) ?>" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> <?= Yii::t('podium/view', 'Create new thread') ?></a></li>
 <?php endif; ?>
             <li><a href="<?= Url::to(['forum/unread-posts']) ?>" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-flash"></span> <?= Yii::t('podium/view', 'Unread posts') ?></a></li>

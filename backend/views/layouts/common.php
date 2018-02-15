@@ -233,7 +233,7 @@ $bundle = BackendAsset::register($this);
                             ],
                             [
                                 'label' => Yii::t('common','Иконки'),
-                                'icon' => '<i class="fa fa-list"></i>',
+                                'icon' => '<i class="fa fa-bookmark"></i>',
                                 'active' => (\Yii::$app->controller->id == 'admin' && \Yii::$app->controller->action->id == 'icons'),
                                 'url' => ['/forum/admin/icons'],
                             ],

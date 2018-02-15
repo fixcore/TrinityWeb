@@ -199,11 +199,10 @@ class ForumThreadController extends BaseController
             return $this->redirect(['forum/index']);
         }
         
-        if(!User::can(Rbac::PERM_CREATE_THREAD_IN_CLOSED_CATEGORY,['category' => $forum->category])) {
+        if(!User::can(Rbac::PERM_CREATE_THREAD_IN_CLOSED_CATEGORY,['category' => $forum->category]) && !$forum->category->create_thread) {
             $this->error(Yii::t('podium/flash', 'Sorry! You do not have the required permission to perform this action.'));
             return $this->redirect(['forum/index']);
         }
-        
         
         $model = new Thread();
         $model->scenario = 'new';

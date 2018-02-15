@@ -109,8 +109,11 @@ class SignupForm extends Model
                         ]
                     ]));
                 }
-                return $user;
+                
+            } else {
+                $this->addError('username', $user->getErrors('username')[0]);
             }
+            return $user;
         }
         return null;
     }

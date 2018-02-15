@@ -11,6 +11,8 @@ use yii\rbac\Rule;
 use common\modules\forum\models\User;
 use common\modules\forum\rbac\Rbac;
 
+use yii\rbac\Role;
+
 class createThreadInClosedCategory extends Rule
 {
     /** @var string */
@@ -26,19 +28,18 @@ class createThreadInClosedCategory extends Rule
      */
     public function execute($user, $item, $params)
     {
-        
         $attribute = isset($params['attribute']) ? $params['attribute'] : 'create_thread';
-        
-        if($user) {
+        if(isset($user)) {
             if(User::can(Rbac::PERM_CREATE_THREAD_IN_CLOSED_CATEGORY)) {
                 return true;
             } else {
                 if(isset($params['category']) && $params['category']->getAttribute($attribute)) {
                     return true;
+                } elseif($item instanceof Role && !isset($params['category'])) {
+                    return true;
                 }
             }
         }
-        
         return false;
         
     }
