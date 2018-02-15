@@ -43,7 +43,7 @@ if($counter) {
         foreach($searchResult as $character) {
     ?>
         <div class="row">
-            <div class="col-xs-push-3 col-xs-6 col-sm-push-4 col-sm-4">
+            <div class="col-xs-push-3 col-xs-6 col-sm-push-4 col-sm-4 col-md-push-4 col-md-4 flat character_armory_find_result">
                 <?=Yii::$app->AppHelper->buildTagRaceImage($character['race'],$character['gender'])?>
                 <?=Yii::$app->AppHelper->buildTagClassImage($character['class'])?>
                 <?php
@@ -53,13 +53,20 @@ if($counter) {
                     'target' => '_blank'
                 ]);
                 ?>
+                &nbsp;
+                <?=($character['relationGuild'] ? $character['relationGuild']['relationGuild']['name'] : '')?>
             </div>
         </div>
     <?php
-        }
+        }?>
+<div class="row">
+    <div class="col-xs-push-3 col-xs-6 col-sm-push-4 col-sm-4 col-md-push-5 col-md-4">
+    <?php
         echo LinkPager::widget([
             'pagination' => $pages,
         ]);
     }
     ?>
+    </div>
+</div>
 <?php ActiveForm::end(); ?>

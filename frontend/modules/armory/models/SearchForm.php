@@ -14,7 +14,7 @@ use common\models\chars\Characters;
 class SearchForm extends Model
 {
     
-    const PAGE_SIZE = 10;
+    const PAGE_SIZE = 5;
     
     public $server;
     public $query = '';
@@ -61,7 +61,7 @@ class SearchForm extends Model
                     'like',
                     'LOWER(name)',
                     mb_strtolower($this->query)
-                ])->orderBy(['guid' => SORT_DESC])->asArray(),
+                ])->orderBy(['guid' => SORT_DESC])->with(['relationGuild.relationGuild'])->asArray(),
 			'pagination' => [
 				'pageSize' => SearchForm::PAGE_SIZE,
 			],

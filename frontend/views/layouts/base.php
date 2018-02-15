@@ -79,10 +79,10 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                 ],
             ],
             [
-                'label' => Yii::t('podium/view', 'Форум'),
+                'label' => Yii::t('podium/view', 'Forum'),
                 'url' => ['/forum/forum/index'],
                 'linkOptions' => [
-                    'data-hover' => Yii::t('podium/view', 'Форум'),
+                    'data-hover' => Yii::t('podium/view', 'Forum'),
                 ],
             ],
             [

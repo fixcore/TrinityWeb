@@ -387,15 +387,13 @@ ul.nav > li.active > a:focus {
 .wrap > .push-header {padding: 51px 0px 20px;}
 /*# content end */
 /*# articles */
-.article-item {margin-bottom: 15px; padding: 10px;}
+.article-item, .page-item {margin-bottom: 15px; padding: 10px;}
 .article-item .article-title,
 .article-item .article-title a {
-    color: inherit;
     margin: 0;
 }
 .article-item .article-meta,
 .article-item .article-meta a {
-    color: #999;
     font-size: .85em;
 }
 .article-item .article-meta a {text-decoration: underline;}

@@ -23,6 +23,12 @@
     background-color: inherit;
     border-width: 0px;
 }
+#armory-form .character_armory_find_result {
+    padding: 5px 15px;
+}
+#armory-form .row:not(:first-child):not(:nth-child(2)):not(:last-child) {
+    margin-top: 15px;
+}
 #character_container .armory__character_item {
     text-align: center;
 }
