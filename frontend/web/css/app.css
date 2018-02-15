@@ -373,7 +373,10 @@ ul.nav > li.active > a:focus {
 }
 /*# breadcrumb end */
 /*# tables */
-.table > tbody > tr:hover {
+.table > tbody > tr.no-hover:hover {
+    background-color: inherit;
+}
+.table > tbody > tr:hover:not(.no-hover) {
     background-color: #34373cc7;
 }
 .table > tbody > tr > td {

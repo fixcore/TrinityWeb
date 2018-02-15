@@ -12,7 +12,7 @@ use yii\helpers\Url;
 
 ?>
 <?php if (isset($category, $forum, $slug)): ?>
-<tr>
+<tr class="no-hover">
     <td colspan="4" class="small">
         <ul class="list-inline">
             <li class="text-muted">
