@@ -110,11 +110,6 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                 'items'=>[
                     [
                         'label' => Yii::t('frontend', 'Личный кабинет'),
-                        'url' => ['/panel/main/index']
-                    ],
-                    '<li class="divider"></li>',
-                    [
-                        'label' => Yii::t('frontend', 'Личный кабинет'),
                         'url' => ['/panel/settings/index']
                     ],
                     [

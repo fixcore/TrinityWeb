@@ -86,6 +86,23 @@ a.desc:after {content: "\e152";}
 .btn.btn-success:hover,.btn.btn-success:focus,.btn.btn-success:active {
     border-color: #3c434c;
 }
+
+.panel-danger > .panel-heading {
+    background-color: rgba(217, 83, 79, 0.18);
+    border-color: rgba(217, 83, 79, 0.18);
+    color: #d9534f;
+}
+.panel-warning > .panel-heading {
+    background-color: rgba(255, 193, 104, 0.18);
+    border-color: rgba(255, 193, 104, 0.18);
+    color: #f0ad4e;
+}
+.panel-success > .panel-heading {
+    background-color: rgba(132, 255, 132, 0.18);
+    border-color: rgba(132, 255, 132, 0.18);
+    color: #5cb85c;
+}
+
 .btn.btn-primary, .btn.btn-default {color:#36BBA6;}
 .btn.btn-success {color:#5cb85c;}
 .btn.btn-danger {color:#d9534f;}
@@ -377,7 +394,7 @@ ul.nav > li.active > a:focus {
     background-color: inherit;
 }
 .table > tbody > tr:hover:not(.no-hover) {
-    background-color: #34373cc7;
+    background-color: #1f2021ba;
 }
 .table > tbody > tr > td {
     border: 0px;
@@ -509,7 +526,7 @@ ul.nav > li.active > a:focus {
     }
     .navbar-nav {
         float: none!important;
-        margin: 7.5px -15px;
+        margin: 7.5px 0px;
     }
     .navbar-nav>li {
         float: none;
@@ -527,6 +544,13 @@ ul.nav > li.active > a:focus {
     }
     .collapsing {
         overflow: hidden!important;
+    }
+    #general-menu .container {
+        width: 100%;
+    }
+    #general-menu .navbar-collapse.in {
+        overflow-y: scroll !important;
+        overflow-x: hidden !important;
     }
 }
 @media (max-width: 768px) {

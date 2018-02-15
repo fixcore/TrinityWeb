@@ -24,7 +24,7 @@ use yii\helpers\Url;
     <?php
     if($model->isRoot()) {
         ?>
-        <div class="child_list_forum">
+        <div class="child-forums">
             <?= $this->render('/elements/forum/_child_forums', ['parent_id' => $model->id]) ?>
         </div>
         <?php

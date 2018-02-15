@@ -23,7 +23,10 @@ use yii\helpers\Url;
         foreach($model->children()->all() as $child) {
             ?>
             <div class="col-xs-push-1 col-xs-11 col-md-push-1 col-md-5 child-forum">
-                <a href="<?= Url::to(['forum/forum', 'cid' => $child->category_id, 'id' => $child->id, 'slug' => $child->slug]) ?>" class="center-block">
+                <span class="forum-icon-container">
+                    <?=$child->icon?>
+                </span>
+                <a href="<?= Url::to(['forum/forum', 'cid' => $child->category_id, 'id' => $child->id, 'slug' => $child->slug]) ?>" class="child-forum-link">
                     <?= Html::encode($child->name) ?>
                 </a>
             </div>
