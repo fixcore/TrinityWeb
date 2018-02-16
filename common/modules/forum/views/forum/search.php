@@ -60,7 +60,8 @@ $this->title = Yii::t('podium/view', 'Search Forum');
 Yii::$app->params['breadcrumbs'][] = ['label' => Yii::t('podium/view', 'Main Forum'), 'url' => ['forum/index']];
 Yii::$app->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="row">
-<?= $this->render('/elements/search/_search', ['model' => $model, 'list' => $list]) ?>
+<div>
+    <?= $this->render('/elements/search/_search', ['model' => $model, 'list' => $list]) ?>
+    <div class="clearfix"></div>
 </div>
 <?php endif;
