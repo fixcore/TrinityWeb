@@ -125,6 +125,18 @@ body { padding-top:20px; padding-bottom:20px }
     top: 0px;
     background-color: #a94442;
 }
+#forum-search-form {
+    margin-top: 5px;
+}
+#forum-search-form input, #forum-search-form button {
+    height: 23px;
+}
+#forum-search-form input {
+    padding: 2px 10px;
+}
+#forum-search-form button {
+    padding: 2px 15px;
+}
 #forum-container .table-striped > tbody > tr > td:last-child:after {
     content: '';
     width: 1px;

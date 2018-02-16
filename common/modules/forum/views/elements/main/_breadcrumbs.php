@@ -18,7 +18,7 @@ use yii\widgets\Breadcrumbs;
     </div>
 <?php if (!isset($this->params['no-search']) || $this->params['no-search'] !== true): ?>
     <div class="col-sm-3">
-        <?= Html::beginForm(['forum/search'], 'get'); ?>
+        <?= Html::beginForm(['forum/search'], 'get', ['id' => 'forum-search-form']); ?>
             <div class="form-group">
                 <div class="input-group">
                     <?= Html::textInput('query', null, ['class' => 'form-control']); ?>
