@@ -21,6 +21,7 @@ class Vocabulary extends VocabularyActiveRecord
      */
     public function search()
     {
+        
         $query = static::find()->where(['and',
             ['is not', 'post_id', null],
             ['like', 'word', $this->query]
@@ -30,8 +31,9 @@ class Vocabulary extends VocabularyActiveRecord
                 $q->where([Forum::tableName() . '.visible' => 1]);
             }]);
         }
+        
         $query->groupBy(['post_id', 'word_id']);
-
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort' => [

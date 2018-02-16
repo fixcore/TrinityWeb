@@ -14,9 +14,6 @@ use yii\helpers\Url;
 <div class="panel panel-default">
     <div class="panel-heading category_header" role="tab" id="category<?= $model->id ?>">
         <h4 class="panel-title">
-            <a onclick="collapseCategory(this);" data-toggle="collapse" href="#collapse<?= $model->id ?>" aria-expanded="true" aria-controls="collapse<?= $model->id ?>" class="pull-right">
-                <span class="glyphicon glyphicon-chevron-up"></span>
-            </a>
             <a href="<?= Url::to(['forum/category', 'id' => $model->id, 'slug' => $model->slug]) ?>"><?= Html::encode($model->name) ?></a>
         </h4>
     </div>
